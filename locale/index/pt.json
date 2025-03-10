@@ -1,3 +1,15 @@
 {
-    "title": "Ola Mundo"
+    "titleHeader": "Inovação, tecnologia e empreendedorismo para transformar o futuro!",
+    "pHeader": "No <i> Hub de Inovações UFGD </i>, conectamos <u> mentes criativas a oportunidades </u> reais de desenvolvimento. Aqui, ideias inovadoras saem do papel e ganham forma por meio da <b> tecnologia, pesquisa aplicada </b> e colaboração entre diferentes áreas do conhecimento.",
+    "btnHeader": "Conhecer o Projeto",
+    "main": {
+        "content_apresentation_1": {
+            "title": "Mais que uma extensão, <t> uma INOVAÇÃO! </t>",
+            "p": "No Hub de Inovações da UFGD, a ideia <u> não é só aprender, mas fazer acontecer! </u> Aqui, estudantes de diversas áreas transformam conhecimento em <b> soluções reais, explorando tecnologia </b>, criatividade e muito trabalho em equipe. Afinal, inovar é mais do que ter boas ideias—é colocá-las em prática! É um espaço para quem gosta de desafios, busca novas experiências e quer ver seu projeto ganhando vida. Se você quer sair da teoria e criar impacto de verdade, esse é o lugar certo!"
+        },
+        "content_apresentation_2": {
+            "title": "Da onde <t> surgiu </t> essa ideia?",
+            "p": "Toda grande inovação começa com um \"E se...?\". E foi assim que nasceu o Hub de Inovações: <u> um espaço para tirar ideias do papel e criar algo que realmente faça a diferença </u>. Um ambiente onde testar, errar, melhorar e inovar fazem parte do processo. Aqui, acreditamos que boas ideias não surgem sozinhas—elas crescem quando compartilhadas. Por isso, reunimos talentos de diversas áreas para pensar juntos, experimentar novas possibilidades e transformar o que parecia impossível em realidade. <b> Se você tem uma ideia na cabeça e vontade de fazer acontecer, chegou ao lugar certo! </b>"
+        }
+    }
 }

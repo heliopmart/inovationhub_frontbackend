@@ -28,6 +28,9 @@
 
         a{
             color: #62A43F !important;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 
@@ -69,6 +72,12 @@
     }
 }
 
+.navigationTextselect{
+    &::before{
+        transform: translateY(0%) rotate(225deg) !important;
+    }
+}
+
 .navigation{
     @include Flex(row, nowrap, center, center);
     gap: 65px;
@@ -87,15 +96,11 @@
         height: auto;
         position: relative;
 
-        .checkboxmenu{
-            display: none;
+        &:hover{
+            .boxDetails{
+                display: flex !important;
+            }
         }
-
-    
-        .checkboxmenu:checked ~ .boxDetails{
-            display: flex;
-        }
-
         
         .navigationText{
             font-size: 1.1em;
@@ -104,6 +109,11 @@
             text-decoration: none;
             position: relative;
             cursor: pointer;
+            transition: .2s ease-in-out;
+
+            &:hover{
+                color: #414141;
+            }
 
             &::before{
                 content: "";

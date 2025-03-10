@@ -10,7 +10,7 @@ interface NavigationText {
 function Navigation({title, links, toggleMenu, menuState}:{title:string, links:NavigationText[], toggleMenu:(menuId:string) => void, menuState:string|null}) {
     return (
         <label className={styles.contentStrNavigation} onClick={() => toggleMenu(title)}>
-            <span className={styles.navigationText}>{title}</span>
+            <span className={`${styles.navigationText} ${menuState === title ? styles.navigationTextselect : ""}`}>{title}</span>
             <div className={styles.boxDetails} id={title} style={{display: menuState === title ? "flex" : "none"}}>
                 {links?.map((link, index) => (
                     <Link href={link.href} key={`${index}_${link.title}`}>

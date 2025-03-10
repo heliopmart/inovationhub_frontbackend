@@ -1,0 +1,35 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.content{
+    width: 100%;
+    height: auto;
+    @include Flex(row, nowrap, center, space-between);
+    gap: 40px;
+
+    .image{
+        width: 55%;
+        min-height: 380px;
+        max-width: 55%;
+        border-radius: 2px;
+        background-color: #F5F5F5;
+
+        img{
+            object-fit: contain;
+        }
+    }
+
+    .content_chil{
+        width: 54%;
+        height: auto;
+    }
+}
+
+.contentLeft{
+    flex-direction: row-reverse;
+}

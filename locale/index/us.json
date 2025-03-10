@@ -1,3 +1,15 @@
 {
-    "title": "Hello World"
+    "titleHeader": "Innovation, technology and entrepreneurship to transform the future!",
+    "pHeader": "At <i> the UFGD Innovation Hub</i>, we connect <u> creative minds to </u> real development opportunities. Here, innovative ideas come out of the paper and take shape through <b> technology, applied research, </b> and collaboration between different areas of knowledge.",
+    "btnHeader": "Know the Project",
+    "main": {
+        "content_apresentation_1": {
+            "title": "More than an extension, <b style={{color: '#FF7B22'}}> an INNOVATION! </b>",
+            "p": "At UFGD's Innovation Hub, the idea is <u> not just to learn, but to make things happen! </u> Here, students from different fields turn knowledge into <b> real solutions, exploring technology </b>, creativity, and teamwork. After all, innovating is more than just having great ideas—it's about putting them into practice! This is a space for those who love challenges, seek new experiences, and want to see their projects come to life. If you want to move beyond theory and create a real impact, this is the right place!"
+        },
+        "content_apresentation_2": {
+            "title": "Where did <b style={{color: '#FF7B22'}}> this idea </b> come from?",
+            "p": "Every great innovation starts with a 'What if...?'. And that’s how the Innovation Hub was born: <u> a space to bring ideas to life and create something that truly makes a difference </u>. An environment where testing, failing, improving, and innovating are part of the process. Here, we believe that great ideas don’t emerge alone—they grow when shared. That’s why we bring together talents from different fields to think together, experiment with new possibilities, and turn what once seemed impossible into reality. <b> If you have an idea in mind and the drive to make it happen, you’ve come to the right place! </b>"
+        }
+    }
 }
