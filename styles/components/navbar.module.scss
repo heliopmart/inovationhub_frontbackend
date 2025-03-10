@@ -1,0 +1,166 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.nav{
+    width: 97vw;
+    height: 75px;
+    background-color: #fff;
+    @include Flex(row, nowrap, center, space-between);
+    gap: 20px;
+    padding: 10px 15px;
+
+    .nameProject{
+        width: 460px;
+        height: auto;
+        
+        .titleProject{
+            font-size: 1.3em;
+            font-family: "Inter", sans-serif;
+
+            @include Flex(row, nowrap, center, start);
+            gap: 10px;
+        }
+
+        a{
+            color: #62A43F !important;
+        }
+    }
+
+    .userAction{
+        width: auto;
+        height: auto;
+
+        @include Flex(row, nowrap, center, center);
+        gap: 25px;
+
+        .loginText{
+            font-family: "Inknut Antiqua", serif;
+            font-size: 1.1em;
+            color: #1a1a1a;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
+        .buttonRegistre{
+            width: 130px;
+            height: 50px;
+            border-radius: 5px;
+            font-size: .9em;
+            font-family: "Inknut Antiqua", serif;
+            background-color: #E9A476;
+            padding: 5px;
+            box-sizing: border-box;
+            color: #fff;
+            text-decoration: none;
+            border: 0px;
+            cursor: pointer;
+            transition: .1s;
+            &:hover{
+                background-color: #d89264;
+            }
+        }
+    }
+}
+
+.navigation{
+    @include Flex(row, nowrap, center, center);
+    gap: 65px;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+    user-select: none; /* Impede seleção de texto */
+    -webkit-user-select: none; /* Para navegadores baseados no WebKit */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none; /* Para Edge */
+
+
+    .contentStrNavigation{
+        width: auto;
+        height: auto;
+        position: relative;
+
+        .checkboxmenu{
+            display: none;
+        }
+
+    
+        .checkboxmenu:checked ~ .boxDetails{
+            display: flex;
+        }
+
+        
+        .navigationText{
+            font-size: 1.1em;
+            font-family: "Inter", sans-serif;
+            color: #1a1a1a;
+            text-decoration: none;
+            position: relative;
+            cursor: pointer;
+
+            &::before{
+                content: "";
+                position: absolute;
+                top: 8px;
+                right: -22px;
+                transform: translate(-50%, -50%) rotate(45deg);
+                width: 8px;
+                height: 8px;
+                border-bottom: 2px solid #1a1a1a;
+                border-right: 2px solid #1a1a1a;
+            }
+        }
+
+        .boxDetails{
+            max-width: 250px;
+            width: 200px;
+            height: auto;
+            min-height: 60px;
+            border-radius: 5px;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+            position: absolute;
+            z-index: 1;
+
+            left: 50%; // 🔹 Alinha ao centro horizontalmente
+            transform: translateX(-50%); // 🔹 Garante alinhamento perfeito ao centro
+            margin: auto;
+            top: 34px;
+        
+            @include Flex(column, nowrap, center, center);
+            display: none;
+            gap: 15px;
+
+            a{
+                text-align: center;
+            }
+
+            .navDetais{
+                font-size: 1em;
+                color: #424242;
+                font-family: "Inter", sans-serif;
+                text-align: center;
+
+                &:hover{
+                    color: #1a1a1a;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.style-navigation-orange{
+    .button-registre{
+        background-color: #E9A476;
+    }
+}

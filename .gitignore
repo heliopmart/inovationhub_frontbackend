@@ -1,0 +1,9 @@
+.env.local
+.env
+
+/prisma
+/node_modules
+/config
+
+/.next
+.next
