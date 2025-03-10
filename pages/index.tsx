@@ -1,9 +1,28 @@
 import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { getTranslations } from "@/lib/getTranslations";
 import {TextImageDescrition} from "@/components/TextImageDescrition";
+import Footer from '@/components/Footer';
 import style from "@/styles/pages/index.module.scss"
 
+interface Partner {
+    name: string;
+    icon: string;
+}
+
 export default function Index({ messages }: { messages: any }) {
+    const [txtFooter, setTxtFooter] = useState({});
+    const [partner, setPartner] = useState<Partner[]>([{ name: "UFGD", icon: "/images/ufgd_image.png" }, { name: "Petrobras", icon: "/images/petrobras_image.png" }, { name: "Governo Federal", icon: "/images/gov_image.png" }, { name: "Embrapii", icon: "/images/embrapii_image.png" }, { name: "Governo Estadual do MS", icon: "/images/gov_ms_image.png" }, { name: "CNPq", icon: "/images/cnpq_image.png" }]);
+    const { locale } = useRouter();
+    
+    useEffect(() => {
+    async function loadMessages() {
+        const translations = await getTranslations("footer", locale || "pt");
+        setTxtFooter(translations);
+    }
+    loadMessages();
+    }, [locale]);
     return (
         <>
             <header className={style.header}>
@@ -17,14 +36,14 @@ export default function Index({ messages }: { messages: any }) {
                 </div>
             </section>
             <main className={style.main}>
-                <TextImageDescrition image="" direction="right">
+                <TextImageDescrition image="/assets/image_2.png" direction="right">
                     <div className={style.contentDescription}>
                         <h6 className={style.titleContent} dangerouslySetInnerHTML={{__html: messages.main.content_apresentation_1.title}}/>
                         <p className={style.pContent} dangerouslySetInnerHTML={{__html: messages.main.content_apresentation_1.p}}/>
                     </div>
                 </TextImageDescrition>
 
-                <TextImageDescrition image="" direction="left">
+                <TextImageDescrition image="/assets/image_3.png" direction="left">
                     <div className={style.contentDescription}>
                         <h6 className={style.titleContent} dangerouslySetInnerHTML={{__html: messages.main.content_apresentation_2.title}}/>
                         <p className={style.pContent} dangerouslySetInnerHTML={{__html: messages.main.content_apresentation_2.p}}/>
@@ -32,13 +51,13 @@ export default function Index({ messages }: { messages: any }) {
                 </TextImageDescrition>
             </main>
             <section data-text={"NOSSOS PARCEIROS APOIAM A INOVAÇÃO"} className={style.sectionPartners}>
-                <div className={style.partnersIcon} >
-                    <img src={""} alt="Name Project" />
-                </div>
-                <div className={style.partnersIcon} >
-                    <img src={""} alt="Name Project" />
-                </div>
+                {partner?.map((item, index) => (
+                    <div className={style.partnersIcon} key={`${index}-${item.name}`} >
+                        <img src={item.icon} alt={item.name} />
+                    </div>
+                ), "")}
             </section>
+            {txtFooter?(<Footer messages={txtFooter}/> ):""}
         </>
     );
 }

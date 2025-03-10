@@ -1,0 +1,74 @@
+{
+    "footer": {
+        "content_1": {
+            "title": "The Project",
+            "links": [
+                {
+                    "text": "Who we are",
+                    "url": "/aboutUs#aboutUs"
+                },
+                {
+                    "text": "About the project",
+                    "url": "/aboutUs#aboutProject"
+                },
+                {
+                    "text": "The project at UFGD",
+                    "url": "/aboutUs#ufgd"
+                },
+                {
+                    "text": "Team Members",
+                    "url": "/"
+                },
+                {
+                    "text": "Contact us",
+                    "url": "/"
+                },
+                {
+                    "text": "Legal Representatives",
+                    "url": "/aboutUs#legalResponsibles"
+                },
+                {
+                    "text": "UFGD Website",
+                    "url": "https://portal.ufgd.edu.br/"
+                }
+            ]
+        },
+        "content_2": {
+            "title": "Important Links",
+            "links": [
+                {
+                    "text": "Login",
+                    "url": "/login"
+                },
+                {
+                    "text": "Register",
+                    "url": "/register"
+                },
+                {
+                    "text": "Reset Password",
+                    "url": "/redifinePassword"
+                },
+                {
+                    "text": "LGPD - Data Protection Law",
+                    "url": "/docs/lgpd"
+                },
+                {
+                    "text": "Terms and Conditions",
+                    "url": "/docs/termsAndConditions"
+                },
+                {
+                    "text": "How to join the project",
+                    "url": "/"
+                },
+                {
+                    "text": "How to navigate the website",
+                    "url": "/"
+                }
+            ]
+        },
+        "copywriter": {
+            "text": "© 2025 UFGD | Projects belong to UFGD and their teams | All rights reserved.",
+            "author": "Created by <i> Hélio Martins </i>"
+        }
+    }
+}
