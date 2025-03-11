@@ -1,3 +1,140 @@
 {
-    "title": "Hello World"
+    "NameProject": "Innovation Hub",
+    "nav": [
+        {
+            "title": "About Us",
+            "links": [
+                {
+                    "title": "About the Project", 
+                    "href": "/aboutUs#aboutProject"
+                }, 
+                {
+                    "title": "Founders", 
+                    "href": "/aboutUs#founders"
+                }, 
+                {
+                    "title": "Responsible Team", 
+                    "href": "/aboutUs#responsible"
+                },
+                {
+                    "title": "UFGD", 
+                    "href": "/aboutUs#ufgd"
+                }, 
+                {
+                    "title": "Documents", 
+                    "href": "/aboutUs#doc"
+                }
+            ]
+        },
+        {
+            "title": "Thematic Nuclei",
+            "links": [
+                {
+                    "title": "About the Nuclei",
+                    "href": "/thematicNuclei#aboutThematicNuclei"
+                },
+                {
+                    "title": "Development",
+                    "href": "/thematicNuclei#development"
+                },
+                {
+                    "title": "Management",
+                    "href": "/thematicNuclei#management"
+                },
+                {
+                    "title": "Legal",
+                    "href": "/thematicNuclei#legal"
+                },
+                {
+                    "title": "Marketing",
+                    "href": "/thematicNuclei#marketing"
+                },
+                {
+                    "title": "Research and Innovation",
+                    "href": "/thematicNuclei#researchAndInnovation"
+                }
+            ]
+        },
+        {
+            "title": "Solutions",
+            "links": [
+                {
+                    "title": "Innovative Projects",
+                    "href": "/internSolution#innovativeProjects"
+                },
+                {
+                    "title": "Research",
+                    "href": "/internSolution#research"
+                },
+                {
+                    "title": "Partnerships",
+                    "href": "/externalSolution#partnerships"
+                },
+                {
+                    "title": "Events",
+                    "href": "/externalSolution#events"
+                },
+                {
+                    "title": "HUB KPIs",
+                    "href": "/internSolutions#kpis"
+                }
+            ]
+        },
+        {
+            "title": "Structuring",
+            "links": [
+                {
+                    "title": "Model and Operation",
+                    "href": "/structuring#modelandoperation" 
+                },
+                {
+                    "title": "Infrastructure",
+                    "href": "/structuring#infrastructure"
+                },
+                {
+                    "title": "Resources",
+                    "href": "/structuring#resources"
+                },
+                {
+                    "title": "Financial",
+                    "href": "/structuring#financial"
+                },
+                {
+                    "title": "Rules and Regulations",
+                    "href": "#"
+                },
+                {
+                    "title": "Transparency and Governance",
+                    "href": "/aboutUs#doc"
+                }
+            ]
+        },
+        {
+            "title": "Partners",
+            "links": [
+                {
+                    "title": "Become a Partner",
+                    "href": "/partners#becomePartner"
+                },
+                {
+                    "title": "Partner Companies",
+                    "href": "/externalSolution#partnerships"
+                },
+                {
+                    "title": "Collaboration Projects",
+                    "href": "/partners#collaborationProjects"
+                },
+                {
+                    "title": "Financial",
+                    "href": "/structuring#financial"
+                },
+                {
+                    "title": "Contacts",
+                    "href": "/partners#contacts"
+                }
+            ]
+        }
+    ],
+    "loginText": "Sign In",
+    "registreText": "Sign Up"
 }

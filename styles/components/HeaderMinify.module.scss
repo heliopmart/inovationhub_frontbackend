@@ -1,0 +1,24 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.header{
+    width: 100vw;
+    height: auto;
+    min-height: 150px;
+    background: linear-gradient(78deg, #fff 46%, #FFD6BB 100%);
+    padding: 6% 10%;
+    box-sizing: border-box;
+
+    .title{
+        text-align: center;
+        font-size: 2.5em;
+        color: #1a1a1a;
+        font-weight: 600;
+
+    }
+}

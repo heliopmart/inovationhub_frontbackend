@@ -14,10 +14,17 @@
 
   @font-face {
     font-family: "Inter";
-    src: url("/fonts/Inter/Inter-Regular.ttf") format("truetype");
+    src: url("/fonts/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
+  @font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter/static/Inter_18pt-Light.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+  }
+
 
   @font-face {
     font-family: "Kalam";

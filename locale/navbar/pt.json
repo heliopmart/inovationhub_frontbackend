@@ -1,3 +1,140 @@
 {
-    "title": "Hello World"
+    "nameProject": "Hub de inovações",
+    "nav": [
+        {
+            "title": "Sobre nós",
+            "links": [
+                {
+                    "title": "Sobre o projeto", 
+                    "href": "/aboutUs#aboutProject"
+                }, 
+                {
+                    "title": "Fundadores", 
+                    "href": "/aboutUs#founders"
+                }, 
+                {
+                    "title": "Responsáveis", 
+                    "href": "/aboutUs#responsible"
+                },
+                {
+                    "title": "UFGD", 
+                    "href": "/aboutUs#ufgd"
+                }, 
+                {
+                    "title": "Documentos", 
+                    "href": "/aboutUs#doc"
+                }
+            ]
+        },
+        {
+            "title": "Núcleos Temáticos",
+            "links": [
+                {
+                    "title": "Sobre os núcleos",
+                    "href": "/thematicNuclei#aboutThematicNuclei"
+                },
+                {
+                    "title": "Desenvolvimento",
+                    "href": "/thematicNuclei#development"
+                },
+                {
+                    "title": "Gestão",
+                    "href": "/thematicNuclei#management"
+                },
+                {
+                    "title": "Júridico",
+                    "href": "/thematicNuclei#legal"
+                },
+                {
+                    "title": "Marketing",
+                    "href": "/thematicNuclei#marketing"
+                },
+                {
+                    "title": "Pesquisa e inovação",
+                    "href": "/thematicNuclei#researchAndInnovation"
+                }
+            ]
+        },
+        {
+            "title": "Soluções",
+            "links": [
+                {
+                    "title": "Projetos Inovadores",
+                    "href": "/internSolution#innovativeProjects"
+                },
+                {
+                    "title": "Pesquisas",
+                    "href": "/internSolution#research"
+                },
+                {
+                    "title": "Parcerias",
+                    "href": "/externalSolution#partnerships"
+                },
+                {
+                    "title": "Eventos",
+                    "href": "/externalSolution#events"
+                },
+                {
+                    "title": "KPIs do HUB",
+                    "href": "/internSolutions#kpis"
+                }
+            ]
+        },
+        {
+            "title": "Estruturação",
+            "links": [
+                {
+                    "title": "Modelo e funcionamento",
+                    "href": "/structuring#modelandoperation" 
+                },
+                {
+                    "title": "Insfraestrutura",
+                    "href": "/structuring#infrastructure"
+                },
+                {
+                    "title": "Recursos",
+                    "href": "/structuring#resources"
+                },
+                {
+                    "title": "Financeiro",
+                    "href": "/structuring#financial"
+                },
+                {
+                    "title": "Regras e normas",
+                    "href": "#"
+                },
+                {
+                    "title": "Transparência e governança",
+                    "href": "/aboutUs#doc"
+                }
+            ]
+        },
+        {
+            "title": "Parceiros",
+            "links": [
+                {
+                    "title": "Torne-se um parceiro",
+                    "href": "/partners#becomePartner"
+                },
+                {
+                    "title": "Empresas Parceiras",
+                    "href": "/externalSolution#partnerships"
+                },
+                {
+                    "title": "Projetos de colaboração",
+                    "href": "/partners#collaborationProjects"
+                },
+                {
+                    "title": "Financeiro",
+                    "href": "/structuring#financial"
+                },
+                {
+                    "title": "Contatos",
+                    "href": "/partners#contacts"
+                }
+            ]
+        }
+    ],
+    "loginText": "Entrar",
+    "registreText": "Inscrever-se"
 }

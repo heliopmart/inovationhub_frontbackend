@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getTranslations } from "@/lib/getTranslations";
+import Navbar from "@/components/Navbar";
 import {TextImageDescrition} from "@/components/TextImageDescrition";
 import Footer from '@/components/Footer';
 import style from "@/styles/pages/index.module.scss"
@@ -13,18 +14,23 @@ interface Partner {
 
 export default function Index({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
+    const [txtNav, setTxtNav] = useState({});
+
     const [partner, setPartner] = useState<Partner[]>([{ name: "UFGD", icon: "/images/ufgd_image.png" }, { name: "Petrobras", icon: "/images/petrobras_image.png" }, { name: "Governo Federal", icon: "/images/gov_image.png" }, { name: "Embrapii", icon: "/images/embrapii_image.png" }, { name: "Governo Estadual do MS", icon: "/images/gov_ms_image.png" }, { name: "CNPq", icon: "/images/cnpq_image.png" }]);
     const { locale } = useRouter();
     
     useEffect(() => {
     async function loadMessages() {
-        const translations = await getTranslations("footer", locale || "pt");
-        setTxtFooter(translations);
+        const translationsFooter = await getTranslations("footer", locale || "pt");
+        const translationsNav = await getTranslations("navbar", locale || "pt");
+        setTxtFooter(translationsFooter);
+        setTxtNav(translationsNav)
     }
     loadMessages();
     }, [locale]);
     return (
         <>
+            <Navbar messages={txtNav} />
             <header className={style.header}>
                 <h2 className={style.titleHeader}>{messages.titleHeader}</h2>
                 <p className={style.pHeader} dangerouslySetInnerHTML={{ __html: messages.pHeader }} />

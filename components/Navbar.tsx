@@ -7,13 +7,18 @@ interface NavigationText {
     href: string;
 }
 
+interface NavigationProps {
+    title: string;
+    links: NavigationText[];
+}
+
 function Navigation({title, links, toggleMenu, menuState}:{title:string, links:NavigationText[], toggleMenu:(menuId:string) => void, menuState:string|null}) {
     return (
-        <label className={styles.contentStrNavigation} onClick={() => toggleMenu(title)}>
-            <span className={`${styles.navigationText} ${menuState === title ? styles.navigationTextselect : ""}`}>{title}</span>
+        <label className={styles.contentStrNavigation} >
+            <span className={`${styles.navigationText} ${menuState === title ? styles.navigationTextselect : ""}`} onClick={() => toggleMenu(title)}>{title}</span>
             <div className={styles.boxDetails} id={title} style={{display: menuState === title ? "flex" : "none"}}>
                 {links?.map((link, index) => (
-                    <Link href={link.href} key={`${index}_${link.title}`}>
+                    <Link href={`${link.href}`} key={`${index}_${link.title}`}>
                         <span className={styles.navDetais}>{link.title}</span>
                     </Link>
                 ), "")}
@@ -22,7 +27,7 @@ function Navigation({title, links, toggleMenu, menuState}:{title:string, links:N
     )
 }
 
-export default function Navbar({ messages }: { messages: any }) {
+export default function Navbar({ messages, page, styleColor }: { messages: any, styleColor?: string, page?:string }) {
     const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
     // Função para alternar menus e desmarcar os outros
@@ -34,20 +39,21 @@ export default function Navbar({ messages }: { messages: any }) {
         <nav id="navigation" className={styles.nav}>
             <div className={styles.nameProject}>
                 <h1 className={styles.titleProject}>
-                    Hub de inovações | <Link href="https://ufgd.edu.br">UFGD</Link>
+                    <Link href={"/"}>{messages?.nameProject}</Link> | <Link href="https://ufgd.edu.br"><b>UFGD</b></Link>
                 </h1>
             </div>
             <div className={styles.navigation}>
-                <Navigation toggleMenu={toggleMenu} menuState={activeMenu} title="Sobre nós" links={[{title: "Sobre o projeto", href: "/aboutUs#aboutProject"}, {title: "Fundadores", href: "/aboutUs#founders"}, {title: "Responsáveis", href: "/aboutUs#responsible"}, {title: "UFGD", href: "/aboutUs#ufgd"}, {title: "Documentos", href: "/aboutUs#doc"}]} key={"AboutUs"}/>
-                <Navigation  toggleMenu={toggleMenu} menuState={activeMenu} title="Núcleos Temáticos" links={[{title: "Sobre o projeto", href: "/aboutUs#aboutProject"}, {title: "Fundadores", href: "/aboutUs#founders"}, {title: "Responsáveis", href: "/aboutUs#responsible"}, {title: "UFGD", href: "/aboutUs#ufgd"}, {title: "Documentos", href: "/aboutUs#doc"}]} key={"AboutUs"}/>
-                <Navigation  toggleMenu={toggleMenu} menuState={activeMenu} title="Soluções" links={[{title: "Sobre o projeto", href: "/aboutUs#aboutProject"}, {title: "Fundadores", href: "/aboutUs#founders"}, {title: "Responsáveis", href: "/aboutUs#responsible"}, {title: "UFGD", href: "/aboutUs#ufgd"}, {title: "Documentos", href: "/aboutUs#doc"}]} key={"AboutUs"}/>
-                <Navigation  toggleMenu={toggleMenu} menuState={activeMenu} title="Estruturação" links={[{title: "Sobre o projeto", href: "/aboutUs#aboutProject"}, {title: "Fundadores", href: "/aboutUs#founders"}, {title: "Responsáveis", href: "/aboutUs#responsible"}, {title: "UFGD", href: "/aboutUs#ufgd"}, {title: "Documentos", href: "/aboutUs#doc"}]} key={"AboutUs"}/>
-                <Navigation  toggleMenu={toggleMenu} menuState={activeMenu} title="Parceiros" links={[{title: "Sobre o projeto", href: "/aboutUs#aboutProject"}, {title: "Fundadores", href: "/aboutUs#founders"}, {title: "Responsáveis", href: "/aboutUs#responsible"}, {title: "UFGD", href: "/aboutUs#ufgd"}, {title: "Documentos", href: "/aboutUs#doc"}]} key={"AboutUs"}/>
+                {
+                    messages?.nav?.map((nav:NavigationProps) => (
+                        <Navigation toggleMenu={toggleMenu} menuState={activeMenu} title={nav.title} links={nav.links} key={nav.title}/>
+
+                    ), "")
+                }
             </div>
             <div className={styles.userAction}>
-                <span className={styles.loginText}>Login</span>
-                <button className={`${styles.buttonRegistre} ${styles.registreText}`}>
-                    Inscrever-se
+                <span className={styles.loginText}>{messages.loginText}</span>
+                <button className={`${styles.buttonRegistre} ${styles.registreText}`} style={{backgroundColor: styleColor ? styleColor : ""}}>
+                    {messages.registreText}
                 </button>
             </div>
         </nav>

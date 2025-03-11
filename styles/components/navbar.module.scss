@@ -27,11 +27,16 @@
         }
 
         a{
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+        b{
             color: #62A43F !important;
             &:hover{
                 text-decoration: underline;
             }
         }
+
     }
 
     .userAction{

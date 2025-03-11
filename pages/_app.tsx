@@ -1,11 +1,7 @@
 "use client";
 import "@/styles/globals.scss";
-import Navbar from "@/components/Navbar";
 import { Metadata } from "next";
 import { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getTranslations } from "@/lib/getTranslations";
 
 export const metadata: Metadata = {
   title: "Hub de inovações | UFGD - Criando um futuro Inovador",
@@ -38,20 +34,8 @@ export const metadata: Metadata = {
 };
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  const { locale } = useRouter();
-  const [messages, setMessages] = useState({});
-
-  useEffect(() => {
-    async function loadMessages() {
-      const translations = await getTranslations("navbar", locale || "pt");
-      setMessages(translations);
-    }
-    loadMessages();
-  }, [locale]);
-
   return (
     <>
-      <Navbar messages={messages} />
       <Component {...pageProps} />
     </>
   );

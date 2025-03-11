@@ -1,0 +1,95 @@
+{
+    "titleHeader": "Sobre nós",
+    "aboutProject": {
+        "whatIs": {
+            "title": "Mas o que é um <blue> Hub de inovações </blue>?",
+            "p": "O Hub de Inovações da UFGD é um <b> ecossistema dinâmico dedicado ao desenvolvimento de soluções inovadoras que unem pesquisa, tecnologia e empreendedorismo </b>. Nosso propósito é conectar estudantes, pesquisadores e profissionais a oportunidades concretas de inovação, criando um ambiente colaborativo onde ideias saem do papel e se transformam em impacto real no mercado e na sociedade. <br/> <u> Além de impulsionar a inovação em Mato Grosso do Sul e na UFGD </u>, nosso objetivo é posicionar a universidade como um polo de exportação de conhecimento e tecnologia, reunindo projetos de docentes e discentes para criar oportunidades reais de desenvolvimento. <i> Aqui, as ideias encontram o suporte necessário para se tornarem soluções viáveis e escaláveis </i>. <br/> Incentivamos as equipes a aplicarem metodologias como design iterativo e pesquisa aplicada, garantindo que cada projeto tenha relevância social e impacto positivo. Acreditamos que, ao unir o potencial criativo dos nossos colaboradores a um ambiente de inovação estruturado, <u> podemos transformar desafios em oportunidades e contribuir para um futuro mais inovador e sustentável </u>."
+        },
+        "visionMission": {
+            "title": "Qual é nossa <green> Missão </green> e nossa <orange> Visão </orange> para o hub?",
+            "p": " <b><green> Missão </green></b> <br/> Promover a inovação e o desenvolvimento tecnológico por meio da pesquisa aplicada, incentivando a colaboração entre diferentes áreas do conhecimento e aproximando o ambiente acadêmico do setor produtivo. <u> Buscamos transformar ideias em soluções concretas, proporcionando suporte técnico, acadêmico e estrutural para que projetos inovadores </u> ganhem forma e gerem impacto na sociedade. Além disso, queremos fomentar uma cultura empreendedora dentro da UFGD, capacitando estudantes e pesquisadores para enfrentarem desafios reais com criatividade e eficiência.<br/><br/> <b><orange> Visão </orange></b> <br/> <b> Ser um polo de referência nacional e internacional em inovação, tecnologia e empreendedorismo acadêmico, impulsionando a UFGD como um centro gerador de soluções disruptivas </b>. Almejamos construir um ecossistema sustentável e colaborativo, onde docentes, discentes e parceiros estratégicos possam desenvolver projetos de alto impacto. <u> Nossa visão é transformar o conhecimento em desenvolvimento real, conectando a universidade ao mercado </u> e criando oportunidades para que Mato Grosso do Sul se torne um exportador de inovação e tecnologia."
+        },
+        "howFun": {
+            "title": "<purple> Como funciona </purple> o Hub de inovações?",
+            "p": "O Hub é estruturado com Núcleos Temáticos, <u> onde equipes multidisciplinares atuam de forma integrada no desenvolvimento de projetos </u>. Cada núcleo tem um papel essencial para garantir que as inovações sejam viáveis, sustentáveis e tenham impacto real. <br/> <br/> <b> Núcleos e Equipes </b> <br/>🔹 <b> Núcleo de Engenharia e Desenvolvimento </b> – Foca na criação e prototipagem de soluções tecnológicas, utilizando metodologias ágeis para transformar ideias em produtos e serviços inovadores. <br/>🔹 <b> Núcleo de Gestão e Captação de Recursos </b> – Responsável por buscar financiamentos, patrocínios e estabelecer parcerias estratégicas para viabilizar projetos. <br/>🔹 <b> Núcleo Jurídico e Normativo </b> – Atua na regularização e proteção dos projetos, incluindo propriedade intelectual, contratos e conformidade com legislações como a LGPD (Lei Geral de Proteção de Dados).<br/>🔹 <b> Núcleo de Marketing e Comunicação </b> – Garante a visibilidade do Hub, promovendo eventos, divulgando projetos e fortalecendo a conexão com a comunidade acadêmica e o mercado. <br/>🔹 <b> Núcleo de Pesquisa e Inovação</b> – Estimula o desenvolvimento de novas tecnologias, aplicando metodologias científicas para validar hipóteses e gerar conhecimento aplicável."
+        },
+        "team":{
+            "title": "O que são <pink> equipes </pink> no hub de inovações?",
+            "p": "As equipes do Hub de Inovações da UFGD são <u> multidisciplinares e organizadas dentro de Núcleos Temáticos </u>, garantindo colaboração e eficiência no desenvolvimento dos projetos. Cada equipe conta com um líder de projeto, responsável por coordenar as atividades, além de pesquisadores, desenvolvedores, gestores e mentores, <i> que trabalham juntos para transformar ideias em soluções aplicáveis </i>. <br/> As equipes utilizam metodologias ágeis como Design Thinking, Scrum e Prototipagem Rápida, facilitando o processo de inovação. Além disso, incentivamos a participação ativa em eventos, desafios e conexões com empresas e investidores, criando um ambiente de aprendizado contínuo e impacto real no mercado e na sociedade."
+        },
+        "sustainability": {
+            "title": "O Hub de inovações | UFGD <br/> <b> Acredita em projetos de sustentabilidade </b>",
+            "p": "<b>A inovação sustentável é um dos pilares fundamentais do Hub de Inovações da UFGD</b>, garantindo que todo desenvolvimento tecnológico esteja <u> alinhado com práticas ambientais, sociais e econômicas responsáveis </u>. Acreditamos que o progresso deve caminhar lado a lado com a preservação dos recursos naturais e a construção de um futuro mais equilibrado para as próximas gerações. <br/> <br/> Nossos projetos são desenvolvidos com base nos princípios de eficiência energética, economia circular e uso responsável de materiais, reduzindo desperdícios e promovendo soluções inteligentes para os desafios ambientais atuais. Investimos em tecnologias que priorizam energia renovável, mobilidade sustentável e impacto social positivo, criando inovações que não apenas beneficiam o mercado, mas também impulsionam mudanças reais na sociedade. <br/> <br/> Além disso, incentivamos a integração entre academia, setor produtivo e investidores globais, conectando empresas e instituições comprometidas com a responsabilidade socioambiental. Acreditamos que parcerias estratégicas são essenciais para impulsionar o desenvolvimento sustentável e transformar boas ideias em soluções escaláveis, capazes de gerar impacto global."
+        },
+        "efficiency": {
+            "title": "Como podemos garantir que o Hub de inovações é eficiente?",
+            "p": "No Hub de Inovações da UFGD, utilizamos <b> KPIs </b> (Key Performance Indicators) para medir o impacto e a evolução dos projetos, garantindo que cada iniciativa gere resultados concretos. Acompanhamos métricas como o número de projetos desenvolvidos e implementados, parcerias estabelecidas com empresas e instituições, captação de investimentos e financiamentos, além do registro de patentes e publicações científicas. Também analisamos o retorno acadêmico e empregabilidade dos participantes, avaliando como o Hub contribui para a formação e inserção profissional. Esses indicadores nos permitem ajustar estratégias, otimizar recursos e potencializar o impacto do projeto, tornando o Hub um ambiente dinâmico e eficiente para a inovação."
+        }
+    },
+    "founders": {
+        "title": "<b> Fundadores </b> do Hub de inovações | UFGD",
+        "founders": [
+            {
+                "image": "",
+                "name": "Hélio Peres Martins Neto",
+                "socialMedia": [
+                    {
+                        "type": "instagran",
+                        "link": ""
+                    },
+                    {
+                        "type": "linkedin",
+                        "link": ""
+                    }
+                ],
+                "graduations": [
+                    "Engenharia Mecânica UFGD",
+                    "Engenharia de software UFGD"
+                ],
+                "position": "Diretor"
+            }
+        ]
+    },
+    "responsible": {
+        "title": "<b>Responsáveis Legais</b> do Hub de inovações | UFGD",
+        "p": "Os responsáveis legais pelo Hub de Inovações da UFGD são a Pró-Reitoria de Atividades de Extensão, que supervisiona e garante a conformidade do projeto dentro da universidade, e os coordenadores de núcleos, que gerenciam as diferentes áreas temáticas do Hub, assegurando a execução eficiente das iniciativas. Essa estrutura organizacional permite que o Hub opere de forma estruturada e alinhada com as diretrizes institucionais, garantindo transparência, sustentabilidade e impacto positivo tanto na comunidade acadêmica quanto no setor produtivo.",
+        "rectory": {
+            "name": "Profa. Dra. Lívia Gussoni Basile",
+            "email": "proec@ufgd.edu.br",
+            "tell": "3410-2884"
+        },
+        "nucleusCoordinatorsTitle": "Coordenadores-tutores dos núcleos",
+        "nucleusCoordinators": [
+            {
+               "image": "",
+                "name": "Nome do tutor",
+                "socialMedia": [
+                    {
+                        "type": "instagran",
+                        "link": ""
+                    },
+                    {
+                        "type": "linkedin",
+                        "link": ""
+                    }
+                ],
+                "graduations": [
+                    "Engenharia Mecânica UFGD",
+                    "Engenharia de software UFGD"
+                ],
+                "nucleus": "Núcleo Name" 
+            }
+        ]
+    },
+    "ufgd": {
+        "titlebanner": "A UFGD apoia o Hub de inovações",
+        "ufgdImpacts": {
+            "title": "Como o projeto <orange> impacta </orange> a UFGD?",
+            "p": "O Hub de Inovações da UFGD fortalece a universidade como um polo de referência em pesquisa aplicada, tecnologia e empreendedorismo, impactando diretamente sua comunidade acadêmica e consolidando sua posição no cenário nacional e internacional. <br/> Dentro da UFGD, o projeto amplia as oportunidades para docentes e discentes, proporcionando um ambiente de aprendizado prático, estimulando a produção científica e impulsionando a captação de recursos para pesquisa. Além disso, fomenta o desenvolvimento de novas tecnologias, patentes e startups, conectando a universidade ao mercado e gerando impactos econômicos e sociais para a região."
+        },
+        "ufgdRelatioships": {
+            "title": "UFGD no cenário <pink>nacional e internacional</pink>",
+            "p": "No cenário nacional, a UFGD se posiciona como um centro de inovação e desenvolvimento sustentável, atraindo investimentos, parcerias com empresas e participação em programas de incentivo à tecnologia. O Hub cria oportunidades para que pesquisadores e estudantes se destaquem em competições, editais e eventos de inovação, aumentando a visibilidade e o reconhecimento da universidade em diferentes setores da indústria e da ciência. <br/> Em nível internacional, o Hub permite que a UFGD estabeleça parcerias estratégicas com universidades, centros de pesquisa e empresas globais, ampliando o intercâmbio de conhecimento e o acesso a tecnologias de ponta. Além disso, a inserção da UFGD em redes de inovação fortalece sua reputação como uma instituição comprometida com soluções de impacto global, tornando-se um modelo de referência para outras universidades. <br/> O Hub de Inovações da UFGD não apenas transforma a realidade acadêmica e profissional de seus participantes, mas também projeta a universidade como um motor de inovação, desenvolvimento tecnológico e crescimento sustentável para o Brasil e o mundo. "
+        }
+    }
+}

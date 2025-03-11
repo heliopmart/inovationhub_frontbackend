@@ -1,0 +1,249 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.titleContent{
+    font-family: "Kalam", cursive;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.pContent{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.contentDescription{
+    width: 100%;
+    height: auto;
+
+    @include Flex(column, nowrap, left, start);
+    gap: 4vh;
+}
+
+.aboutUsSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 8%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    
+}
+
+.howDoesItWork{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+}
+
+.sustainability{
+    width: 100vw;
+    height: auto;
+    padding: 5% 15%;
+    box-sizing: border-box;
+    background-color: #5F8245;
+    margin-top: 30px;
+
+    @include Flex(column, nowrap, center, start);
+    gap: 60px;
+
+    h3{
+        font-family: "Kalam", cursive;
+        color: #fff;
+        font-size: 2em;
+        text-align: center;
+        line-height: 50px;
+        font-weight: 100;
+    }
+
+    p{
+        text-align: justify;
+        font-size: 1.2em;
+        color: #fff;
+        line-height: 36px;
+        font-weight: 100;
+
+        
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+}
+
+.efficiency{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    margin-top: 40px;
+}
+
+.founders{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+
+    h2{
+        font-size: 1.5em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    .contentFounders{
+        width: 100%;
+        min-height: 200px;
+        height: auto;
+        @include Flex(row, nowrap, center, center);
+        // mudar em breve
+    }
+}
+
+.responsible{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 5vh;
+    
+    h2{
+        font-size: 1.5em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        text-align: left;
+        font-weight: 100;
+        position: relative;
+        left: -40px;
+    }
+
+    p{
+        font-size: 1em;
+        font-weight: 100;
+        line-height: 24px;
+        color: #1a1a1a;
+    }
+
+    .contentResponsible{
+        width: 100%;
+        height: auto;
+        @include Flex(row, nowrap, start, center);
+        gap: 30px;
+        margin-top: 20px;
+
+        .contentName{
+            width: 50%;
+            height: 140px;
+            background-color: #749719;
+            border-radius: 2px;
+            @include Flex(row, nowrap, center, center);
+            
+            span{
+                text-align: center;
+                font-size: .9em;
+                color: #fff;
+                text-transform: uppercase;
+
+            }
+        }
+
+        .contentInformation{
+            width: 50%;
+            min-height: 140px;
+            height: auto;
+            @include Flex(column, nowrap, start, center);
+            gap: 20px;
+
+            .name{
+                font-size: 1em;
+                color: #1a1a1a;
+                font-weight: 300;
+
+                b{
+                    color: #749719;
+                }
+            }
+
+            .email{
+                font-size: .8em;
+                color: #1a1a1a;
+                font-weight: lighter;
+
+                a{
+                    text-decoration: underline;
+                    color: #1a1a1a;
+                }
+            }
+
+            .tell{
+                font-size: .8em;
+                color: #1a1a1a;
+                font-weight: lighter;
+
+            }
+        }
+    }
+
+    .containerCoor{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, start, start);
+        gap: 40px;
+        margin-top: 20px;
+        
+        .titleCoor{
+            font-size: 1.2em;
+            color: #1a1a1a;
+            font-weight: bold;
+            font-family: "Kalam", cursive;
+
+        }
+    }
+}
+
+.contentBannerUfgd{
+    width: 95vw;
+    height: 150px;
+    background-color: #749719;
+    @include Flex(row, nowrap, center, center);
+    margin: 20px auto;
+
+    span{
+        font-size: 1.7em;
+        font-weight: bold;
+        font-family: "Kalam", cursive;
+        color: #fff;
+        white-space: 3%;
+    }
+}
+
+.sectionufgd{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    margin-top: 40px;
+}
