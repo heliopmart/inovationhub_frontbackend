@@ -3,11 +3,30 @@ import Link from 'next/link'
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getTranslations } from "@/lib/getTranslations";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+
 import Navbar from "@/components/Navbar";
 import Footer from '@/components/Footer';
 import {HeaderMinify} from "@/components/HeaderMinify";
 import {TextImageDescrition, TextTwoImageDescrition} from "@/components/TextImageDescrition";
+import {ShowPeople} from '@/components/ShowPeople'
+
 import styles from "@/styles/pages/aboutUs.module.scss"
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+interface InterfaceShowPeople{
+    image: string,
+    name: string,
+    socialMedia: {
+        type: string,
+        link: string
+    }[],
+    graduations: string[],
+    role: string
+}
 
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
@@ -73,7 +92,24 @@ export default function aboutUs({ messages }: { messages: any }) {
             <section className={styles.founders} id="founders">
                 <h2 dangerouslySetInnerHTML={{__html: messages.founders.title}}/>
                 <div className={styles.contentFounders}>
-
+                    <Swiper
+                        modules={[Navigation, Pagination]}
+                        spaceBetween={10}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        breakpoints={{
+                            640: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                    >
+                        {messages?.founders.founders?.map((people:InterfaceShowPeople, index:number) => (
+                            <SwiperSlide key={`${people.name}_${index}`}>
+                                <ShowPeople key={`${people.name}_${index}`} graduations={people.graduations} image={people.image} name={people.name} role={people.role} socialMedia={people.socialMedia} />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </section>
             <section className={styles.responsible} id="responsible">
@@ -92,7 +128,24 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <div className={styles.containerCoor}>
                     <span className={styles.titleCoor}>{messages.responsible.nucleusCoordinatorsTitle}</span>
                     <div className={styles.contentCoor}>
-
+                        <Swiper
+                            modules={[Navigation, Pagination]}
+                            spaceBetween={10}
+                            slidesPerView={1}
+                            navigation
+                            pagination={{ clickable: true }}
+                            breakpoints={{
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                            }}
+                        >
+                            {messages?.responsible.nucleusCoordinators?.map((people:InterfaceShowPeople, index:number) => (
+                                <SwiperSlide key={`${people.name}_${index}`}>
+                                    <ShowPeople key={`${people.name}_${index}`} graduations={people.graduations} image={people.image} name={people.name} role={people.role} socialMedia={people.socialMedia} />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                 </div>
             </section>

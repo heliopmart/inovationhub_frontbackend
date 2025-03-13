@@ -115,8 +115,6 @@
         width: 100%;
         min-height: 200px;
         height: auto;
-        @include Flex(row, nowrap, center, center);
-        // mudar em breve
     }
 }
 
@@ -203,6 +201,11 @@
 
             }
         }
+
+        .contentCoor{
+            width: 100%;
+            height: auto;
+        }
     }
 
     .containerCoor{
@@ -211,6 +214,7 @@
         @include Flex(column, nowrap, start, start);
         gap: 40px;
         margin-top: 20px;
+        align-items: normal !important;
         
         .titleCoor{
             font-size: 1.2em;

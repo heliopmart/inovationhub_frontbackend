@@ -46,7 +46,7 @@
                     "Mechanical Engineering - UFGD",
                     "Software Engineering - UFGD"
                 ],
-                "position": "Director"
+                "role": "Director"
             }
         ]
     },
@@ -77,7 +77,7 @@
                     "Mechanical Engineering - UFGD",
                     "Software Engineering - UFGD"
                 ],
-                "nucleus": "Nucleus Name" 
+                "role": "Nucleus Name" 
             }
         ]
     },

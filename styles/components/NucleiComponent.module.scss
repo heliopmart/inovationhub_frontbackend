@@ -1,0 +1,113 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 3vh;
+
+    h3{
+        font-size: 1.3em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        font-weight: 600;
+        text-align: left;
+    }
+
+    p{
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #1a1a1a;
+        font-size: 1em;
+        text-align: center;
+        line-height: 24px;
+        text-align: justify;
+    }
+
+    .sectionRoles{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, start,start);
+        gap: 10px;
+
+        .containerRole{
+            width: 100%;
+            height: auto;
+            @include Flex(row, nowrap, start, start);
+            gap: 30px;
+            margin-top: 20px;
+    
+            .contentRole{
+                width: 40%;
+                height: 100px;
+                background-color: #1a1a1a;
+                border-radius: 2px;
+                @include Flex(row, nowrap, center, center);
+                
+                span{
+                    text-align: center;
+                    font-size: .9em;
+                    color: #fff;
+                    text-transform: uppercase;
+    
+                }
+            }
+    
+            .contentInformations{
+                width: 50%;
+                min-height: 100px;
+                height: auto;
+                @include Flex(column, nowrap, start, center);
+                gap: 20px;
+    
+                .name{
+                    font-size: 1em;
+                    color: #1a1a1a;
+                    font-weight: 300;
+    
+                    b{
+                        color: #1a1a1a;
+                    }
+                }
+    
+                .email{
+                    font-size: .8em;
+                    color: #1a1a1a;
+                    font-weight: lighter;
+    
+                    a{
+                        text-decoration: underline;
+                        color: #1a1a1a;
+                    }
+                }
+    
+                .tell{
+                    font-size: .8em;
+                    color: #1a1a1a;
+                    font-weight: lighter;
+    
+                }
+            }
+        }
+    }
+
+    .contentImage{
+        width: 100%;
+        height: 150px;
+        border-radius: 2px;
+        overflow: hidden;
+        img{
+            background-color: #D9D9D9;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

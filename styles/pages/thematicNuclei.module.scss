@@ -1,0 +1,64 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.titleContent{
+    font-family: "Kalam", cursive;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.pContent{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.contentDescription{
+    width: 100%;
+    height: auto;
+
+    @include Flex(column, nowrap, left, start);
+    gap: 4vh;
+}
+
+.thematicNucleiSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 8%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    
+}
+
+.mainSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 8%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+
+    .titleMainSection{
+        font-size: 2em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        font-weight: 600;
+        text-align: left;
+
+        b{
+            color: #377623;
+        }
+    }
+}

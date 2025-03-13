@@ -44,9 +44,9 @@
                 ],
                 "graduations": [
                     "Engenharia Mecânica UFGD",
-                    "Engenharia de software UFGD"
+                    "Engenharia de software UNIGRAN"
                 ],
-                "position": "Diretor"
+                "role": "Diretor"
             }
         ]
     },
@@ -74,10 +74,9 @@
                     }
                 ],
                 "graduations": [
-                    "Engenharia Mecânica UFGD",
-                    "Engenharia de software UFGD"
+                    "Engenharia Mecânica UFGD"
                 ],
-                "nucleus": "Núcleo Name" 
+                "role": "Núcleo Name" 
             }
         ]
     },

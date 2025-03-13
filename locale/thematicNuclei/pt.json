@@ -1,0 +1,112 @@
+{
+    "titleHeader": "Núcleos Temáticos",
+    "nuclei": [
+        {
+            "nucleiName": "Engenharia e Desenvolvimento",
+            "p": "O Núcleo de Engenharia e Desenvolvimento é responsável por transformar ideias em soluções tecnológicas aplicáveis, integrando conhecimentos de diversas áreas da engenharia. Seu foco está no desenvolvimento de produtos, protótipos e sistemas inovadores, utilizando metodologias avançadas de design, modelagem computacional, eletrônica embarcada e automação.<br/> Os projetos desse núcleo abrangem desde a criação de dispositivos inteligentes até o desenvolvimento de veículos, equipamentos industriais e sistemas de eficiência energética. Além disso, a equipe trabalha com metodologias ágeis para garantir um processo de inovação contínuo, com validações experimentais e testes rigorosos. <br/> <br/> Principais atividades: <br/> <br/> &#10003; Desenvolvimento de protótipos funcionais e MVPs (Minimum Viable Products); <br/> &#10003; Aplicação de conceitos de engenharia mecânica, elétrica, eletrônica e computação; <br/> &#10003; Uso de softwares de modelagem 3D, simulação e análise estrutural; <br/> &#10003; Implementação de sistemas automatizados e eletrônicos para soluções inovadoras; <br/> &#10003; Integração de inteligência artificial e IoT (Internet das Coisas) em novos produtos. <br/> <br/> O núcleo busca promover a interdisciplinaridade, conectando estudantes e profissionais da engenharia com outras áreas, garantindo que a inovação seja aplicada de forma prática e com impacto real na indústria e na sociedade.",
+            "roles": {
+                "director": {
+                    "textRole": "Diretoria do núcleo de Engenharia e Desenvolvimento",
+                    "name": "Nome do discente",
+                    "email": "emialdiscente@estudante.ufgd.br",
+                    "tell": "00000-0000"
+                },
+                "coordinator": {
+                    "textRole": "Diretoria do núcleo de Engenharia e Desenvolvimento",
+                    "name": "Nome do docente",
+                    "email": "emialdocente@ufgd.br",
+                    "tell": "00000-0000"
+                }
+            },
+            "color_1": "#D88532",
+            "color_2": "#F6C53F",
+            "imageBanner": ""
+        },
+
+
+        {
+            "nucleiName": "Gestão e Captação de Recursos",
+            "p": "Esse núcleo é responsável por garantir a sustentabilidade financeira dos projetos do Hub, atuando na captação de investimentos, parcerias estratégicas e submissão de propostas para editais e programas de fomento. Além disso, o núcleo auxilia no planejamento financeiro das iniciativas, buscando otimizar os recursos disponíveis e garantir a viabilidade econômica das soluções desenvolvidas. Também promove treinamentos e mentorias sobre gestão de projetos, empreendedorismo e inovação.",
+            "roles": {
+                "director": {
+                    "textRole": "Diretoria do núcleo de Gestão e Captação de Recursos",
+                    "name": "Nome do discente",
+                    "email": "emialdiscente@estudante.ufgd.br",
+                    "tell": "00000-0000"
+                },
+                "coordinator": {
+                    "textRole": "Diretoria do núcleo de Gestão e Captação de Recursos",
+                    "name": "Nome do docente",
+                    "email": "emialdocente@ufgd.br",
+                    "tell": "00000-0000"
+                }
+            },
+            "color_1": "#378BBE",
+            "color_2": "#68C5FF",
+            "imageBanner": ""
+        },
+        {
+            "nucleiName": "Jurídico e Normativo",
+            "p": "Com foco na regulamentação e na proteção das inovações, o Núcleo Jurídico e Normativo oferece suporte legal para os projetos do Hub. Ele trabalha na elaboração de contratos, patentes e registros de propriedade intelectual, garantindo que as criações estejam protegidas e sigam todas as normativas legais. Além disso, auxilia na conformidade regulatória dos produtos e tecnologias desenvolvidas, orientando os participantes sobre legislações vigentes e boas práticas de compliance.",
+            "roles": {
+                "director": {
+                    "textRole": "Diretoria do núcleo Jurídico e Normativo",
+                    "name": "Nome do discente",
+                    "email": "emialdiscente@estudante.ufgd.br",
+                    "tell": "00000-0000"
+                },
+                "coordinator": {
+                    "textRole": "Diretoria do núcleo Jurídico e Normativo",
+                    "name": "Nome do docente",
+                    "email": "emialdocente@ufgd.br",
+                    "tell": "00000-0000"
+                }
+            },
+            "color_1": "#E44545",
+            "color_2": "#FF7979",
+            "imageBanner": ""
+        },
+        {
+            "nucleiName": "Marketing e Comunicação",
+            "p": "O Núcleo de Marketing e Comunicação tem a missão de dar visibilidade aos projetos desenvolvidos no Hub, promovendo a divulgação das iniciativas e conectando os participantes ao mercado. Ele gerencia redes sociais, eventos, identidade visual e estratégias de comunicação para atrair investidores, parceiros e novos talentos. Além disso, trabalha na criação de campanhas institucionais e no fortalecimento da marca do Hub de Inovação dentro e fora da universidade.",
+            "roles": {
+                "director": {
+                    "textRole": "Diretoria do núcleo de Marketing e Comunicação",
+                    "name": "Nome do discente",
+                    "email": "emialdiscente@estudante.ufgd.br",
+                    "tell": "00000-0000"
+                },
+                "coordinator": {
+                    "textRole": "Diretoria do núcleo de Marketing e Comunicação",
+                    "name": "Nome do docente",
+                    "email": "emialdocente@ufgd.br",
+                    "tell": "00000-0000"
+                }
+            },
+            "color_1": "#AA3DD6",
+            "color_2": "#D17DF2",
+            "imageBanner": ""
+        },
+        {
+            "nucleiName": "Pesquisa e Inovação",
+            "p": "Voltado para a produção científica e a busca por soluções inovadoras, o Núcleo de Pesquisa e Inovação promove a integração entre academia e indústria. Seu objetivo é incentivar o desenvolvimento de tecnologias emergentes, fomentar pesquisas aplicadas e estabelecer colaborações com universidades e centros de inovação. O núcleo também apoia publicações científicas, organização de conferências e participação em competições acadêmicas, reforçando o papel do Hub como um polo de excelência em inovação tecnológica.",
+            "roles": {
+                "director": {
+                    "textRole": "Diretoria do núcleo de Pesquisa e Inovação",
+                    "name": "Nome do discente",
+                    "email": "emialdiscente@estudante.ufgd.br",
+                    "tell": "00000-0000"
+                },
+                "coordinator": {
+                    "textRole": "Diretoria do núcleo de Pesquisa e Inovação",
+                    "name": "Nome do docente",
+                    "email": "emialdocente@ufgd.br",
+                    "tell": "00000-0000"
+                }
+            },
+            "color_1": "#5C9A53",
+            "color_2": "#81BD78",
+            "imageBanner": ""
+        }
+    ]
+}
