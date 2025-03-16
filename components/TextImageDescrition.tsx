@@ -6,9 +6,9 @@ interface Size{
     height?: string;
 }
 
-export function TextImageDescrition({image, size, direction, children}:{image: string, size?: Size, direction:'right'|'left', children: React.ReactNode}) {
+export function TextImageDescrition({image, size, direction, form, children}:{image: string, size?: Size, direction:'right'|'left', form?: "start"|"center"|"stretch", children: React.ReactNode}) {
     return (
-        <div className={`${style.content} ${direction === 'right' ? style.contentRight : style.contentLeft}`}>
+        <div className={`${style.content} ${direction === 'right' ? style.contentRight : style.contentLeft}`} style={{alignItems: form}}>
             <div className={style.image} style={{width: size?.width, height: size?.height}}>
                 <img src={image} alt="" />
             </div>

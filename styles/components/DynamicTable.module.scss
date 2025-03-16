@@ -1,0 +1,37 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.sectionTable{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 4vh;
+
+    h2{
+        font-size: 1.4em;
+        font-family: "Kalam", cursive;
+        color: #1a1a1a;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    p{
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #1a1a1a;
+        font-size: .9em;
+        text-align: center;
+        line-height: 24px;
+        text-align: justify;
+    }
+
+    .contentTable{
+        width: 100%;
+        height: auto;
+    }
+}

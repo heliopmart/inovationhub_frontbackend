@@ -1,0 +1,228 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.titleContent{
+    font-family: "Kalam", cursive;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.pContent{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.contentDescription{
+    width: 100%;
+    height: auto;
+
+    @include Flex(column, nowrap, left, start);
+    gap: 4vh;
+}
+
+.contentTitleDescription{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 0px;
+
+    .titleNuclei{
+        font-size: 1.35em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        font-weight: lighter;
+        text-align: left;
+    }
+
+    .titleContent{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 1.4em;
+        text-align: left;
+    }
+}
+
+.contentDescription{
+    a{
+        text-decoration: none;
+    }
+    .button{
+        width: auto;
+        min-width: 240px;
+        max-width: 300px;
+        height: 45px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 5px 20px;
+        background-color: #1a1a1a;
+        color: #fff;
+        font-size: .8em;
+        font-weight: 100;
+        border: none;
+        font-family: "Inter";
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        &:hover{
+            opacity: 90%;
+        }
+    }
+}
+
+.header{
+    width: 100vw;
+    min-height: 400px;
+    max-height: 500px;
+    height: 100vh;
+    background: linear-gradient(45deg, #725C99 0%,  #16023F 100%);
+    @include Flex(row,nowrap,center,center);
+
+    h1{
+        font-size: 3em;
+        color: #fff;
+        text-align: center;
+        line-height: 100px;
+        text-transform: uppercase;
+        
+        b{
+            text-decoration: underline;
+        }
+    }
+}
+
+.externalSolutionSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 8%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    
+    p{
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #1a1a1a;
+        font-size: 1.1em;
+        text-align: center;
+        line-height: 24px;
+        text-align: justify;
+    }
+}
+
+.mainSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+
+    
+}
+
+.sectionEvent{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, center);
+    gap: 8vh;
+
+    .pEvent{
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #1a1a1a;
+        font-size: 1.1em;
+        text-align: center;
+        line-height: 24px;
+        text-align: justify;
+    }
+
+    .titleSectionEvent{
+        font-size: 1.9em;
+        color: #1a1a1a;
+        text-align: center;
+        line-height: 40px;
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+    }
+    
+
+    .containerEvents{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, start, start);
+        gap: 40px;
+
+        .title{
+            font-size: 1.5em;
+            color: #1a1a1a;
+            text-align: left;
+            line-height: 40px;
+            font-family: "Kalam", cursive;
+            font-weight: bold;
+        }
+
+        .contentNextEvents{
+            width: 100%;
+            height: auto;
+            @include Flex(row, wrap, start, start);
+            gap: 30px;
+        }
+
+        .contentOldEvents{
+            width: 100%;
+            height: auto;
+            .contentDescription{
+                .containerInformations{
+                    width: 100%;
+                    height: auto;
+                    @include Flex(column, nowrap, start, start);
+                    gap: 20px;
+    
+                    .contentInformation{
+                        width: 100%;
+                        height: auto;
+                        min-height: 50px;
+                        max-height: 100px;
+                        background-color: #F5F5F5;
+                        padding: 15px;
+                        box-sizing: border-box;
+                        border-radius: 2px;
+                        @include Flex(row, wrap, start, start);
+                        gap: 15px;
+    
+                        .textInformation{
+                            font-size: .8em;
+                            color: #686868;
+                            font-weight: 700;
+                            text-align: left;
+                            text-transform: uppercase;
+                        }
+    
+                        .textValue{
+                            font-size: .8em;
+                            color: #686868;
+                            font-weight: 700;
+                            text-align: left;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

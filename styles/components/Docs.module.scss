@@ -1,0 +1,62 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.docs{
+    width: 100%;
+    height: auto;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, stretch, start);
+    gap: 60px;
+
+    .containerDoc{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, stretch, start);
+        gap: 35px;
+    
+        padding: 5px 10px 5px 20px;
+        box-sizing: border-box;
+        position: relative;
+        
+        &::before{
+            content: "";
+            width: 10px;
+            height: 100%;
+            flex: 1;
+            background-color: #D9D9D9;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    
+        .title{
+            font-size: 1.1em;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+    
+        .contentFile{
+            width: 100% ;
+            height: auto;
+            @include Flex(column, nowrap, stretch, start);
+            gap: 20px;
+    
+            a{
+                color: #1a1a1a;
+            }
+    
+            span{
+                font-size: .9em;
+                text-decoration: underline;
+                font-weight: 100;
+                color: #1a1a1a;
+            }
+        }
+    }
+}

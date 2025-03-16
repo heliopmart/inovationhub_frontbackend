@@ -25,11 +25,17 @@
     font-style: normal;
   }
 
-
   @font-face {
     font-family: "Kalam";
     src: url("/fonts/Kalam/Kalam-Regular.ttf") format("truetype");
     font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Kalam";
+    src: url("/fonts/Kalam/Kalam-Light.ttf") format("truetype");
+    font-weight: lighter;
     font-style: normal;
   }
   

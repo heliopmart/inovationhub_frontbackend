@@ -1,0 +1,62 @@
+{
+    "titleHeader": "Our partners support <br/> <b>INNOVATION!</b>",
+    "pHeader": "The <b>UFGD Innovation Hub</b> is supported by strategic partners who believe in innovation as a driver of development. Companies, academic institutions, and funding organizations join the Hub to enable projects that drive technological and scientific advancement. <br/><br/> Partners provide support in <i>funding, infrastructure, training, and networking</i>, ensuring that innovative ideas can be transformed into concrete solutions for societal challenges. Additionally, through joint events and initiatives, we create a collaborative environment where researchers, students, and professionals can exchange experiences, develop new technologies, and strengthen their connections with the market. <br/><br/> With the organization of <b>lectures, workshops, technology fairs, and academic competitions</b>, our events are unique opportunities to expand knowledge, generate impact, and promote innovation in an accessible and sustainable way.",
+    "textBanner_1": "Universities are the future of innovation!",
+    "textButton": "Learn more",
+    "partners": [
+        {
+            "nucleiTitle": "Federal University of Grande Dourados",
+            "titleProject": "Funding and Infrastructure",
+            "p": "The <b>Federal University of Grande Dourados (UFGD)</b> is one of the main pillars of the Innovation Hub, providing academic support, laboratory infrastructure, and funding for the development of applied research. <br/><br/> The partnership with UFGD allows students and researchers to access <i>institutional resources, state-of-the-art equipment, and incentive programs</i> that facilitate the creation and implementation of new technologies. Additionally, the university acts as a mediator between academia and the productive sector, promoting knowledge transfer and integration between theory and practice. <br/><br/> Through research grants, scientific initiation programs, and innovation support, UFGD strengthens its commitment to social and economic transformation, preparing qualified professionals and fostering technological entrepreneurship.",
+            "link": "/partners/ufgd#about",
+            "color": "#83A331",
+            "image": ""
+        }
+    ],
+    "textBanner_2": "Our partners believe in us and in the future!",
+    "event": {
+        "title": "Events promoted by <br/> the Innovation Hub, partners, and UFGD",
+        "pEvent": "The <b>UFGD Innovation Hub</b> and its partners promote events that connect the academic community, researchers, entrepreneurs, and market professionals, creating opportunities for innovation and technological development. <br/><br/> The events include <i>workshops, hackathons, technology fairs, seminars, and academic competitions</i>, providing a collaborative environment for knowledge exchange and new partnerships. Additionally, we host lectures with experts from various fields, bringing insights into industry trends and challenges. <br/><br/> Our goal is to transform ideas into real solutions, encouraging experimentation and hands-on learning. Each event is an opportunity for networking, training, and the development of innovative projects that positively impact society.",
+        "nextEvents": {
+            "title": "Upcoming Events",
+            "nextEvents": [
+                {
+                    "title": "Name of the event to be held",
+                    "p": "Brief event description",
+                    "local": {
+                        "local": "Event location",
+                        "time": "10 AM"
+                    },
+                    "linkTitle": "Sign up",
+                    "link": ""
+                }
+            ]
+        },
+        "oldEvents": {
+            "title": "Past Events",
+            "oldEvents": [
+                {
+                    "title": "Event name",
+                    "time": "Date of event",
+                    "p": "Event description",
+                    "inscriptions": {
+                        "title": "Registrations completed:",
+                        "value": "401"
+                    },
+                    "sponsors": {
+                        "title": "Event sponsors:",
+                        "value": [
+                            "UFGD",
+                            "Petrobras",
+                            "CNPQ",
+                            "CREA"
+                        ]
+                    },
+                    "images": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    }
+}

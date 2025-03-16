@@ -1,0 +1,42 @@
+{
+    "titleHeader": "Soluções",
+    "headerp": "O <i> Hub de Inovações da UFGD </i> é um ecossistema dinâmico voltado para o desenvolvimento de soluções inovadoras que unem pesquisa, tecnologia e empreendedorismo. Criado por estudantes e professores da universidade, o Hub tem como missão conectar acadêmicos, pesquisadores e profissionais a oportunidades concretas de inovação, transformando ideias em impacto real no mercado e na sociedade. <br/> <br/> A medição do impacto e da evolução dos projetos desenvolvidos no Hub é realizada por meio de <u> KPIs </u> (Key Performance Indicators). Esses indicadores fornecem métricas essenciais, como o número de projetos implementados, parcerias estratégicas estabelecidas com empresas e instituições, captação de investimentos e financiamento, além do registro de patentes e publicações científicas. <b> Também analisamos o retorno acadêmico e a empregabilidade dos participantes </b>, avaliando como o Hub contribui para a formação de novos profissionais altamente qualificados. <br/> <br/> Com esses dados, podemos ajustar estratégias, otimizar recursos e potencializar o impacto de cada projeto, garantindo que o Hub de Inovações da UFGD se torne um ambiente dinâmico, sustentável e eficiente para impulsionar o futuro da inovação.",
+    "textBanner_1": "Nossas equipes moldam o mundo com suas tecnologias!",
+    "textButton": "Saber mais sobre o projeto",
+    "projects": [
+        {
+            "nucleiTitle": "Projeto do núcleo de engenharia e desenvolvimento",
+            "titleProject": "Equipe MotoStudent",
+            "p": "O <b>MotoStudent</b> é um projeto acadêmico de engenharia voltado para o desenvolvimento de <b>motocicletas de alta performance</b> para competições internacionais. <br/> Integrando conhecimentos de <i>engenharia mecânica, eletrônica e design automotivo</i>, a equipe projeta, fabrica e testa um protótipo funcional, aplicando inovação e pesquisa aplicada no setor de mobilidade. <br/><br/> O projeto faz parte do <b>Hub de Inovações da UFGD</b> e segue uma metodologia baseada em <b>KPIs (Key Performance Indicators)</b> para avaliar sua evolução. <br/> Os principais indicadores incluem o número de publicações científicas geradas, captação de recursos e patrocínios, desenvolvimento de novas tecnologias aplicadas ao setor automotivo e a empregabilidade dos membros da equipe após a participação no projeto. <br/><br/> Além do desenvolvimento técnico, o <b>MotoStudent</b> incentiva a interdisciplinaridade e a integração com empresas e startups, promovendo o espírito empreendedor e a inovação na engenharia nacional. <br/> O projeto prepara os participantes para desafios reais da indústria e reforça a posição da <b>UFGD</b> no cenário global de competições acadêmicas.",
+            "link": "/team/motostudent#about",
+            "color": "#C71037",
+            "image": ""
+        },
+        {
+            "nucleiTitle": "Projeto do núcleo de engenharia e desenvolvimento",
+            "titleProject": "Equipe FAZENDA 4.0",
+            "p": "A <b>Fazenda 4.0</b> é um projeto inovador focado no desenvolvimento de <b>soluções tecnológicas para o setor agrícola</b>, utilizando <i>sensores inteligentes, automação e Internet das Coisas (IoT)</i> para tornar a agricultura mais eficiente e sustentável. <br/> O objetivo é integrar tecnologias emergentes ao agronegócio, otimizando a produtividade e reduzindo impactos ambientais. <br/><br/> Parte do <b>Hub de Inovações da UFGD</b>, o projeto mede sua evolução por meio de <b>KPIs</b> que analisam o impacto das tecnologias desenvolvidas, a quantidade de parcerias firmadas com produtores rurais e startups do setor, além do retorno acadêmico dos estudantes envolvidos. <br/> Indicadores como a aplicação prática das soluções e a adoção de tecnologias inteligentes no campo são essenciais para garantir a eficiência do projeto. <br/><br/> A <b>Fazenda 4.0</b> busca fortalecer a conexão entre academia e setor produtivo, desenvolvendo pesquisas aplicadas e promovendo a inovação agrícola por meio de tecnologia acessível e sustentável.",
+            "link": "/team/fazenda4#about",
+            "color": "#319340",
+            "image": "/images/project/Image_test.png"
+        }
+    ],
+    "textBanner_2": "As pesquisas mudam o mundo para melhor!",
+    "search": [
+        {
+            "nucleiTitle": "Projeto do núcleo de pesquisa e inovação",
+            "titleProject": "Análises sobre composição de solos através de inteligência artificial não relacional em incubadoras",
+            "p": "O avanço da tecnologia tem possibilitado novas abordagens para a análise e monitoramento de solos em ambientes controlados. <br/> Este projeto explora o uso de <b>inteligência artificial não relacional</b> para otimizar a coleta, processamento e interpretação de dados sobre a composição do solo em incubadoras agrícolas e experimentais. <br/><br/> A proposta busca integrar <i>modelos computacionais avançados</i> para detectar padrões de variação química, física e biológica, promovendo maior precisão na tomada de decisões para o manejo sustentável do solo. <br/> Com a automação do processo e a redução de erros humanos, espera-se aumentar a eficiência das análises e contribuir para o desenvolvimento de práticas agrícolas mais inteligentes e sustentáveis. <br/><br/> A iniciativa faz parte do <b>Hub de Inovações da UFGD</b> e adota indicadores de desempenho (<b>KPIs</b>) para avaliar a eficácia do modelo proposto. <br/> Os principais aspectos analisados incluem a acurácia dos algoritmos, a velocidade no processamento de dados e o impacto das recomendações geradas para otimização do solo.",
+            "link": "/search/codesearchid#about",
+            "color": "#389298",
+            "image": ""
+        }
+    ],
+    "titleKpis": "Nossos indicies de desenvolvimento <br/> são incomparáveis!",
+    "kpis": [
+        "Indicadores Acadêmicos",
+        "Indicadores Tecnológicos e de Inovação",
+        "Indicadores de Gestão e Captação de Recursos",
+        "Indicadores de Impacto na Comunidade e Mercado"
+    ]
+}

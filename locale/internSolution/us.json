@@ -1,0 +1,42 @@
+{
+    "titleHeader": "Solutions",
+    "headerp": "The <i>UFGD Innovation Hub</i> is a dynamic ecosystem focused on developing innovative solutions that bring together research, technology, and entrepreneurship. Created by students and professors of the university, the Hub's mission is to connect academics, researchers, and professionals with concrete innovation opportunities, transforming ideas into real impact in the market and society. <br/> <br/> The impact and progress of the projects developed within the Hub are measured through <u>KPIs</u> (Key Performance Indicators). These indicators provide essential metrics such as the number of implemented projects, strategic partnerships established with companies and institutions, investment and funding acquisition, as well as the registration of patents and scientific publications. <b>We also analyze the academic return and employability of participants</b>, assessing how the Hub contributes to the training of highly qualified professionals. <br/> <br/> With this data, we can adjust strategies, optimize resources, and maximize the impact of each project, ensuring that the UFGD Innovation Hub becomes a dynamic, sustainable, and efficient environment to drive the future of innovation.",
+    "textBanner_1": "Our teams shape the world with their technologies!",
+    "textButton": "Learn more about the project",
+    "projects": [
+        {
+            "nucleiTitle": "Engineering and Development Core Project",
+            "titleProject": "MotoStudent Team",
+            "p": "The <b>MotoStudent</b> is an academic engineering project focused on developing <b>high-performance motorcycles</b> for international competitions. <br/> Integrating knowledge in <i>mechanical engineering, electronics, and automotive design</i>, the team designs, manufactures, and tests a functional prototype, applying innovation and applied research in the mobility sector. <br/><br/> The project is part of the <b>UFGD Innovation Hub</b> and follows a methodology based on <b>KPIs (Key Performance Indicators)</b> to assess its progress. <br/> Key indicators include the number of scientific publications generated, resource and sponsorship acquisition, the development of new automotive technologies, and the employability of team members after participating in the project. <br/><br/> In addition to technical development, <b>MotoStudent</b> encourages interdisciplinarity and integration with companies and startups, fostering an entrepreneurial spirit and innovation in national engineering. <br/> The project prepares participants for real-world industry challenges and reinforces <b>UFGD</b>'s position in the global academic competition landscape. <br/><br/>",
+            "link": "/team/motostudent#about",
+            "color": "#C71037",
+            "image": ""
+        },
+        {
+            "nucleiTitle": "Engineering and Development Core Project",
+            "titleProject": "FAZENDA 4.0 Team",
+            "p": "The <b>Fazenda 4.0</b> is an innovative project focused on developing <b>technological solutions for the agricultural sector</b>, utilizing <i>smart sensors, automation, and the Internet of Things (IoT)</i> to make agriculture more efficient and sustainable. <br/> The goal is to integrate emerging technologies into agribusiness, optimizing productivity and reducing environmental impacts. <br/><br/> As part of the <b>UFGD Innovation Hub</b>, the project measures its progress through <b>KPIs</b> that assess the impact of developed technologies, the number of partnerships established with rural producers and startups, and the academic return of involved students. <br/> Indicators such as the practical application of solutions and the adoption of intelligent technologies in the field are essential to ensure project efficiency. <br/><br/> The <b>Fazenda 4.0</b> seeks to strengthen the connection between academia and the productive sector, developing applied research and promoting agricultural innovation through accessible and sustainable technology. <br/><br/>",
+            "link": "/team/fazenda4#about",
+            "color": "#319340",
+            "image": ""
+        }
+    ],
+    "textBanner_2": "Research changes the world for the better!",
+    "search": [
+        {
+            "nucleiTitle": "Research and Innovation Core Project",
+            "titleProject": "Analysis of Soil Composition Using Non-Relational Artificial Intelligence in Incubators",
+            "p": "Advancements in technology have enabled new approaches to soil analysis and monitoring in controlled environments. <br/> This project explores the use of <b>non-relational artificial intelligence</b> to optimize the collection, processing, and interpretation of data regarding soil composition in agricultural and experimental incubators. <br/><br/> The proposal seeks to integrate <i>advanced computational models</i> to detect patterns in chemical, physical, and biological variations, promoting greater precision in decision-making for sustainable soil management. <br/> By automating the process and reducing human errors, the project aims to enhance analysis efficiency and contribute to the development of more intelligent and sustainable agricultural practices. <br/><br/> The initiative is part of the <b>UFGD Innovation Hub</b> and adopts <b>KPIs</b> (Key Performance Indicators) to evaluate the effectiveness of the proposed model. <br/> The main aspects analyzed include algorithm accuracy, data processing speed, and the impact of generated recommendations for soil optimization. <br/><br/>",
+            "link": "/search/codesearchid#about",
+            "color": "#389298",
+            "image": ""
+        }
+    ],
+    "titleKpis": "Our development indexes <br/> are unmatched!",
+    "kpis": [
+        "Academic Indicators",
+        "Technological and Innovation Indicators",
+        "Management and Funding Indicators",
+        "Community and Market Impact Indicators"
+    ]
+}

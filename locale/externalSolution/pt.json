@@ -1,0 +1,62 @@
+{
+    "titleHeader": "Os nossos parceiros apoiam a <br/> <b>INOVAÇÃO!</b>",
+    "pHeader": "O <b>Hub de Inovações da UFGD</b> conta com o apoio de parceiros estratégicos que acreditam na inovação como motor do desenvolvimento. Empresas, instituições acadêmicas e órgãos de fomento se unem ao Hub para viabilizar projetos que impulsionam o avanço tecnológico e científico. <br/><br/> Os parceiros oferecem suporte em <i>financiamento, infraestrutura, capacitação e networking</i>, garantindo que ideias inovadoras possam se transformar em soluções concretas para desafios da sociedade. Além disso, por meio de eventos e iniciativas conjuntas, criamos um ambiente colaborativo onde pesquisadores, estudantes e profissionais podem trocar experiências, desenvolver novas tecnologias e fortalecer suas conexões com o mercado. <br/><br/> Com a realização de <b>palestras, workshops, feiras tecnológicas e competições acadêmicas</b>, nossos eventos são oportunidades únicas para ampliar conhecimentos, gerar impacto e promover a inovação de forma acessível e sustentável.",
+    "textBanner_1": "As universidades são o futuro da inovação!",
+    "textButton": "Saber mais sobre",
+    "partners": [
+        {
+            "nucleiTitle": "Universidade Federal da Grande Dourados",
+            "titleProject": "Financiamento e infraestrutura",
+            "p": "A <b>Universidade Federal da Grande Dourados (UFGD)</b> é um dos principais pilares do Hub de Inovações, oferecendo suporte acadêmico, estrutura laboratorial e financiamento para o desenvolvimento de pesquisas aplicadas. <br/><br/> A parceria com a UFGD permite que estudantes e pesquisadores tenham acesso a <i>recursos institucionais, equipamentos de última geração e programas de incentivo</i> que facilitam a criação e implementação de novas tecnologias. Além disso, a universidade atua como mediadora entre a academia e o setor produtivo, promovendo a transferência de conhecimento e a integração entre teoria e prática. <br/><br/> Por meio de editais de pesquisa, programas de iniciação científica e apoio à inovação, a UFGD fortalece o compromisso com a transformação social e econômica, preparando profissionais qualificados e impulsionando o empreendedorismo tecnológico.",
+            "link": "/partners/ufgd#about",
+            "color": "#83A331",
+            "image": ""
+        }
+    ],
+    "textBanner_2": "Os nossos parceiros acreditam em nós e no futuro!",
+    "event": {
+        "title": "Eventos promovidos pelo <br/> Hub de inovações, parceiros e UFGD",
+        "pEvent": "O <b>Hub de Inovações da UFGD</b> e seus parceiros promovem eventos que conectam a comunidade acadêmica, pesquisadores, empreendedores e profissionais do mercado, criando oportunidades para inovação e desenvolvimento tecnológico. <br/><br/> Os eventos incluem <i>workshops, hackathons, feiras tecnológicas, seminários e competições acadêmicas</i>, proporcionando um ambiente colaborativo para troca de conhecimento e novas parcerias. Além disso, promovemos palestras com especialistas de diversas áreas, trazendo insights sobre as tendências e desafios do setor. <br/><br/> Nosso objetivo é transformar ideias em soluções reais, incentivando a experimentação e o aprendizado prático. Cada evento é uma oportunidade para networking, capacitação e desenvolvimento de projetos inovadores que impactam positivamente a sociedade.",
+        "nextEvents": {
+            "title": "Próximos eventos",
+            "nextEvents": [
+                {
+                    "title": "Nome do evento a ser realizado",
+                    "p": "Breve descrição do evento ",
+                    "local": {
+                        "local": "Local do evento",
+                        "time": "10h"
+                    },
+                    "linkTitle": "Inscrever-se",
+                    "link": ""
+                }
+            ]
+        },
+        "oldEvents": {
+            "title": "Eventos já realizados",
+            "oldEvents": [
+                {
+                    "title": "Nome do evento",
+                    "time": "Data de realização",
+                    "p": "descrição do evento ",
+                    "inscriptions": {
+                        "title": "inscrições realizadas:",
+                        "value": "401"
+                    },
+                    "sponsors": {
+                        "title": "Patrocinadores do evento:",
+                        "value": [
+                            "UFGD",
+                            "Petrobras",
+                            "CNPQ",
+                            "CREA"
+                        ]
+                    },
+                    "images": [
+                        ""
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,83 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.contentKpiGraph{
+    width: 50%;
+    max-width: 600px;
+    min-width: 500px;
+    height: auto;
+    min-height:  590px;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+
+    @include Flex(column, nowrap, start, start);
+    gap: 20px;
+
+    .title{
+        font-size: .9em;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .contentGraph{
+        width: 100%;
+        height: 300px;
+        margin-top: 15px;
+    }
+
+    .contentSubtext{
+        width: 100%;
+        height: auto;
+        padding: 30px 5px 10px 15px;
+        box-sizing: border-box;
+        @include Flex(row, wrap, start, start);
+        gap: 15px;
+        position: relative;
+        margin-top: -15px;
+
+        &::before{
+            content: attr(data-text);
+            font-size: .7em;
+            text-transform: uppercase;
+            color: #A9A9A9;
+            font-weight: bold;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .tag{
+            width: 100%;
+            height: 25px;
+            padding: 2px;
+            box-sizing: border-box;
+            position: relative;
+            @include Flex(row, nowrap, center, start);
+            gap:8px;
+            
+            div{
+                background-color: #1a1a1a;
+                content: "";
+                display: block;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;                
+            }
+            span{
+                color: #5E5E5E;
+                font-size: .8em;
+                text-align: left;
+            }
+        }
+    }
+}
