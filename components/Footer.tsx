@@ -22,7 +22,7 @@ export default function Footer({ messages }: { messages: any }) {
                 <div className={style.contentFlexFooter}>
                     <div className={style.contentInformation}>
                         <div className={style.hubIcon}>
-                            <img src={""} alt="Name Project" />
+                            <img src={"/icons/innovationHub_icon.svg"} alt="hub de inovações" />
                         </div>
                         <div className={style.contentSocialMedia}>
                             <Link href={""} target="_blank" rel="noopener noreferrer"><button title="Instagram" className={style.buttonSocialMedia}><img src={"/icons/instagram_icon.png"} alt="" /></button></Link>

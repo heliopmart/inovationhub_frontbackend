@@ -186,7 +186,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                  <hr />
                 <DynamicTable title={messages.financial.title_4} p={messages.financial.p_4} columnDefs={columnDefs} rowData={rowData} key={"Bids_table"}/>
             </main>
-            <section className={styles.docsSection}>
+            <section className={styles.docsSection} id="docs">
                 <h3 className={styles.title} dangerouslySetInnerHTML={{__html: messages.ClosedFinancialStatementTittle}}/>
                 <Docs docs={docsData} />
             </section>  

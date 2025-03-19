@@ -1,0 +1,27 @@
+{
+    "titlePage": "Don't worry, just reset your password",
+    "pPage": "Only students and professors can register for the innovation hub. Log in using your institutional email.",
+    "warning": [
+        "Fill in all the fields below!",
+        "Oops! We're experiencing server errors.",
+        "Oh no! We're facing instabilities.",
+        "Only UFGD institutional emails are valid.",
+        "Enter your full name.",
+        "It looks like this email is already in use. How about LOGGING IN?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "Email*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Your institutional email"
+        }
+    },
+    "pWarningPassword": "If there is a registered email, you will receive instructions on how to reset your password.<br/><br/>If you are unable to reset it, send an email to: <br/><br/> <u> suporte.hubdeinovacoes@gmail.com </u>",
+    "textButton": "Send Email",
+    "others": {
+        "text": "Don't have an account yet? How about",
+        "textLink": "Creating one.",
+        "link": "/register"
+    }
+}

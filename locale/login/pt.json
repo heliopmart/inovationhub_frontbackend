@@ -1,0 +1,33 @@
+{
+    "titlePage": "Entre e mostre o que você pode fazer! ",
+    "pPage": "Apenas discentes e docentes podem inscrever-se no hub de inovações, faça o login com seu e-mail institucional",
+    "warning": [
+        "Preencha todos os campo abaixo!",
+        "Sua senha parece ser fraca, recomendamos modifica-la.",
+        "Ops! estamos com erros no nosso servidor.",
+        "Ah não! estamos enfrentando instabilidades.",
+        "Seu nome não parece correto.",
+        "Coloque seu nome completo.",
+        "Parece que esse email já está em uso, que tal fazer LOGIN?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "E-mail*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Seu email institucional"
+        },
+        "password": {
+            "text": "Senha (min: 8 caracteres)*",
+            "minLenght": 8,
+            "type": "password",
+            "placeholder": "Sua senha mais segura"
+        }
+    },
+    "textButton": "Entrar",
+    "others": {
+        "text": "ainda não tem uma conta, que tal",
+        "textLink": "Criar uma.",
+        "link": ""
+    }
+}

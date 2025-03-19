@@ -1,0 +1,132 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.containerMain{
+    width: 100vw;
+    min-height: calc(100vh - 95px);
+    height: auto;
+    padding: 5% 5% 40px 5%;
+    padding: 5%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, center);
+    gap: 5vh;
+    background: linear-gradient(78deg, #fff 46%, #FFD6BB 100%);
+
+    h1{
+        font-size: 2.3em;
+        color: #1a1a1a;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .content{
+        width: 40vw;
+        min-height: 60vh;
+        padding: 25px 25px 50px 25px;
+        padding: 25px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+        @include Flex(column, nowrap, center, start);
+        gap: 10px;
+        
+        p{
+            font-size: .9em;
+            color: #5E5E5E;
+            font-weight: 100;
+            text-align: center;
+            width: 80%;
+            min-width: 250px;
+            margin: 0px auto;
+        }
+
+        hr{
+            width: 50%;
+            height: 1px;
+            background-color: #CCCCCC;
+        }
+        
+        .warning{
+            display:none;
+            width: 90%;
+            height: auto;
+            min-height: 40px;
+            padding: 8px 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            background-color: #964B98;
+            
+
+            span{
+                color: #fff;
+                font-size: .9em;
+                text-align: left;
+            }
+        }
+
+        .contentInputs{
+            width: 70%;
+            height: auto;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            @include Flex(column, nowrap, center, start);
+            gap: 25px;
+            
+            .button{
+                min-width: 220px;
+                width: 30%;
+                height: 55px;
+                margin-top: 25px;
+                border-radius: 5px;
+                font-size: .9em;
+                font-family: "Inknut Antiqua", serif;
+                background-color: #E9A476;
+                padding: 5px 20px 5px 20px;
+                box-sizing: border-box;
+                color: #fff;
+                text-decoration: none;
+                border: 0px;
+                cursor: pointer;
+                transition: .1s;
+                &:hover{
+                    background-color: #d89264;
+                }
+            }
+
+            .warningPassword{
+                display:none;
+                width: 100%;
+                height: auto;
+                font-size: .9em;
+                color: #1a1a1a;
+                text-align: center;
+                margin-top: 20px;
+
+                u{
+                    cursor: pointer;
+                }
+            }
+        }
+        .other{
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1em;
+            color: #1a1a1a;
+            font-weight: 100;
+            a{
+                text-transform: uppercase;
+                text-decoration: underline;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    
+}

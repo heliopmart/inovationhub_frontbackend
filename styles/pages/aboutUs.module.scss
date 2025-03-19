@@ -251,3 +251,22 @@
     gap: 7vh;
     margin-top: 40px;
 }
+
+.docsSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 5vh;
+
+    .titleCoor{
+        font-size: 1.9em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        text-align: left;
+        font-weight: bold;
+        position: relative;
+        left: -40px;
+    }
+}

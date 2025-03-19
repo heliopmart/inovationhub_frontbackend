@@ -1,0 +1,100 @@
+{
+    "titlePage": "Inscreva-se para construir o futuro! ",
+    "pPage": "Apenas discentes e docentes podem inscrever-se no hub de inovações, faça o cadastro com seu e-mail institucional UFGD",
+    "warning": [
+        "Apenas e-mails institucionais UFGD podem ser cadastrados",
+        "Preencha todos os campo abaixo!",
+        "Sua senha parece ser fraca, recomendamos modifica-la.",
+        "Ops! estamos com erros no nosso servidor.",
+        "Ah não! estamos enfrentando instabilidades.",
+        "Seu nome não parece correto.",
+        "Coloque seu nome completo.",
+        "Escolha o curso que você está cursando para continuar.",
+        "Parece que esse email já está em uso, que tal fazer LOGIN?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "E-mail*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Seu email institucional"
+        },
+        "name": {
+            "text": "Nome Completo*",
+            "minLenght": 6,
+            "type": "text",
+            "placeholder": "Seu nome completo"
+        },
+        "password": {
+            "text": "Senha (min: 8 caracteres)*",
+            "minLenght": 8,
+            "type": "password",
+            "placeholder": "Sua senha mais segura"
+        },
+        "course": {
+            "text": "Qual curso você está cursando?",
+            "options": [
+                [
+                    "Administração",
+                    "Ciências Contábeis",
+                    "Ciências Econômicas"
+                ],
+                [
+                    "Agronomia",
+                    "Engenharia Agrícola",
+                    "Engenharia de Aquicultura",
+                    "Zootecnia"
+                ],
+                [
+                    "Biotecnologia",
+                    "Ciências Biológicas - Bacharelado",
+                    "Ciências Biológicas - Licenciatura",
+                    "Gestão Ambiental"
+                ],
+                [
+                    "Engenharia de Computação",
+                    "Física",
+                    "Matemática",
+                    "Química - Bacharelado",
+                    "Química - Licenciatura",
+                    "Sistemas de Informação"
+                ],
+                [
+                    "Ciências Sociais",
+                    "Geografia",
+                    "História",
+                    "Psicologia"
+                ],
+                [
+                    "Medicina",
+                    "Nutrição"
+                ],
+                [
+                    "Artes Cênicas",
+                    "Letras"
+                ],
+                [
+                    "Direito",
+                    "Relações Internacionais"
+                ],
+                [
+                    "Educação Física",
+                    "Pedagogia"
+                ],
+                [
+                    "Engenharia de Alimentos",
+                    "Engenharia de Energia",
+                    "Engenharia de Produção",
+                    "Engenharia Civil",
+                    "Engenharia Mecânica"
+                ]
+            ]
+        }
+    },
+    "textButton": "Inscrever-se",
+    "others": {
+        "text": "Já tem uma conta, que tal",
+        "textLink": "ENTRAR",
+        "link": ""
+    }
+}

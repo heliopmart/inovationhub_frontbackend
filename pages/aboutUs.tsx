@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import {HeaderMinify} from "@/components/HeaderMinify";
 import {TextImageDescrition, TextTwoImageDescrition} from "@/components/TextImageDescrition";
 import {ShowPeople} from '@/components/ShowPeople'
+import {Docs} from '@/components/Docs'
 
 import styles from "@/styles/pages/aboutUs.module.scss"
 import 'swiper/css';
@@ -27,6 +28,44 @@ interface InterfaceShowPeople{
     graduations: string[],
     role: string
 }
+
+interface InterfaceDocs{
+    title: string,
+    files: {
+        name: string,
+        link: string
+    }[]
+}
+
+const docsData: InterfaceDocs[] = [
+    {
+        title: "Sobre o projeto",
+        files: [
+            {
+                name: "Projeto de extensão - Hub de inovações - Reitoria de extensão UFGD",
+                link: ""
+            }
+        ]
+    },
+    {
+        title: "Documentos do HUB",
+        files: [
+            {
+                name: "Modelo de submissão de equipe - hub de inovações UFGD",
+                link: ""
+            },
+            {
+                name: "Modelo de requisição de orçamento - hub de inovações UFGD",
+                link: ""
+            },
+            {
+                name: "Modelo de levantamento de licitações - hub de inovações UFGD",
+                link: ""
+            }
+        ]
+    }
+]
+
 
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
@@ -167,8 +206,9 @@ export default function aboutUs({ messages }: { messages: any }) {
                 </TextTwoImageDescrition>
             </section>
             <hr />
-            <section className={styles.docs} id="docs">
-
+            <section className={styles.docsSection} id="docs">
+                <span className={styles.titleCoor}>{messages.responsible.nucleusCoordinatorsTitle}</span>
+                <Docs docs={docsData} key={"Docs-AboutUS"}/>
             </section>
 
             {txtFooter?(<Footer messages={txtFooter}/> ):""}

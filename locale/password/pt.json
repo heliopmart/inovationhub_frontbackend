@@ -1,0 +1,27 @@
+{
+    "titlePage": "Não se preocupe, é só redefinir sua senha",
+    "pPage": "Apenas discentes e docentes podem inscrever-se no hub de inovações, faça o login com seu e-mail institucional",
+    "warning": [
+        "Preencha todos os campo abaixo!",
+        "Ops! estamos com erros no nosso servidor.",
+        "Ah não! estamos enfrentando instabilidades.",
+        "Apenas e-mails institucional UFGD são validos",
+        "Coloque seu nome completo.",
+        "Parece que esse email já está em uso, que tal fazer LOGIN?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "E-mail*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Seu email institucional"
+        }
+    },
+    "pWarningPassword": "Caso houver um e-mail cadastrado, você receberá instruções de como redefinir sua senha.<br/><br/>Caso não consiga, envie um e-mail para: <br/><br/> <u> suporte.hubdeinovações@gmail.com </u>",
+    "textButton": "Enviar E-mail",
+    "others": {
+        "text": "ainda não tem uma conta, que tal",
+        "textLink": "Criar uma.",
+        "link": "/register"
+    }
+}

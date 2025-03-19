@@ -1,0 +1,100 @@
+{
+    "titlePage": "Sign up to build the future!",
+    "pPage": "Only students and professors can register for the innovation hub. Sign up using your UFGD institutional email.",
+    "warning": [
+        "Only UFGD institutional emails can be registered.",
+        "Fill in all the fields below!",
+        "Your password seems weak; we recommend changing it.",
+        "Oops! We're experiencing server errors.",
+        "Oh no! We're facing instabilities.",
+        "Your name doesn't seem correct.",
+        "Enter your full name.",
+        "Choose the course you are enrolled in to continue.",
+        "It looks like this email is already in use. How about logging in?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "Email*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Your institutional email"
+        },
+        "name": {
+            "text": "Full Name*",
+            "minLenght": 6,
+            "type": "text",
+            "placeholder": "Your full name"
+        },
+        "password": {
+            "text": "Password (min: 8 characters)*",
+            "minLenght": 8,
+            "type": "password",
+            "placeholder": "Your most secure password"
+        },
+        "course": {
+            "text": "Which course are you enrolled in?",
+            "options": [
+                [
+                    "Business Administration",
+                    "Accounting",
+                    "Economics"
+                ],
+                [
+                    "Agronomy",
+                    "Agricultural Engineering",
+                    "Aquaculture Engineering",
+                    "Animal Science"
+                ],
+                [
+                    "Biotechnology",
+                    "Biological Sciences - Bachelor's",
+                    "Biological Sciences - Teaching Degree",
+                    "Environmental Management"
+                ],
+                [
+                    "Computer Engineering",
+                    "Physics",
+                    "Mathematics",
+                    "Chemistry - Bachelor's",
+                    "Chemistry - Teaching Degree",
+                    "Information Systems"
+                ],
+                [
+                    "Social Sciences",
+                    "Geography",
+                    "History",
+                    "Psychology"
+                ],
+                [
+                    "Medicine",
+                    "Nutrition"
+                ],
+                [
+                    "Performing Arts",
+                    "Languages and Literature"
+                ],
+                [
+                    "Law",
+                    "International Relations"
+                ],
+                [
+                    "Physical Education",
+                    "Pedagogy"
+                ],
+                [
+                    "Food Engineering",
+                    "Energy Engineering",
+                    "Production Engineering",
+                    "Civil Engineering",
+                    "Mechanical Engineering"
+                ]
+            ]
+        }
+    },
+    "textButton": "Sign up",
+    "others": {
+        "text": "Already have an account? How about",
+        "textLink": "LOGGING IN",
+        "link": ""
+    }
+}

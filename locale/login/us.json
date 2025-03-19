@@ -1,0 +1,33 @@
+{
+    "titlePage": "Log in and show what you can do!",
+    "pPage": "Only students and professors can register for the innovation hub. Log in using your institutional email.",
+    "warning": [
+        "Fill in all the fields below!",
+        "Your password seems weak; we recommend changing it.",
+        "Oops! We're experiencing server errors.",
+        "Oh no! We're facing instabilities.",
+        "Your name doesn't seem correct.",
+        "Enter your full name.",
+        "It looks like this email is already in use. How about LOGGING IN?"
+    ],
+    "inputs": {
+        "email": {
+            "text": "Email*",
+            "minLenght": 10,
+            "type": "email",
+            "placeholder": "Your institutional email"
+        },
+        "password": {
+            "text": "Password (min: 8 characters)*",
+            "minLenght": 8,
+            "type": "password",
+            "placeholder": "Your most secure password"
+        }
+    },
+    "textButton": "Log in",
+    "others": {
+        "text": "Don't have an account yet? How about",
+        "textLink": "Creating one.",
+        "link": ""
+    }
+}

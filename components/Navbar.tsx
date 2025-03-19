@@ -51,10 +51,10 @@ export default function Navbar({ messages, page, styleColor }: { messages: any, 
                 }
             </div>
             <div className={styles.userAction}>
-                <span className={styles.loginText}>{messages.loginText}</span>
-                <button className={`${styles.buttonRegistre} ${styles.registreText}`} style={{backgroundColor: styleColor ? styleColor : ""}}>
+                <Link href={"/login"}><span className={styles.loginText}>{messages.loginText}</span></Link>
+                <Link href={"/register"}><button className={`${styles.buttonRegistre} ${styles.registreText}`} style={{backgroundColor: styleColor ? styleColor : ""}}>
                     {messages.registreText}
-                </button>
+                </button></Link>
             </div>
         </nav>
     );
