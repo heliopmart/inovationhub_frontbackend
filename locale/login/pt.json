@@ -28,6 +28,6 @@
     "others": {
         "text": "ainda não tem uma conta, que tal",
         "textLink": "Criar uma.",
-        "link": ""
+        "link": "/register"
     }
 }

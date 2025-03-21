@@ -42,7 +42,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                         
                         <button className={styles.button} title={messages.textButton} style={{background: "#72873B"}}>{messages.textButton}</button>
                     </form>
-                    <span className={styles.other}>{messages.others.text} <Link href={messages.others.textLink}>{messages.others.textLink}</Link></span>
+                    <span className={styles.other}>{messages.others.text} <Link href={messages.others.link}>{messages.others.textLink}</Link></span>
                 </section>
             </main>
         </>

@@ -1,3 +1,116 @@
 {
-    "titleHeader": "Núcleos Temáticos"
-}
+    "titleHeader": "Thematic Nuclei",
+    "thematicNucleiSectionDescription": {
+      "title": "What are <b>Thematic Nuclei</b>?",
+      "image": "",
+      "p": "<b>Thematic nuclei</b> are <i>specialized organizational structures</i> within the UFGD Innovation Hub, created to <b>divide responsibilities, optimize processes, and promote interdisciplinarity</b> in innovation projects. Each nucleus has a specific function, bringing together teams and knowledge focused on strategic areas such as <i>engineering, management, legal, communication, and research</i>.<br><br>They operate like autonomous but integrated \"departments\", <b>ensuring that all aspects of a project are addressed with technical, scientific, and administrative excellence</b>. This structure facilitates collaboration across different fields of knowledge and ensures comprehensive support for projects from conception to execution and dissemination.<br><br>Additionally, each nucleus is led by a manager responsible for coordinating activities and ensuring communication with the Hub's founding team. With this structure, the Hub strengthens management, fosters innovation, and prepares students for real-world challenges in the market and applied research."
+    },
+    "nuclei": [
+      {
+        "nucleiName": "Engineering and Development",
+        "p": "The Engineering and Development Nucleus is responsible for transforming ideas into applicable technological solutions, integrating knowledge from various engineering fields. Its focus is on the development of products, prototypes, and innovative systems, using advanced methodologies in design, computational modeling, embedded electronics, and automation.<br/> Projects from this nucleus range from creating smart devices to developing vehicles, industrial equipment, and energy-efficient systems. Additionally, the team works with agile methodologies to ensure a continuous innovation process, with experimental validations and rigorous testing.<br/><br/> Main activities:<br/><br/> &#10003; Development of functional prototypes and MVPs (Minimum Viable Products);<br/> &#10003; Application of concepts from mechanical, electrical, electronic, and computer engineering;<br/> &#10003; Use of 3D modeling, simulation, and structural analysis software;<br/> &#10003; Implementation of automated and electronic systems for innovative solutions;<br/> &#10003; Integration of artificial intelligence and IoT (Internet of Things) in new products.<br/><br/> The nucleus aims to promote interdisciplinarity, connecting engineering students and professionals with other fields, ensuring that innovation is applied practically and has real impact on industry and society.",
+        "roles": {
+          "director": {
+            "textRole": "Director of the Engineering and Development Nucleus",
+            "name": "Student Name",
+            "email": "studentemail@estudante.ufgd.br",
+            "tell": "00000-0000"
+          },
+          "coordinator": {
+            "textRole": "Coordinator of the Engineering and Development Nucleus",
+            "name": "Professor Name",
+            "email": "professoremail@ufgd.br",
+            "tell": "00000-0000"
+          }
+        },
+        "color_1": "#D88532",
+        "color_2": "#F6C53F",
+        "imageBanner": ""
+      },
+      {
+        "nucleiName": "Management and Resource Acquisition",
+        "p": "This nucleus is responsible for ensuring the financial sustainability of the Hub's projects, working on investment acquisition, strategic partnerships, and proposal submissions to funding calls and programs. It also assists in the financial planning of initiatives, seeking to optimize available resources and ensure the economic feasibility of the developed solutions. Additionally, it promotes training and mentoring in project management, entrepreneurship, and innovation.",
+        "roles": {
+          "director": {
+            "textRole": "Director of the Management and Resource Acquisition Nucleus",
+            "name": "Student Name",
+            "email": "studentemail@estudante.ufgd.br",
+            "tell": "00000-0000"
+          },
+          "coordinator": {
+            "textRole": "Coordinator of the Management and Resource Acquisition Nucleus",
+            "name": "Professor Name",
+            "email": "professoremail@ufgd.br",
+            "tell": "00000-0000"
+          }
+        },
+        "color_1": "#378BBE",
+        "color_2": "#68C5FF",
+        "imageBanner": ""
+      },
+      {
+        "nucleiName": "Legal and Regulatory",
+        "p": "Focused on regulation and innovation protection, the Legal and Regulatory Nucleus provides legal support for the Hub's projects. It works on drafting contracts, patents, and intellectual property registrations, ensuring that creations are protected and follow all legal norms. It also assists with regulatory compliance of the products and technologies developed, guiding participants on current legislation and best compliance practices.",
+        "roles": {
+          "director": {
+            "textRole": "Director of the Legal and Regulatory Nucleus",
+            "name": "Student Name",
+            "email": "studentemail@estudante.ufgd.br",
+            "tell": "00000-0000"
+          },
+          "coordinator": {
+            "textRole": "Coordinator of the Legal and Regulatory Nucleus",
+            "name": "Professor Name",
+            "email": "professoremail@ufgd.br",
+            "tell": "00000-0000"
+          }
+        },
+        "color_1": "#E44545",
+        "color_2": "#FF7979",
+        "imageBanner": ""
+      },
+      {
+        "nucleiName": "Marketing and Communication",
+        "p": "The Marketing and Communication Nucleus is responsible for giving visibility to the projects developed in the Hub, promoting initiatives and connecting participants to the market. It manages social media, events, visual identity, and communication strategies to attract investors, partners, and new talents. Additionally, it works on institutional campaigns and strengthening the Innovation Hub's brand inside and outside the university.",
+        "roles": {
+          "director": {
+            "textRole": "Director of the Marketing and Communication Nucleus",
+            "name": "Student Name",
+            "email": "studentemail@estudante.ufgd.br",
+            "tell": "00000-0000"
+          },
+          "coordinator": {
+            "textRole": "Coordinator of the Marketing and Communication Nucleus",
+            "name": "Professor Name",
+            "email": "professoremail@ufgd.br",
+            "tell": "00000-0000"
+          }
+        },
+        "color_1": "#AA3DD6",
+        "color_2": "#D17DF2",
+        "imageBanner": ""
+      },
+      {
+        "nucleiName": "Research and Innovation",
+        "p": "Focused on scientific production and the search for innovative solutions, the Research and Innovation Nucleus promotes integration between academia and industry. Its goal is to encourage the development of emerging technologies, foster applied research, and establish collaborations with universities and innovation centers. The nucleus also supports scientific publications, organization of conferences, and participation in academic competitions, reinforcing the Hub's role as a center of excellence in technological innovation.",
+        "roles": {
+          "director": {
+            "textRole": "Director of the Research and Innovation Nucleus",
+            "name": "Student Name",
+            "email": "studentemail@estudante.ufgd.br",
+            "tell": "00000-0000"
+          },
+          "coordinator": {
+            "textRole": "Coordinator of the Research and Innovation Nucleus",
+            "name": "Professor Name",
+            "email": "professoremail@ufgd.br",
+            "tell": "00000-0000"
+          }
+        },
+        "color_1": "#5C9A53",
+        "color_2": "#81BD78",
+        "imageBanner": ""
+      }
+    ]
+  }
+  

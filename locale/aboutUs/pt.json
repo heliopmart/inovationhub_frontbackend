@@ -30,12 +30,31 @@
         "title": "<b> Fundadores </b> do Hub de inovações | UFGD",
         "founders": [
             {
-                "image": "",
+                "image": "/assets/founders/helio_image.jpg",
                 "name": "Hélio Peres Martins Neto",
                 "socialMedia": [
                     {
                         "type": "instagran",
-                        "link": ""
+                        "link": "https://www.instagram.com/heliopmart/"
+                    },
+                    {
+                        "type": "linkedin",
+                        "link": "https://linkedin.com/in/heliopmart"
+                    }
+                ],
+                "graduations": [
+                    "Engenharia Mecânica UFGD",
+                    "Engenharia de software UNIGRAN"
+                ],
+                "role": "Diretor"
+            },
+            {
+                "image": "",
+                "name": "Guilherme",
+                "socialMedia": [
+                    {
+                        "type": "instagran",
+                        "link": "https://www.instagram.com/gu1b4s_/"
                     },
                     {
                         "type": "linkedin",
@@ -44,7 +63,7 @@
                 ],
                 "graduations": [
                     "Engenharia Mecânica UFGD",
-                    "Engenharia de software UNIGRAN"
+                    "3º semestre"
                 ],
                 "role": "Diretor"
             }
@@ -61,8 +80,8 @@
         "nucleusCoordinatorsTitle": "Coordenadores-tutores dos núcleos",
         "nucleusCoordinators": [
             {
-               "image": "",
-                "name": "Nome do tutor",
+               "image": "/assets/founders/gregolin_coor_image.jpg",
+                "name": "Prof. Rafael Ferreira Gregolin",
                 "socialMedia": [
                     {
                         "type": "instagran",
@@ -70,7 +89,7 @@
                     },
                     {
                         "type": "linkedin",
-                        "link": ""
+                        "link": "https://www.linkedin.com/in/rafael-ferreira-gregolin-aa525725/"
                     }
                 ],
                 "graduations": [
@@ -90,5 +109,8 @@
             "title": "UFGD no cenário <pink>nacional e internacional</pink>",
             "p": "No cenário nacional, a UFGD se posiciona como um centro de inovação e desenvolvimento sustentável, atraindo investimentos, parcerias com empresas e participação em programas de incentivo à tecnologia. O Hub cria oportunidades para que pesquisadores e estudantes se destaquem em competições, editais e eventos de inovação, aumentando a visibilidade e o reconhecimento da universidade em diferentes setores da indústria e da ciência. <br/> Em nível internacional, o Hub permite que a UFGD estabeleça parcerias estratégicas com universidades, centros de pesquisa e empresas globais, ampliando o intercâmbio de conhecimento e o acesso a tecnologias de ponta. Além disso, a inserção da UFGD em redes de inovação fortalece sua reputação como uma instituição comprometida com soluções de impacto global, tornando-se um modelo de referência para outras universidades. <br/> O Hub de Inovações da UFGD não apenas transforma a realidade acadêmica e profissional de seus participantes, mas também projeta a universidade como um motor de inovação, desenvolvimento tecnológico e crescimento sustentável para o Brasil e o mundo. "
         }
+    },
+    "docs": {
+        "title": "Transparência e Documentos"
     }
 }

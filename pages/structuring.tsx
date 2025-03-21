@@ -141,7 +141,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     return (
         <>
             <Navbar messages={txtNav} page="structuring" key={"structuring-Nav"}/>
-            <HeaderMinify title={messages.titleHeader}  background={"linear-gradient(78deg, #fff 46%, #FFD6BB 100%);"}  key={"structuring-Header"}/>
+            <HeaderMinify title={messages.titleHeader}  background={"linear-gradient(78deg, #fff 46%, #FFD6BB 100%);"}  key={"structurings_Headers"}/>
             <section className={styles.sectionPHeader}>
                 <p dangerouslySetInnerHTML={{__html: messages.pHeader}}/>
             </section>

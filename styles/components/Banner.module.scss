@@ -8,11 +8,13 @@
 
 .banner{
     width: 100%;
-    height: 120px;
+    min-height: 120px;
+    height: auto;
     background-color: #9775FF;
     @include Flex(row,wrap,center,center);
     gap: 0px;
     padding: 30px;
+    box-sizing: border-box;
 
     span{
         color: #fff;
@@ -22,4 +24,14 @@
     }
 }
 
-
+@media (max-width:  1390px) {
+    .banner{
+        min-height: 120px;
+        padding: 20px 10px;
+    
+        span{
+            font-size: 1.6em;
+            line-height: 36px;
+        }
+    }
+}

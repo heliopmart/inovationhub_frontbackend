@@ -183,3 +183,47 @@
         text-align: center;
     }
 }
+@media (max-width: 1390px) {
+    .sectionPHeader{
+        padding: 20px 10px;        
+        margin: 20px 0px;
+        p{
+            font-size: 1em;
+        }
+    }
+    
+    .diagramSection{
+        padding: 20px 10px;
+    
+        p{
+            font-size: 1em;
+        }
+    }
+    
+    .infrastructureSection{
+        padding: 20px 10px;
+    }
+    
+    .resourcesSection{
+        padding: 20px 10px;
+    }
+    
+    .sectionModuleTables{
+        padding: 20px 10px;    
+        .title{
+            font-size: 2em;
+        }
+    
+        p{
+            font-size: .9em;
+        }
+    }
+    
+    .docsSection{
+        padding: 20px 10px;
+    
+        .title{
+            font-size: 1.8em;
+        }
+    }
+}

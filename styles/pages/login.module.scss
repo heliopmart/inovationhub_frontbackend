@@ -11,7 +11,6 @@
     min-height: calc(100vh - 95px);
     height: auto;
     padding: 5% 5% 40px 5%;
-    padding: 5%;
     box-sizing: border-box;
     @include Flex(column, nowrap, center, center);
     gap: 5vh;
@@ -129,4 +128,63 @@
     }
 
     
+}
+
+@media (max-width: 1390px) {
+    .containerMain{
+        min-height: calc(100vh - 95px);
+        padding: 40px 10px 30px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 3vh;
+        background: #fff !important;
+    
+        h1{
+            font-size: 1.7em;
+            color: #1a1a1a;
+            text-align: center;
+            font-weight: bold;
+        }
+    
+        .content{
+            width: 100vw;
+            min-height: 60vh;
+            padding: 25px 10px 50px 10px;
+            border-radius: 0px;
+            background-color: #fff;
+            box-shadow: none;
+            
+            p{
+                width: 100%;
+            }
+    
+            hr{
+                width: 80%;
+            }
+            
+            .warning{
+                display: none;
+                width: 100%;
+                min-height: 45px;
+                
+                span{
+                    font-size: .8em;
+                }
+            }
+    
+            .contentInputs{
+                width: 100%;
+                
+                .button{
+                    min-width: 250px;
+                }
+
+            }
+            .other{
+                margin-top: 35px;
+                font-size: .9em;
+            }
+        }
+    
+        
+    }
 }

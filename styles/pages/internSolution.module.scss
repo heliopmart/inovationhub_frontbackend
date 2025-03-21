@@ -158,3 +158,46 @@
         gap: 40px;
     }
 }
+
+@media (max-width:  1390px) {        
+    .internSolutionSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 7vh;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        
+        p{
+            font-size: 1em;
+        }
+    }
+    
+    .mainSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, start, start);
+        gap: 10vh;
+    }
+    
+    .sectionSearch{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, start, start);
+        gap: 10vh;
+    }
+
+    .sectionKpis{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 10vh;
+    
+        .titleSectionKpis{
+            font-size: 1.8em;
+        }
+    
+        .kpisContainer{
+            width: 100%;
+            height: auto;
+            @include Flex(column, wrap, center, center);
+            gap: 60px;
+        }
+    }
+}

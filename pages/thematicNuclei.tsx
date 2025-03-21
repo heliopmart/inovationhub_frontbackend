@@ -51,12 +51,12 @@ export default function aboutUs({ messages }: { messages: any }) {
     return (
         <>
             <Navbar messages={txtNav} page="thematicNuclei" styleColor="#67839A" key={"thematicNuclei-Nav"}/>
-            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #C9E6FF 100%);"}  key={"thematicNuclei-Header"}/>
+            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #C9E6FF 100%);"}  key={"thematicNuclei-Headerrs"}/>
             <section className={styles.thematicNucleiSection} id="aboutThematicNuclei">
-                <TextImageDescrition image="/assets/image_2.png" direction="right">
+                <TextImageDescrition image={messages.thematicNucleiSectionDescription.image} direction="right">
                     <div className={styles.contentDescription}>
-                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html:" messages.aboutProject.whatIs.title"}}/>
-                        <p className={styles.pContent} dangerouslySetInnerHTML={{__html: "messages.aboutProject.whatIs.p"}}/>
+                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html:messages.thematicNucleiSectionDescription.title}}/>
+                        <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.thematicNucleiSectionDescription.p}}/>
                     </div>
                 </TextImageDescrition>
             </section>

@@ -6,13 +6,23 @@
     justify-content: $content;
 }
 
+.content{
+    width: 100%;
+    height: auto;
+}
+
+.containerNavAndMenu{
+    width: 100%;
+    height: auto;
+}
+
 .nav{
     width: 97vw;
     height: 75px;
     background-color: #fff;
     @include Flex(row, nowrap, center, space-between);
     gap: 20px;
-    padding: 10px 15px;
+    padding: 10px 35px;
 
     .nameProject{
         width: 460px;
@@ -182,4 +192,221 @@
     .button-registre{
         background-color: #E9A476;
     }
+}
+
+// -----------------------------------------------------
+
+.navMinify{
+    display: none;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    @include Flex(row, nowrap, center, space-between);
+    gap: 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+
+    .nameProject{
+        width: auto;
+        height: auto;
+        
+        .titleProject{
+            font-size: 1.1em;
+            font-family: "Inter", sans-serif;
+            font-weight: 800;
+            @include Flex(row, nowrap, center, start);
+            gap: 10px;
+        }
+
+        a{
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+        b{
+            color: #62A43F !important;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .menuNavigation{
+        width: 70px;
+        height: 50px;
+        position: relative;
+        @include Flex(row, nowrap, center, center);
+        border: 0px;
+        background-color: #fff;
+
+
+        div{
+            display: block;
+            width: 42px;
+            height: 6px;
+            border-radius: 10px;
+            background-color: #1a1a1a;
+            position: relative;
+
+            &::before{
+                content: "";
+                width: 42px;
+                height: 6px;
+                border-radius: 10px;
+                background-color: #1a1a1a;
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                top: 13px;
+            }
+
+            &::after{
+                content: "";
+                width: 42px;
+                height: 6px;
+                border-radius: 10px;
+                background-color: #1a1a1a;
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                bottom: 13px;
+            }
+        }
+    }
+}
+
+.navigationMinify{
+    width: 100%;
+    height: auto;
+    min-height: calc(100vh);
+    padding: 60px 10px 30px 10px;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 30px;
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    background-color: #fff;
+    z-index: 10;
+
+    .navigationText{
+        font-size: 1.5em;
+        font-family: "Inter", sans-serif;
+        color: #1a1a1a;
+        text-decoration: none;
+        position: relative;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: -22px;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 8px;
+            height: 8px;
+            border-bottom: 2px solid #1a1a1a;
+            border-right: 2px solid #1a1a1a;
+        }
+    }
+
+    .navigationTextselect{
+        font-weight: bold;
+    }
+    
+    .boxDetails{
+        width: 100%;
+        height: auto;
+        min-height: 60px;
+        border-radius: 5px;
+        background-color: #fff;
+        padding: 10px 10px 30px 10px;
+        border-bottom: 1px solid #686868;
+        box-sizing: border-box;
+        z-index: 1;
+
+        @include Flex(column, nowrap, center, center);
+        display: none;
+        gap: 25px;
+
+        a{
+            text-align: center;
+        }
+
+       
+
+        .navDetais{
+            font-size: 1.3em;
+            color: #424242;
+            font-family: "Inter", sans-serif;
+            text-align: center;
+
+            &:hover{
+                color: #1a1a1a;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .buttonRegistre{
+        width: 200px;
+        height: 50px;
+        margin-top: -10px;
+        border-radius: 5px;
+        font-size: .9em;
+        font-family: "Inknut Antiqua", serif;
+        background-color: #E9A476;
+        padding: 5px;
+        box-sizing: border-box;
+        color: #fff;
+        text-decoration: none;
+        border: 0px;
+        cursor: pointer;
+        transition: .1s;
+        &:hover{
+            background-color: #d89264;
+        }
+    }
+
+    .buttonLogin{
+        width: 200px;
+        height: 50px;
+        border-radius: 5px;
+        font-size: .9em;
+        margin-top: 30px;
+        font-family: "Inknut Antiqua", serif;
+        background-color: #8f57c4;
+        padding: 5px;
+        box-sizing: border-box;
+        color: #fff;
+        text-decoration: none;
+        border: 0px;
+        cursor: pointer;
+        transition: .1s;
+        &:hover{
+            background-color: #a36ada;
+        }
+    }
+}
+
+@media (max-width: 1390px) {
+    .content{
+        .nav{
+            display: none;
+        }
+        .containerNavAndMenu{
+            display: block;
+        }
+    }  
+}
+
+@media (min-width: 1391px) {
+    .content{
+        .nav{
+            display: flex;
+        }
+        .containerNavAndMenu{
+            display: none;
+        }
+    }  
 }

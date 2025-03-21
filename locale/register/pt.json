@@ -95,6 +95,6 @@
     "others": {
         "text": "Já tem uma conta, que tal",
         "textLink": "ENTRAR",
-        "link": ""
+        "link": "/login"
     }
 }

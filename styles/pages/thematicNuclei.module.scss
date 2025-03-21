@@ -62,3 +62,23 @@
         }
     }
 }
+
+@media (max-width:  1390px) {
+    
+    .thematicNucleiSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 7vh;
+    }
+
+    .mainSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 10vh;
+
+        .titleMainSection{
+            font-size: 1.7em;
+
+        }
+    }
+}

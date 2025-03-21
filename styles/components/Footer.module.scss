@@ -132,3 +132,74 @@
         }
     }
 }
+
+@media (max-width: 1390px) {
+    .footer{
+        width: 100vw;
+        padding: 30px 10px 20px 10px;
+        @include Flex(column, wrap, start, center);
+        gap: 40px;
+        margin-top: 50px;
+        overflow: hidden;
+    
+        .contentFlexFooter{
+            @include Flex(column, nowrap, center, center);
+            gap: 20px;
+
+            .contentInformation{
+                width: 100%;
+                max-width: 100%;
+                gap: 40px;
+            }
+
+            .contentSocialMedia{
+                width: 100%;
+                height: auto;
+                @include Flex(row, wrap, center, start);
+                flex-wrap: wrap !important;
+                gap: 20px;
+            }
+        
+            .contentSiteMap{
+                @include Flex(column, nowrap, center, start);
+                gap: 50px;
+                margin-top: 40px;
+                
+                .contentPages{
+                    width: 100%;
+                    @include Flex(column, wrap, center, start);
+                    gap: 20px;
+                    
+                    .titlePages{
+                        font-size: 1.1em;
+                        margin-bottom: 15px;
+                    }
+    
+                    a{
+                        text-align: center;
+                        span{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .contentDown{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, center, start);
+            gap: 25px;
+    
+            .copywriter{
+                font-size: .8em;
+                color: #3F3F3F;
+                text-align: center;
+    
+                i:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

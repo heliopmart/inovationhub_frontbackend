@@ -81,3 +81,29 @@
         }
     }
 }
+
+@media (max-width:  1390px) {
+    
+    .contentKpiGraph{
+        width: 100%;
+        max-width: 600px;
+        min-width: 300px;
+        min-height:  580px;
+        padding: 20px;
+        @include Flex(column, nowrap, start, start);
+        gap: 15px;
+
+        .title{
+            font-size: .8em;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .contentGraph{
+            width: 100%;
+            height: 300px;
+            margin-top: 15px;
+        }
+    }
+}

@@ -69,3 +69,25 @@
         }
     }
 }
+
+@media (max-width:  1390px) {
+    .event{
+        min-width: 330px;
+        min-height: 230px;
+        padding: 15px;
+        gap: 25px;
+
+        p{
+            font-size: .9em;
+        }
+    
+        .textLocalTime{
+            font-size: .9em;
+        }
+    
+        button{
+            font-size: .9em;
+        }
+    }
+    
+}

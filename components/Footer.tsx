@@ -1,12 +1,5 @@
 import Link from "next/link";
 import style from "@/styles/components/Footer.module.scss";
-
-// import InstgramIcon from "/icons/instagram_icon.png"
-// import DiscordIcon from "/icons/discord_icon.png"
-// import linkedinIcon from "/icons/linkedin_icon.png"
-// import TiktokIcon from "/icons/tiktok_icon.png"
-// import UfgdIcon from "/icons/ufgd_icon.png"
-
 interface InterfaceLiks{
     text: string,
     url: string

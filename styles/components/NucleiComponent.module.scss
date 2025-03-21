@@ -100,7 +100,7 @@
 
     .contentImage{
         width: 100%;
-        height: 150px;
+        height: 200px;
         border-radius: 2px;
         overflow: hidden;
         img{
@@ -108,6 +108,54 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+}
+
+@media (max-width:  1390px) {
+    .section{
+        .sectionRoles{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start,start);
+            gap: 10px;
+
+            .containerRole{
+                width: 100%;
+                height: auto;
+                @include Flex(row, nowrap, stretch, stretch);
+                gap: 10px;
+                margin-top: 20px;
+        
+                .contentRole{
+                    width: 50%;                    
+                    height: auto;
+                    span{
+                        font-size: .7em;
+                    }
+                }
+        
+                .contentInformations{
+                    width: 50%;
+                    min-height: 100px;
+                    height: auto;
+                    @include Flex(column, nowrap, start, center);
+                    gap: 20px;
+        
+                    .name{
+                        font-size: 1em;
+                        @include Flex(column, nowrap, start, start);
+                    }
+
+                    .email{
+                        white-space: nowrap;
+                        overflow: hidden; 
+                        text-overflow: ellipsis;
+                        max-width: 100%; 
+                        display: block; 
+                    }
+                }
+            }
         }
     }
 }

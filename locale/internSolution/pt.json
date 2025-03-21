@@ -10,7 +10,7 @@
             "p": "O <b>MotoStudent</b> é um projeto acadêmico de engenharia voltado para o desenvolvimento de <b>motocicletas de alta performance</b> para competições internacionais. <br/> Integrando conhecimentos de <i>engenharia mecânica, eletrônica e design automotivo</i>, a equipe projeta, fabrica e testa um protótipo funcional, aplicando inovação e pesquisa aplicada no setor de mobilidade. <br/><br/> O projeto faz parte do <b>Hub de Inovações da UFGD</b> e segue uma metodologia baseada em <b>KPIs (Key Performance Indicators)</b> para avaliar sua evolução. <br/> Os principais indicadores incluem o número de publicações científicas geradas, captação de recursos e patrocínios, desenvolvimento de novas tecnologias aplicadas ao setor automotivo e a empregabilidade dos membros da equipe após a participação no projeto. <br/><br/> Além do desenvolvimento técnico, o <b>MotoStudent</b> incentiva a interdisciplinaridade e a integração com empresas e startups, promovendo o espírito empreendedor e a inovação na engenharia nacional. <br/> O projeto prepara os participantes para desafios reais da indústria e reforça a posição da <b>UFGD</b> no cenário global de competições acadêmicas.",
             "link": "/team/motostudent#about",
             "color": "#C71037",
-            "image": ""
+            "image": "/images/project/motostudent_cover_image.webp"
         },
         {
             "nucleiTitle": "Projeto do núcleo de engenharia e desenvolvimento",
@@ -18,7 +18,7 @@
             "p": "A <b>Fazenda 4.0</b> é um projeto inovador focado no desenvolvimento de <b>soluções tecnológicas para o setor agrícola</b>, utilizando <i>sensores inteligentes, automação e Internet das Coisas (IoT)</i> para tornar a agricultura mais eficiente e sustentável. <br/> O objetivo é integrar tecnologias emergentes ao agronegócio, otimizando a produtividade e reduzindo impactos ambientais. <br/><br/> Parte do <b>Hub de Inovações da UFGD</b>, o projeto mede sua evolução por meio de <b>KPIs</b> que analisam o impacto das tecnologias desenvolvidas, a quantidade de parcerias firmadas com produtores rurais e startups do setor, além do retorno acadêmico dos estudantes envolvidos. <br/> Indicadores como a aplicação prática das soluções e a adoção de tecnologias inteligentes no campo são essenciais para garantir a eficiência do projeto. <br/><br/> A <b>Fazenda 4.0</b> busca fortalecer a conexão entre academia e setor produtivo, desenvolvendo pesquisas aplicadas e promovendo a inovação agrícola por meio de tecnologia acessível e sustentável.",
             "link": "/team/fazenda4#about",
             "color": "#319340",
-            "image": "/images/project/Image_test.png"
+            "image": "/images/project/fazenda4_image.webp"
         }
     ],
     "textBanner_2": "As pesquisas mudam o mundo para melhor!",

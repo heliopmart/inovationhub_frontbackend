@@ -85,7 +85,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     return (
         <>
             <Navbar messages={txtNav} page="aboutUs" styleColor="#72873B" key={"aboutUs-Nav"}/>
-            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #DFFFC7 100%);"}  key={"aboutUs-Header"}/>
+            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #DFFFC7 100%)"}  key={"aboutUs-Headers"}/>
             <main className={styles.aboutUsSection} id="aboutProject">
                 <TextImageDescrition image="/assets/image_2.png" direction="right">
                     <div className={styles.contentDescription}>
@@ -102,13 +102,13 @@ export default function aboutUs({ messages }: { messages: any }) {
             </main>
             <hr />
             <section className={styles.howDoesItWork}>
-                <TextTwoImageDescrition image_1="" image_2="" direction="left">
+                <TextTwoImageDescrition image_1="/assets/aboutWhatsHub_1_image.png" image_2="/assets/aboutWhatsHub_2_image.webp" direction="left">
                     <div className={styles.contentDescription}>
                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.howFun.title}}/>
                         <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.howFun.p}}/>
                     </div>
                 </TextTwoImageDescrition>
-                <TextImageDescrition image="/assets/image_4.png" direction="right">
+                <TextImageDescrition image="/assets/image_5.png" direction="right">
                     <div className={styles.contentDescription}>
                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.team.title}}/>
                         <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.team.p}}/>
@@ -120,7 +120,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <p dangerouslySetInnerHTML={{__html: messages.aboutProject.sustainability.p}}/>
             </section>
             <section className={styles.efficiency}>
-                <TextImageDescrition image="/assets/image_4.png" direction="left">
+                <TextImageDescrition image="/assets/aboutus_kpi_image.webp" direction="left">
                     <div className={styles.contentDescription}>
                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.efficiency.title}}/>
                         <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.aboutProject.efficiency.p}}/>
@@ -192,13 +192,13 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <span dangerouslySetInnerHTML={{__html: messages.ufgd.titlebanner}}/>
             </div>
             <section className={styles.sectionufgd}>
-                <TextImageDescrition image="" direction="left">
+                <TextImageDescrition image="/assets/ufgd_image.webp" direction="left">
                     <div className={styles.contentDescription}>
                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: messages.ufgd.ufgdImpacts.title}}/>
                         <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.ufgd.ufgdImpacts.p}}/>
                     </div>
                 </TextImageDescrition>
-                <TextTwoImageDescrition image_1="" image_2="" direction="right">
+                <TextTwoImageDescrition image_1="/assets/ufgd_internacional_image.png" image_2="/assets/ufgd_international_2_image.webp" direction="right">
                     <div className={styles.contentDescription}>
                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: messages.ufgd.ufgdRelatioships.title}}/>
                         <p className={styles.pContent} dangerouslySetInnerHTML={{__html: messages.ufgd.ufgdRelatioships.p}}/>
@@ -207,7 +207,7 @@ export default function aboutUs({ messages }: { messages: any }) {
             </section>
             <hr />
             <section className={styles.docsSection} id="docs">
-                <span className={styles.titleCoor}>{messages.responsible.nucleusCoordinatorsTitle}</span>
+                <span className={styles.titleCoor}>{messages.docs.title}</span>
                 <Docs docs={docsData} key={"Docs-AboutUS"}/>
             </section>
 

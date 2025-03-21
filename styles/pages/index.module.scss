@@ -76,6 +76,16 @@
     @include Flex(row, nowrap, center, center);
     gap: 4%;
 
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Para Firefox */
+    &::-webkit-scrollbar {
+        display: none; /* Para Chrome, Safari e Edge */
+    }
+
+    overflow-y: hidden;
+    overflow-x: scroll;
+
     &::before{
         content: attr(data-text);
         font-family: "Inter", sans-serif;
@@ -95,12 +105,13 @@
         width: 150px;
         height: 80px;
         border-radius: 5px;
-        background-color: #D9D9D9;
+        flex-shrink: 0; /* Garante que os itens não diminuam */
 
         img{
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: invert(41%) sepia(0%) saturate(1015%) hue-rotate(248deg) brightness(97%) contrast(86%);
         }
     }
 }
@@ -171,15 +182,70 @@
         right: 0px;
     }
 
-    .partnersIcon{
-        width: 110px;
-        height: 75px;
-        border-radius: 5px;
+    .content{
+        width: 100%;
+        height: auto;
+        @include Flex(row, nowrap, center, center);
+        gap: 5%;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Para Firefox */
+        &::-webkit-scrollbar {
+            display: none; /* Para Chrome, Safari e Edge */
+        }
 
-        img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        .partnersIcon{
+            width: 110px;
+            height: 75px;
+            border-radius: 5px;
+            flex-shrink: 0; /* Garante que os itens não diminuam */
+    
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1390px) {
+    .header{
+        padding: 40px 10px 70px 10px;
+        .titleHeader{
+            font-size: 1.8em;
+            line-height: 45px;
+        }
+
+        .pHeader{
+            font-size: .98em;
+            line-height: 26px;
+        }
+
+        .btnHeader{
+            font-size: 1em;
+        }
+    }
+
+    .main{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, start);
+        gap: 4vh;
+    }
+
+    .sectionProjects{
+        padding: 60px 10px 10px 10px;
+    }
+
+    .sectionPartners{
+        padding: 70px 10px 10px 10px;
+
+        .content{
+            justify-content: start;
         }
     }
 }

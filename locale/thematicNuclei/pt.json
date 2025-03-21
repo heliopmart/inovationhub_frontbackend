@@ -1,5 +1,10 @@
 {
     "titleHeader": "Núcleos Temáticos",
+    "thematicNucleiSectionDescription": {
+        "title": "O que são <b> Núcleos Temáticos </b>?",
+        "image": "/assets/nuclei_image.webp",
+        "p": "<b>Núcleos temáticos</b> são <i>estruturas organizacionais especializadas</i> dentro do Hub de Inovações da UFGD, criadas para <b>dividir responsabilidades, otimizar processos e promover a interdisciplinaridade</b> nos projetos de inovação. Cada núcleo possui uma função específica, reunindo equipes e conhecimentos voltados a áreas estratégicas como <i>engenharia, gestão, jurídico, comunicação e pesquisa</i>.<br><br>Eles funcionam como \"departamentos\" autônomos, mas integrados, <b>garantindo que todas as dimensões de um projeto sejam atendidas com excelência técnica, científica e administrativa</b>. Essa divisão facilita a colaboração entre diferentes áreas do conhecimento e assegura que os projetos tenham suporte completo desde a concepção até a execução e divulgação.<br><br>Além disso, cada núcleo é liderado por um gerente responsável por coordenar as atividades e garantir a comunicação com a equipe fundadora do Hub. Com essa estrutura, o Hub fortalece a gestão, promove a inovação e prepara os estudantes para os desafios reais do mercado e da pesquisa aplicada."
+    },
     "nuclei": [
         {
             "nucleiName": "Engenharia e Desenvolvimento",
@@ -20,7 +25,7 @@
             },
             "color_1": "#D88532",
             "color_2": "#F6C53F",
-            "imageBanner": ""
+            "imageBanner": "/assets/enginnerNuclei_image.png"
         },
 
 
@@ -43,7 +48,7 @@
             },
             "color_1": "#378BBE",
             "color_2": "#68C5FF",
-            "imageBanner": ""
+            "imageBanner": "/assets/managimentNuclei_image.webp"
         },
         {
             "nucleiName": "Jurídico e Normativo",
@@ -64,7 +69,7 @@
             },
             "color_1": "#E44545",
             "color_2": "#FF7979",
-            "imageBanner": ""
+            "imageBanner": "/assets/lawNuclei_image.png"
         },
         {
             "nucleiName": "Marketing e Comunicação",
@@ -85,7 +90,7 @@
             },
             "color_1": "#AA3DD6",
             "color_2": "#D17DF2",
-            "imageBanner": ""
+            "imageBanner": "/assets/marketingNuclei_image.png"
         },
         {
             "nucleiName": "Pesquisa e Inovação",
@@ -106,7 +111,7 @@
             },
             "color_1": "#5C9A53",
             "color_2": "#81BD78",
-            "imageBanner": ""
+            "imageBanner": "/assets/researchNuclei_image.png"
         }
     ]
 }

@@ -226,3 +226,57 @@
     }
 
 }
+
+@media (max-width: 1390px) {
+    .header{
+        height: 80vh;
+        background: linear-gradient(45deg, #725C99 0%,  #16023F 100%);
+        @include Flex(row,nowrap,center,center);
+
+        h1{
+            font-size: 1.8em;
+            line-height: 50px;
+        }
+    }
+
+    .externalSolutionSection{
+        padding: 20px 10px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        p{
+            font-size: 1em;
+        }
+    }
+
+    .mainSection{
+        padding: 20px 10px;
+        box-sizing: border-box;
+        @include Flex(column, nowrap, start, start);
+    }
+
+    .sectionEvent{
+        padding: 20px 10px;
+        margin-top: 20px;
+
+        .pEvent{
+            font-size: 1em;
+        }
+
+        .titleSectionEvent{
+            font-size: 1.6em;
+        }
+        
+        .containerEvents{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 40px;
+
+            .contentNextEvents{
+                @include Flex(column, wrap, center, center);
+                gap: 30px;
+            }
+        }
+
+    }
+}

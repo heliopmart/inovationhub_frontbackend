@@ -270,3 +270,130 @@
         left: -40px;
     }
 }
+
+@media (max-width: 1390px) {
+    .aboutUsSection{
+        width: 100%;
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 7vh;        
+    }
+    
+    .howDoesItWork{
+        width: 100%;
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, center);
+        gap: 7vh;   
+    }
+    
+    .sustainability{
+        width: 100%;
+        padding: 40px 10px;
+        margin-top: 30px;
+
+        @include Flex(column, nowrap, center, start);
+        gap: 60px;
+
+        h3{
+            font-size: 1.8em;
+        }
+
+        p{
+            font-size: 1em;
+        }
+    }
+
+    .efficiency{        
+        @include Flex(column, nowrap, center, center);
+        padding: 20px 10px; 
+        gap: 7vh;
+        margin-top: 40px;
+    }
+    
+    .founders{
+        padding: 20px 10px; 
+        @include Flex(column, nowrap, center, start);
+        gap: 7vh;
+
+        h2{
+            font-size: 1.3em;
+        }
+
+        .contentFounders{
+            min-height: 250px;
+        }
+    }
+
+    .responsible{
+        padding: 20px 10px; 
+        gap: 5vh;
+
+        h2{
+            position: relative;
+            left: 0px;
+        }
+    
+        p{
+            font-size: 1em;
+        }   
+        
+        .contentResponsible{
+            align-items: stretch;
+            gap: 10px;
+    
+            .contentName{
+                width: 50%;
+                height: 180px;
+                
+                span{
+                    font-size: .8em;    
+                }
+            }
+    
+            .contentInformation{
+                width: 50%;
+                min-height: 180px;
+                gap: 15px;
+    
+                .name{
+                    font-size: 1em;
+                    @include Flex(column, wrap, start, start);
+                    gap: 2px;
+                }
+    
+                .email{
+                    font-size: .8em;
+                }
+    
+                .tell{
+                    font-size: .8em;    
+                }
+            }
+        }
+    }
+
+    .contentBannerUfgd{
+        width: 100vw;
+        padding: 15px;
+        box-sizing: border-box;
+
+        span{
+            font-size: 1.5em;
+        }
+    }
+
+    .sectionufgd{
+        padding: 20px 10px;
+    }
+
+    .docsSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, start, start);
+        gap: 5vh;
+    
+        .titleCoor{
+            font-size: 1.9em;
+            left: 0px;
+        }
+    }
+}
