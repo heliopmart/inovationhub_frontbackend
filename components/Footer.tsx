@@ -6,8 +6,6 @@ interface InterfaceLiks{
 }
 
 export default function Footer({ messages }: { messages: any }) {
-    console.log(messages)
-
     return (
         <>
         {messages.footer ? (

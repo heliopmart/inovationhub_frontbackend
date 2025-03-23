@@ -1,0 +1,488 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.titleContent{
+    font-family: "Kalam", cursive;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.pContent{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.contentDescription{
+    width: 100%;
+    height: auto;
+
+    @include Flex(column, nowrap, left, start);
+    gap: 4vh;
+}
+
+.contentTitleDescription{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 0px;
+
+    .titleNuclei{
+        font-size: 1.35em;
+        color: #1a1a1a;
+        font-family: "Kalam", cursive;
+        font-weight: lighter;
+        text-align: left;
+    }
+
+    .titleContent{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 1.4em;
+        text-align: left;
+    }
+}
+
+.contentDescription{
+    a{
+        text-decoration: none;
+    }
+    .button{
+        width: auto;
+        min-width: 240px;
+        max-width: 300px;
+        height: 45px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 5px 20px;
+        background-color: #1a1a1a;
+        color: #fff;
+        font-size: .8em;
+        font-weight: 100;
+        border: none;
+        font-family: "Inter";
+        cursor: pointer;
+        transition: .2s ease-in-out;
+        &:hover{
+            opacity: 90%;
+        }
+    }
+}
+
+.teamSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+}
+
+.mainSection{
+    width: 100vw;
+    height: auto;
+    padding: 2% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 10vh;
+
+    .titleMainSection{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 2.3em;
+        text-align: center;
+    }
+}
+
+.sectionTeam{
+    width: 100vw;
+    height: auto;
+    padding: 2% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 10vh;
+
+    .contentTitle{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, start, start);
+        gap: 10px;
+         
+        h3{
+            font-family: "Kalam", cursive;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 2.1em;
+            text-align: left;
+        }
+
+        span{
+            font-size: 1em;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+    }
+
+    .contentTeam{
+        width: 100%;
+        height: auto;
+        @include Flex(row, nowrap, stretch, start);
+        gap: 10px;
+
+        .containerTeams{
+            width: 50%;
+            height: auto;
+            @include Flex(row, nowrap, start, start);
+            gap: 20px;
+
+            .column{
+                width: 130px;
+                height: auto;
+                @include Flex(column, nowrap, start, start);
+                gap: 20px;
+                
+                .ball{
+                    width: 130px;
+                    height: 130px;
+                    overflow: hidden;
+                    border: none;
+                    background-color: #b3b3b3;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    opacity: 70%;
+                    transition: .2s ease-in-out;
+
+                    &:hover{
+                        opacity: 100%;
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+             
+        }
+
+        .containerInformationTeam{
+            width: 50%;
+            height: auto;
+            min-height: 130px;
+            background-color: #fff;
+            padding: 25px 15px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            @include Flex(column, nowrap, center, center);
+            gap: 20px;
+
+            .image{
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                background-color: #b3b3b3;
+                overflow: hidden;
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .name{
+                font-size: 1em;
+                color: #1a1a1a;
+                text-transform: uppercase;
+                margin-top: 10px;
+            }
+
+            .contentSocialMedia{
+                width: 100%;
+                height: auto;
+                @include Flex(row, nowrap, center, center);
+                gap: 15px;
+
+                a{
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .contentGraduation{
+                width: 100%;
+                height: auto;
+                @include Flex(column, nowrap, center, center);
+                gap: 15px;
+
+                span{
+                    font-size: .9em;
+                    color: #1a1a1a;
+                    font-weight: 100;
+                }
+
+            }
+
+            .contentFunction{
+                width: 80%;
+                max-width: 450px;
+                min-width: 250px;
+                height: 50px;
+                border-radius: 5px;
+                background-color: #1a1a1a;
+                padding: 10px 15px;
+                box-sizing: border-box;
+                @include Flex(row, nowrap, center, center);
+
+                span{
+                    font-size: 1em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.sectionTransparency{
+    width: 100vw;
+    height: auto;
+    padding: 2% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 10vh;
+
+    .title{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .content{
+        width: 100%;
+        height: auto;
+        @include Flex(column, nowrap, start, start);
+        gap: 7vh;
+
+        .titleContent{
+            font-family: "Kalam", cursive;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 2em;
+            text-align: left;
+        }
+    }
+}
+
+.sectionContact{
+    width: 100vw;
+    height: auto;
+    padding: 2% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 10vh;
+
+    .title{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .container{
+        width: 100%;
+        height: auto;
+        @include Flex(row, wrap, center, center);
+        gap: 60px 20px;
+
+        .content{
+            min-width: 300px;
+            width: calc(50% - 10px);
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 20px;
+
+            .title{
+                font-family: "Inter", sans-serif;
+                font-size: 1.1em;
+                color: #1a1a1a;
+                font-weight: 100;
+            }
+
+            .contact{
+                width: 100%;
+                height: 60px;
+                background-color: #F0F0F0;
+                color: #1a1a1a;
+                font-size: 1em;
+                font-weight: bold;
+                border-radius: 5px;
+                padding: 10px 20px;
+                box-sizing: border-box;
+                line-height: 40px;
+            }
+        }
+    }
+}
+
+.sectionDocs{
+    width: 100vw;
+    height: auto;
+    padding: 2% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+
+    .title{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 2em;
+        text-align: left;
+    }
+}
+
+@media (max-width: 1390px) {
+    .teamSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, start, start);
+    }
+    
+    .mainSection{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, start);
+    
+        .titleMainSection{
+            font-size: 2.3em;
+        }
+    }
+    
+    .sectionTeam{
+        padding: 20px 10px;
+        @include Flex(column, nowrap, center, start);
+        gap: 10vh;
+    
+        .contentTitle{
+            @include Flex(column, nowrap, start, start);
+             
+            h3{
+                font-size: 1.8em;
+            }
+    
+            span{
+                font-size: .8em;
+            }
+        }
+    
+        .contentTeam{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, center);
+            gap:50px;
+    
+            .containerTeams{
+                width: 100%;
+                height: auto;
+                @include Flex(row, nowrap, start, start);
+                gap: 20px;
+    
+                .column{
+                    width: 110px;
+                    height: auto;
+                    @include Flex(column, nowrap, start, start);
+                    gap: 20px;
+                    
+                    .ball{
+                        width: 110px;
+                        height: 110px;
+                    }
+                }
+                 
+            }
+    
+            .containerInformationTeam{
+                width: 100%;
+                box-shadow: none;
+                gap: 20px;
+
+                .contentFunction{
+                    width: 100%;
+                    height: 60px;
+
+                    span{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+    
+    .sectionTransparency{
+        padding: 20px 10px;
+    
+        .content{
+            width: 100%;
+            height: auto;
+            gap: 4vh;
+    
+            .titleContent{
+                font-size: 2em;
+            }
+        }
+    }
+    
+    .sectionContact{
+        padding: 20px 10px;
+        gap: 7vh;
+    
+        .title{
+            font-size: 2em;
+        }
+    
+        .container{
+            gap: 40px 20px;
+            .content{
+                min-width: 300px;
+                width: calc(100%);
+            }
+        }
+    }
+    
+    .sectionDocs{
+        padding: 20px 10px;
+        gap: 10vh;
+        margin-top: 30px;
+    
+        .title{
+            font-family: "Kalam", cursive;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 2em;
+            text-align: left;
+        }
+    }
+}

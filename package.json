@@ -5,15 +5,20 @@
     "start": "next start"
   },
   "devDependencies": {
-    "prisma": "^6.4.1"
+    "@types/formidable": "^3.4.5",
+    "prisma": "^6.5.0"
   },
   "dependencies": {
-    "@prisma/client": "^6.4.1",
+    "@prisma/client": "^6.5.0",
+    "@supabase/supabase-js": "^2.49.1",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "ag-grid-community": "^33.1.1",
     "ag-grid-react": "^33.1.1",
+    "cloudinary": "^2.6.0",
+    "formidable": "^3.5.2",
     "next": "^15.2.1",
+    "next-cloudinary": "^6.16.0",
     "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

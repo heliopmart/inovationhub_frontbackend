@@ -13,23 +13,17 @@ import {KpisComponent} from '@/components/KpisComponent'
 
 import styles from "@/styles/pages/internSolution.module.scss"
 
+import {getTeams} from "@/services/function.internSolution"
+import {TeamMinify} from "@/types/interfacesSql"
+
 type TypedataSeries = {
     name: string,
     values: number[],
     color: string
 }
 
-interface InterfaceProjects{
-    nucleiTitle: string,
-    titleProject: string,
-    p: string,
-    link: string,
-    color: string,
-    image: string,
-    direction?: string
-}
 
-const setDirectionForComponent = (data:InterfaceProjects[]):InterfaceProjects[] => {
+const setDirectionForComponent = (data:TeamMinify[]):TeamMinify[] => {
     const directionSet = ["left", "right"]
     for (let i = 0; i < data.length; i++) {
         const element = data[i];
@@ -46,7 +40,9 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
     const { locale } = useRouter();
-    
+
+    const [teams, setTeams] = useState<TeamMinify[]>([])
+     
     const [monthState, setMonthState] = useState(["Jan.", "Fev.", "Mar.", "Abr.", "Mai.", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."])
     const [academicKpisState, setAcademicKpisState] = useState<TypedataSeries[]>([{name: "Trabalhos acadêmicos", values: [0,1,5,6], color: "#1E90FF"}, {name: "Publicações científicas vinculadas ao Hub de Inovações UFGD", values: [0, 5, 2, 4], color: "#32CD32"}, {name: "Número de professores e pesquisadores envolvidos", values: [3, 5, 10, 12, 24], color: "#FFD700"}, {name: "Quantidade de certificações emitidas para estudantes", values: [2, 12, 30, 24], color: "#FF4500"}])
     const [inovationKpisState, setInovationKpisState] = useState<TypedataSeries[]>([])
@@ -80,6 +76,14 @@ export default function aboutUs({ messages }: { messages: any }) {
         
             setMonthState([...pastYears.map(String), ...months])
         }
+        async function get(){
+            const resTeam = await getTeams()
+            if(resTeam.st)
+                setTeams(resTeam.value)
+
+            console.log(resTeam.value)
+        }
+        get()
         getXSubtext()
     },[])
     return (
@@ -92,16 +96,16 @@ export default function aboutUs({ messages }: { messages: any }) {
             <Banner text={messages.textBanner_1} color="#9775FF" key={"changeword-banner-key"}/>
             <main className={styles.mainSection}>
                 {
-                    setDirectionForComponent(messages.projects)?.map((data, index) => (
+                    setDirectionForComponent(teams)?.map((data, index) => (
                         <TextImageDescrition key={`${index}-projects`} image={data.image} direction={data.direction as "left" | "right"} form={"stretch"}>
                             <div className={`${styles.contentDescription}`}>
                                 <div className={styles.contentTitleDescription}>
-                                    <span className={styles.titleNuclei}>{data.nucleiTitle}</span>
-                                    <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: data.titleProject}}/>
+                                    <span className={styles.titleNuclei}>Nucleo de {data?.nuclei?.[0]?.nuclei?.name}</span>
+                                    <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: `Equipe ${data.name}`}}/>
                                 </div>
 
-                                <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.p}}/>
-                                <Link href={data.link}> <button className={styles.button} style={{backgroundColor: data.color}} title={messages.textButton}>{messages.textButton}</button> </Link>
+                                <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.description}}/>
+                                <Link href={`/team/${data.name}#aboutUs`}> <button className={styles.button} style={{backgroundColor: data.color}} title={messages.textButton}>{messages.textButton}</button> </Link>
                             </div>
                         </TextImageDescrition>
                     ))
@@ -110,19 +114,19 @@ export default function aboutUs({ messages }: { messages: any }) {
             <Banner text={messages.textBanner_2} color="#C1935E" key={"searchchangeword-banner-key"}/>
             <section className={styles.sectionSearch} id="research">
                 {
-                    setDirectionForComponent(messages.search)?.map((data, index) => (
-                        <TextImageDescrition key={`${index}-research`} image={data.image} direction={data.direction as "left" | "right"} form={"stretch"}>
-                            <div className={`${styles.contentDescription}`}>
-                                <div className={styles.contentTitleDescription}>
-                                    <span className={styles.titleNuclei}>{data.nucleiTitle}</span>
-                                    <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: data.titleProject}}/>
-                                </div>
+                    // setDirectionForComponent(messages.search)?.map((data, index) => (
+                    //     <TextImageDescrition key={`${index}-research`} image={data.image} direction={data.direction as "left" | "right"} form={"stretch"}>
+                    //         <div className={`${styles.contentDescription}`}>
+                    //             <div className={styles.contentTitleDescription}>
+                    //                 <span className={styles.titleNuclei}>{data.nucleiTitle}</span>
+                    //                 <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: data.titleProject}}/>
+                    //             </div>
 
-                                <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.p}}/>
-                                <Link href={data.link}> <button className={styles.button} style={{backgroundColor: data.color}} title={messages.textButton}>{messages.textButton}</button> </Link>
-                            </div>
-                        </TextImageDescrition>
-                    ))
+                    //             <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.p}}/>
+                    //             <Link href={data.link}> <button className={styles.button} style={{backgroundColor: data.color}} title={messages.textButton}>{messages.textButton}</button> </Link>
+                    //         </div>
+                    //     </TextImageDescrition>
+                    // ))
                 }
             </section>
             <div className={styles.OnduLine}>

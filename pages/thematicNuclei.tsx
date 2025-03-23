@@ -11,6 +11,9 @@ import {NucleiComponent} from '@/components/NucleiComponent'
 
 import styles from "@/styles/pages/thematicNuclei.module.scss"
 
+import {getNucleiDirectors} from "@/services/function.nuclei"
+import {ReturNormalizeNucleiDirector, GetNucleiReturn} from "@/types/interfacesSql"
+
 interface InterfaceNucleiComponent{
     nucleiName: string,
     p: string,
@@ -36,6 +39,7 @@ interface InterfaceNucleiComponent{
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
+    const [nucleiBd, setNuclei] = useState<ReturNormalizeNucleiDirector[]>([])
     const { locale } = useRouter();
     
     useEffect(() => {
@@ -47,6 +51,15 @@ export default function aboutUs({ messages }: { messages: any }) {
     }
     loadMessages();
     }, [locale]);
+
+    useEffect(() => {
+        async function get(){
+            const resNuclei = await getNucleiDirectors()
+            if(resNuclei.st)
+                setNuclei(resNuclei.value)
+        }
+        get()
+    },[])
 
     return (
         <>
@@ -65,7 +78,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <h2 className={styles.titleMainSection}>O Hub de inovações trabalha com <b>cinco núcleos temáticos</b></h2>
                 {
                     messages?.nuclei?.map((nuclei:InterfaceNucleiComponent, index:number) => (
-                        <NucleiComponent color_1={nuclei.color_1} color_2={nuclei.color_2} imageBanner={nuclei.imageBanner} nucleiName={nuclei.nucleiName} p={nuclei.p} roles={nuclei.roles} key={`${nuclei.nucleiName}_${index}`} />
+                        <NucleiComponent color_1={nuclei.color_1} color_2={nuclei.color_2} imageBanner={nuclei.imageBanner} nucleiName={nuclei.nucleiName} p={nuclei.p} roles={nucleiBd?.filter((data) => data?.name == nuclei?.nucleiName)[0]?.roles} key={`${nuclei.nucleiName}_${index}`} />
                     ))
                 }
                 

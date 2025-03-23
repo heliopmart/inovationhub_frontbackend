@@ -31,22 +31,22 @@ export function NucleiComponent({nucleiName, p, roles, color_1, color_2, imageBa
             <div  className={style.sectionRoles}>
                 <div className={style.containerRole}>
                     <div className={style.contentRole} style={{backgroundColor: color_1}}>
-                        <span>{roles?.director.textRole}</span>
+                        <span>{roles?.director?.textRole}</span>
                     </div>
                     <div className={style.contentInformations}>
-                        <span className={style.name}>{roles.director.name} | <b style={{color: color_1}}>Diretor do núcleo</b></span>
-                        <span className={style.email}>E-mail: <Link href={roles.director.email}> {roles.director.email} </Link></span>
-                        <span className={style.tell}>Telefone: {roles.director.tell}</span>
+                        <span className={style.name}>{roles?.director?.name} | <b style={{color: color_1}}>Diretor do núcleo</b></span>
+                        <span className={style.email}>E-mail: <Link href={roles?.director?.email ? roles.director.email : ""}> {roles?.director?.email} </Link></span>
+                        <span className={style.tell}>Telefone: {roles?.director?.tell}</span>
                     </div>
                 </div>
                 <div className={style.containerRole}>
                     <div className={style.contentRole} style={{backgroundColor: color_2}}>
-                        <span>{roles.coordinator.textRole}</span>
+                        <span>{roles?.coordinator?.textRole}</span>
                     </div>
                     <div className={style.contentInformations}>
-                        <span className={style.name}>{roles.coordinator.name} | <b style={{color: color_2}}>Coordenador docente do núcleo</b></span>
-                        <span className={style.email}>E-mail: <Link href={roles.coordinator.email}> {roles.coordinator.email} </Link></span>
-                        <span className={style.tell}>Telefone: {roles.coordinator.tell}</span>
+                        <span className={style.name}>{roles?.coordinator?.name} | <b style={{color: color_2}}>Coordenador docente do núcleo</b></span>
+                        <span className={style.email}>E-mail: <Link href={roles?.coordinator?.email ? roles.coordinator.email : "" }> {roles?.coordinator?.email} </Link></span>
+                        <span className={style.tell}>Telefone: {roles?.coordinator?.tell}</span>
                     </div>
                 </div>
             </div>

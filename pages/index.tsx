@@ -7,22 +7,15 @@ import {TextImageDescrition} from "@/components/TextImageDescrition";
 import Footer from '@/components/Footer';
 import style from "@/styles/pages/index.module.scss"
 
-interface Partner {
-    name: string;
-    icon: string;
-}
-
-interface InterfaceTeams{
-    image: string,
-    name: string
-}
+import {ReturnNameIcon} from "@/types/interfacesSql"
+import {getTeams, getInvestor} from '@/services/function.index'
 
 export default function Index({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
-    const [teams, setTeams] = useState<InterfaceTeams[]>([])
+    const [teams, setTeams] = useState<ReturnNameIcon[]>([])
 
-    const [partner, setPartner] = useState<Partner[]>([]);
+    const [investor, setInvestor] = useState<ReturnNameIcon[]>([]);
     const { locale } = useRouter();
     
     useEffect(() => {
@@ -35,16 +28,15 @@ export default function Index({ messages }: { messages: any }) {
         loadMessages()
     }, [locale]);
     useEffect(() => {
-        async function getTeams(){
-            const TeamObject = [{image: "/icons/teams/motostudent_icon.svg", name: "motostudent"}]
-            setTeams(TeamObject)
+        async function get(){
+            const resGetTeam = await getTeams();
+            const resGetInvestor = await getInvestor();
+            if(resGetTeam.st)
+                setTeams(resGetTeam.value)
+            if(resGetInvestor.st)
+                setInvestor(resGetInvestor.value) 
         }
-        async function getPartner(){
-            setPartner([{ name: "UFGD", icon: "/images/ufgd_image.png" }, { name: "Petrobras", icon: "/images/petrobras_image.png" }, { name: "Governo Federal", icon: "/images/gov_image.png" }, { name: "Embrapii", icon: "/images/embrapii_image.png" }, { name: "Governo Estadual do MS", icon: "/images/gov_ms_image.png" }, { name: "CNPq", icon: "/images/cnpq_image.png" }])
-        }
-
-        getTeams()
-        getPartner()
+        get()
     })
     return (
         <>
@@ -58,7 +50,7 @@ export default function Index({ messages }: { messages: any }) {
                 {
                     teams?.map((team, index) => (
                         <div className={style.projectIcon} key={`${team.name}_${index}`}>
-                            <img src={team.image} alt={team.name} />
+                            <img src={team.icon} alt={team.name} />
                         </div>
                     ))
                 }
@@ -80,7 +72,7 @@ export default function Index({ messages }: { messages: any }) {
             </main>
             <section data-text={"NOSSOS PARCEIROS APOIAM A INOVAÇÃO"} className={style.sectionPartners}>
                 <div className={style.content}>
-                    {partner?.map((item, index) => (
+                    {investor?.map((item, index) => (
                         <div className={style.partnersIcon} key={`${index}-${item.name}`} >
                             <img src={item.icon} alt={item.name} />
                         </div>

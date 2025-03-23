@@ -12,6 +12,9 @@ import {Event} from "@/components/Event"
 
 import styles from "@/styles/pages/externalSolution.module.scss"
 
+import {getInvestor} from "@/services/function.externSolution"
+import {Investor} from "@/types/interfacesSql"
+
 interface InterfaceProjects{
     nucleiTitle: string,
     titleProject: string,
@@ -48,7 +51,7 @@ interface InterfaceEvent{
     link: string
 }
 
-const setDirectionForComponent = (data:InterfaceProjects[]):InterfaceProjects[] => {
+const setDirectionForComponent = (data:Investor[]):Investor[] => {
     const directionSet = ["left", "right"]
     for (let i = 0; i < data.length; i++) {
         const element = data[i];
@@ -65,6 +68,8 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
     const { locale } = useRouter();
+
+    const [investor, setInvestor] = useState<Investor[]>([])
     
     useEffect(() => {
     async function loadMessages() {
@@ -75,6 +80,18 @@ export default function aboutUs({ messages }: { messages: any }) {
     }
     loadMessages();
     }, [locale]);
+
+    useEffect(() => {
+        async function get(){
+            const resInvestor = await getInvestor()
+            if(resInvestor.st)
+                setInvestor(resInvestor.value)
+            
+            console.log(resInvestor.value)
+        }
+        get()
+    },[])
+
     return (
         <>
             <Navbar messages={txtNav} page="externalSolution" styleColor="#9F73EB" key={"externalSolution-Nav"}/>
@@ -88,15 +105,15 @@ export default function aboutUs({ messages }: { messages: any }) {
             <Banner text={messages.textBanner_1} color="#C15EB4" key={"changeword-banner-key"}/>
             <main className={styles.mainSection} id="partnerships">
                 {
-                    setDirectionForComponent(messages.partners)?.map((data, index) => (
+                    setDirectionForComponent(investor)?.map((data, index) => (
                         <TextImageDescrition key={`${index}-projects`} image={data.image} direction={data.direction as "left" | "right"} form={"stretch"}>
                             <div className={`${styles.contentDescription}`}>
                                 <div className={styles.contentTitleDescription}>
-                                    <span className={styles.titleNuclei}>{data.nucleiTitle}</span>
-                                    <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: data.titleProject}}/>
+                                    <span className={styles.titleNuclei}>{data.descriptionInvestment}</span>
+                                    <h6 className={styles.titleContent} style={{color:  data.color}} dangerouslySetInnerHTML={{__html: data.name}}/>
                                 </div>
 
-                                <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.p}}/>
+                                <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.description}}/>
                                 <Link href={data.link}> <button className={styles.button} style={{backgroundColor: data.color}} title={messages.textButton}>{messages.textButton}</button> </Link>
                             </div>
                         </TextImageDescrition>

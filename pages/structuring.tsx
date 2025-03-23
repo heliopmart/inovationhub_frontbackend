@@ -15,6 +15,9 @@ import {Docs} from '@/components/Docs'
 
 import styles from "@/styles/pages/structuring.module.scss"
 
+import {getAllResources, getInvestorInvestments, getInvestorTransfer, getResourceExpenses, getAllBids} from "@/services/function.structuring"
+import {GetResourceReturn, GetInvestmentsReturn, GetTransfersReturn, GetExpensesReturn, GetBidsReturn} from "@/types/interfacesSql"
+
 interface InterfaceProjects{
     titleProject: string,
     p: string,
@@ -63,81 +66,54 @@ const docsData: InterfaceDocs[] = [
     }
 ]
 
-
-const calcularTempoUso = (dataCompra:string) => {
-    const dataCompraDate = new Date(dataCompra);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - dataCompraDate.getTime());
-    const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
-    const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-    return `${diffYears} anos e ${diffMonths} meses`;
-};
-
-const columnDefs: ColDef[]  = [
-    { field: "recurso", headerName: "Recurso", sortable: true, filter: true },
-    { field: "valor", headerName: "Valor (R$)", sortable: true, filter: "agNumberColumnFilter", valueFormatter: (params) => `R$ ${params.value.toLocaleString("pt-BR")}` },
-    { field: "data_compra", headerName: "Data de Compra", sortable: true, filter: true },
-    { field: "tempo_uso", headerName: "Tempo de Uso", sortable: true, filter: true, cellRenderer: (params:string) => calcularTempoUso(params)},
-    { field: "status", headerName: "Status", sortable: true, filter: true, cellRenderer: (params:string) => params === "Usado" ? "✅" : "⚪" },
-    { field: "alocacao", headerName: "Alocação", sortable: true, filter: true },
-    { field: "atencao", headerName: "Atenção", sortable: true, filter: true, cellRenderer: (params:string) => {
-        if (params === "Precisa de manutenção") return "⚠️";
-        if (params === "Precisa de insumos") return "🛒";
-        return "✅";
-        }},
-    { field: "fornecedor", headerName: "Fornecedor", sortable: true, filter: true },
-    { field: "numero_serie", headerName: "Número de Série", sortable: true, filter: true },
-    { field: "ultima_manutencao", headerName: "Última Manutenção", sortable: true, filter: true },
-    { field: "proxima_manutencao", headerName: "Próxima Manutenção", sortable: true, filter: true },
-    { field: "responsavel", headerName: "Responsável", sortable: true, filter: true },
-];
-
-const rowData = [
-{
-    recurso: "Impressora 3D",
-    valor: 15000,
-    data_compra: "2022-06-10",
-    tempo_uso: "2 anos e 3 meses", // Calculado automaticamente
-    status: "Usado",
-    alocacao: "Núcleo de Engenharia",
-    atencao: "Precisa de insumos",
-    fornecedor: "TechSupply",
-    numero_serie: "123456789",
-    ultima_manutencao: "2023-12-15",
-    proxima_manutencao: "2024-06-15",
-    responsavel: "João Silva",
-},
-{
-    recurso: "Fresadora CNC",
-    valor: 45000,
-    data_compra: "2021-03-22",
-    tempo_uso: "3 anos e 6 meses",
-    status: "Não Usado",
-    alocacao: "Equipe de Prototipagem",
-    atencao: "Funcionando",
-    fornecedor: "Máquinas XYZ",
-    numero_serie: "987654321",
-    ultima_manutencao: "2023-11-10",
-    proxima_manutencao: "2024-05-10",
-    responsavel: "Maria Oliveira",
-}
-];
-
-
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
     const { locale } = useRouter();
+
+    const [resources, setResources] = useState<GetResourceReturn>()
+    const [investment, setInvestment] = useState<GetInvestmentsReturn>()
+    const [transfers, setTransfers] = useState<GetTransfersReturn>()
+    const [expenses, setExpenses] = useState<GetExpensesReturn>()
+    const [bids, setBids] = useState<GetBidsReturn>()
     
     useEffect(() => {
-    async function loadMessages() {
-        const translationsFooter = await getTranslations("footer", locale || "pt");
-        const translationsNav = await getTranslations("navbar", locale || "pt");
-        setTxtFooter(translationsFooter);
-        setTxtNav(translationsNav)
-    }
-    loadMessages();
+        async function loadMessages() {
+            const translationsFooter = await getTranslations("footer", locale || "pt");
+            const translationsNav = await getTranslations("navbar", locale || "pt");
+            setTxtFooter(translationsFooter);
+            setTxtNav(translationsNav)
+        }
+        loadMessages();
     }, [locale]);
+
+    useEffect(() => {
+        async function get (){
+            const resResource = await getAllResources()
+            const resInvestments = await getInvestorInvestments()
+            const resTransfer = await getInvestorTransfer()
+            const resExpenses = await getResourceExpenses()
+            const resBids = await getAllBids()
+            if(resResource.st)
+                setResources(resResource)
+
+            if(resInvestments.st)
+                setInvestment(resInvestments)
+
+            if(resTransfer.st)
+                setTransfers(resTransfer)
+
+            if(resExpenses.st)
+                setExpenses(resExpenses)
+            
+            if(resBids.st)
+                setBids(resBids)
+
+            console.log(resExpenses)
+        }
+        get()
+    },[])
+
     return (
         <>
             <Navbar messages={txtNav} page="structuring" key={"structuring-Nav"}/>
@@ -172,19 +148,19 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <h3 className={styles.titleSection} dangerouslySetInnerHTML={{__html: messages.titleResourcesSection}}/>
                 <p dangerouslySetInnerHTML={{__html: messages.pResourcesSection}}/>
                 <div className={styles.contentTable}>
-                    <DynamicTable noText={true} title="" p="" columnDefs={columnDefs} rowData={rowData} key={"resources_table"}/>
+                    <DynamicTable noText={true} title="" p="" columnDefs={resources?.table} rowData={resources?.value ? resources?.value : []} key={"resources_table"}/>
                 </div>
             </section>
             <hr />
             <main className={styles.sectionModuleTables} id="financial">
                 <h2 className={styles.title}>{messages.financialTitleSection}</h2>
-                <DynamicTable title={messages.financial.title_1} p={messages.financial.p_1} columnDefs={columnDefs} rowData={rowData} key={"finance_table"}/>
+                <DynamicTable title={messages.financial.title_1} p={messages.financial.p_1} columnDefs={investment?.table} rowData={investment?.value ? investment.value : []} key={"finance_table"}/>
                 <hr />
-                <DynamicTable title={messages.financial.title_2} p={messages.financial.p_2} columnDefs={columnDefs} rowData={rowData} key={"Transfers_table"}/>
+                <DynamicTable title={messages.financial.title_2} p={messages.financial.p_2} columnDefs={transfers?.table} rowData={transfers?.value ? transfers.value : []} key={"Transfers_table"}/>
                 <hr />
-                <DynamicTable title={messages.financial.title_3} p={messages.financial.p_3} columnDefs={columnDefs} rowData={rowData} key={"Allocation_table"}/>
+                <DynamicTable title={messages.financial.title_3} p={messages.financial.p_3} columnDefs={expenses?.table} rowData={expenses?.value ? expenses.value : []} key={"Allocation_table"}/>
                  <hr />
-                <DynamicTable title={messages.financial.title_4} p={messages.financial.p_4} columnDefs={columnDefs} rowData={rowData} key={"Bids_table"}/>
+                <DynamicTable title={messages.financial.title_4} p={messages.financial.p_4} columnDefs={bids?.table} rowData={bids?.value ? bids.value : []} key={"Bids_table"}/>
             </main>
             <section className={styles.docsSection} id="docs">
                 <h3 className={styles.title} dangerouslySetInnerHTML={{__html: messages.ClosedFinancialStatementTittle}}/>
