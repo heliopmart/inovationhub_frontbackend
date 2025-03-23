@@ -18,34 +18,52 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import {getTeam} from '@/services/function.team'
+import {TeamComplete, InvestorTeamCompleat, DocsNormilize} from "@/types/interfacesSql"
+
 interface TeamPageProps {
     nameProject: string;
     messages: any;
 }
 
 
-interface InterfaceTeam{
-    image: string,
+interface InterfaceMember{
+    id: string,
     name: string,
-    // socialMedia: {
-    //     type: string,
-    //     link: string
-    // }[],
-    // graduations: string[],
-    // role: string
+    type: string,
+    color: string,
+    image: string
+    graduations: string[]
+    role: string,
+    socialMedia: {
+        type: string,
+        link: string
+    }[]
 }
+
 
 interface InterfaceTeamBall{
     image: string,
     name: string
 }
 
-function createTeamViwerBalls(team:InterfaceTeam[]):InterfaceTeamBall[][]{
-    let c_1:InterfaceTeam[] = []
-    let c_2:InterfaceTeam[] = []
-    let c_3:InterfaceTeam[] = []
+interface GetMembersAndFoundersReturn{
+    members: InterfaceMember[],
+    founders: InterfaceMember[],
+    membersBalls: InterfaceMember[]
+}
 
-    for (let i = (team.length - 1); i >= 0; i--) {
+interface InterfaceTable{
+    columns: any
+    rows: any[]
+}
+
+function createTeamViwerBalls(team:InterfaceMember[]):InterfaceMember[][]{
+    let c_1:InterfaceMember[] = []
+    let c_2:InterfaceMember[] = []
+    let c_3:InterfaceMember[] = []
+
+    for (let i = (team?.length - 1); i >= 0; i--) {
         if(c_1.length == 0){
             c_1.push(team[i])
         }else{
@@ -63,35 +81,111 @@ function createTeamViwerBalls(team:InterfaceTeam[]):InterfaceTeamBall[][]{
         }
     }
 
-    return [c_3, c_2, c_1]
+    return [c_3, c_2, c_1].filter(arr => arr.length > 0);
+}
+
+function getMembersAndFounders(team:TeamComplete):GetMembersAndFoundersReturn{
+    const teamMembers = team.members
+
+    const founders = teamMembers
+        ?.map((member) => {
+            if(member.role == "founder"){
+                return {...member.member, role: member.roleTeam}
+            }
+        })
+        ?.filter((member) => member !== undefined);
+
+    const members = teamMembers
+        ?.map((member) => {
+            if(member.role == "member"){
+                return {...member.member, role: member.roleTeam}
+            }
+        })
+        ?.filter((member) => member !== undefined);
+
+    
+    return {founders: founders, members: members, membersBalls: teamMembers?.map(member => ({...member.member, role: member.roleTeam}))}
+}
+
+const setDirectionForComponent = (data:InvestorTeamCompleat[] | undefined):InvestorTeamCompleat[] => {
+    if(data === undefined){
+        return []
+    }
+    
+    const directionSet = ["left", "right"]
+    for (let i = 0; i < data.length; i++) {
+        const element = data[i];
+        if(i % 2 == 0){
+            element.direction = directionSet[0]
+        }else{
+            element.direction = directionSet[1]
+        }
+    }
+    return data
 }
 
 export default function TeamPage({ nameProject, messages }: TeamPageProps) {
+    const [team, setTeam] = useState<TeamComplete>()
     const [teamsBalls, setTeamsBalls] = useState<InterfaceTeamBall[][]>([])
-    const [viewUser, setViewUser] = useState<InterfaceTeam>()
-    const [founders, setFounders] = useState<InterfaceTeam[]>([])
+    const [viewUser, setViewUser] = useState<InterfaceMember>()
+    const [founders, setFounders] = useState<InterfaceMember[]>([])
+    const [table, setTable] = useState<InterfaceTable>()
+    const [docs, setDocs] = useState<any>()
+    const [arts, setArts] = useState<any>()
 
     function viewTeam(i:number,j:number){
-        setViewUser(teamsBalls[j][i])
+        setViewUser(teamsBalls[j][i] as InterfaceMember)
     }
 
-
     useEffect(() => {
-        const getTeamBall = createTeamViwerBalls([
-            {image: "", name: "a"}, {image: "", name: "b"}, {image: "", name: "c"}, {image: "", name: "d"}, {image: "", name: "e"}, {image: "", name: "f"}, {image: "", name: "g"}, {image: "", name: "h"}, {image: "", name: "i"}
-        ])
-        setTeamsBalls(getTeamBall)
-        setViewUser(getTeamBall[0][0])
+        async function get(){
+            const resTeam = await getTeam(nameProject)
+            if(resTeam.st && resTeam.value != null){
+                const teamMembers = getMembersAndFounders(resTeam.value)
+                const getTeamBall = createTeamViwerBalls(teamMembers.membersBalls)
+                setTeam(resTeam.value);
+                setFounders(teamMembers.founders)
+                setTeamsBalls(getTeamBall)
+                setViewUser(getTeamBall[0][0])
+                setTable({columns: resTeam.table, rows: resTeam.value.resources?.map((rs) => rs.resource)})
+                setDocs(resTeam.value.docs.map((doc) => (
+                    {
+                        title: doc.name,
+                        files: [{
+                            name: doc?.files?.name || "",
+                            link: doc?.files?.download || ""
+                        }]
+                    }
+                )))         
+                setArts([{
+                    title: "ARTs e versinamento",
+                    files: resTeam.value.arts.map((art) => (
+                        {
+                            name: `ART Requisitada de ${art.files.type} | ${art.files.status}` || "",
+                            link: art?.files.linkDoc || ""
+                        }
+                    ))
+                }])
+            }
+        }
+        get()
+
     },[])
     return (
         <>
             <Navbar messages={messages.navbar} page="team" styleColor="#67839A" key={"team-Nav"} />
             <HeaderMinify style={{color: "#fff", textTransform: "uppercase"}} title={messages.team.titleHeader} background={"#262626"} key={"team-Headerrs"} />
             <section  className={styles.teamSection} id="team">
-                <TextImageDescrition image={"messages.thematicNucleiSectionDescription.image"} form="stretch" direction="right">
+                <TextImageDescrition image={team?.image} form="stretch" direction="right">
                     <div className={styles.contentDescription}>
-                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{ __html: "messages.thematicNucleiSectionDescription.title" }} />
-                        <p className={styles.pContent} dangerouslySetInnerHTML={{ __html: "messages.thematicNucleiSectionDescription.p" }} />
+                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{ __html: `Equipe ${team?.name}` }} />
+                        <p className={styles.pContent} dangerouslySetInnerHTML={{ __html: team?.description ? team.description : "" }} />
+                    </div>
+                </TextImageDescrition>
+                <TextImageDescrition image={"/assets/nuclei_image.webp"} form="stretch" direction="left">
+                    <div className={styles.contentDescription}>
+                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{ __html: `Como contribuimos com a inovação?` }} />
+                        <p className={styles.pContent} dangerouslySetInnerHTML={{ __html: team?.description_innovation ? team.description_innovation : "" }} />
                     </div>
                 </TextImageDescrition>
             </section>
@@ -111,9 +205,9 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                             1024: { slidesPerView: 3 },
                         }}
                     >
-                        {founders?.map((people:InterfaceTeam, index:number) => (
+                        {founders?.map((people:InterfaceMember, index:number) => (
                             <SwiperSlide key={`${people.name}_${index}`}>
-                                {/* <ShowPeople key={`${people.name}_${index}`} graduations={people.graduations} image={people.image} name={people.name} role={people.role} socialMedia={people.socialMedia} /> */}
+                                <ShowPeople key={`${people.name}_${index}`} graduations={people.graduations} image={people.image} name={people.name} role={people.role} socialMedia={people.socialMedia} roleText={`da equipe ${team?.name}`}/>
                             </SwiperSlide>
                         ))}
                     </Swiper>
@@ -143,14 +237,18 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                         </div>
                         <span className={styles.name}>{viewUser?.name}</span>
                         <div className={styles.contentSocialMedia}>
-                            <Link href=""><img src="/icons/instagram_icon.png" alt="" /></Link>
-                            <Link href=""><img src="/icons/linkedin_icon.png" alt="" /></Link>
+                            <Link href={`${viewUser?.socialMedia[0].link}`}><img src="/icons/instagram_icon.png" alt="" /></Link>
+                            <Link href={`${viewUser?.socialMedia[1].link}`}><img src="/icons/linkedin_icon.png" alt="" /></Link>
                         </div>
                         <div className={styles.contentGraduation}>
-                            <span></span>
+                            {
+                                viewUser?.graduations?.map((txt: string) => (
+                                    <span key={`${viewUser.name}-${txt}`}>{txt}</span>
+                                ))
+                            }
                         </div>
                         <div className={styles.contentFunction}>
-                            <span></span>
+                            <span>{viewUser?.role} da equipe {team?.name}</span>
                         </div>
                     </div>
                 </div>
@@ -161,27 +259,32 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
 
                 <div className={styles.content}>
                     <h3 className={styles.titleContent}>{messages.team.FundersTitle}</h3>
-                    <TextImageDescrition key={`${"index"}-research`} image={"data.image"} direction={"data.direction" as "left" | "right"} form={"stretch"}>
-                        <div className={`${styles.contentDescription}`}>
-                            <div className={styles.contentTitleDescription}>
-                                <span className={styles.titleNuclei}>{"data.nucleiTitle"}</span>
-                                <h6 className={styles.titleContent} style={{color:  "data.color"}} dangerouslySetInnerHTML={{__html: "data.titleProject"}}/>
-                            </div>
+                    {
+                        setDirectionForComponent(team?.investors)?.map((investor, index) => (
+                            <TextImageDescrition key={`${index}-investor-${investor.investor.name}-${team?.name}`} image={investor.investor.image} direction={investor.direction as "left" | "right"} form={"stretch"}>
+                                <div className={`${styles.contentDescription}`}>
+                                    <div className={styles.contentTitleDescription}>
+                                        <span className={styles.titleNuclei}>{investor.investor.descriptionInvestment}</span>
+                                        <h6 className={styles.titleContent} style={{color:  investor.investor.color}} dangerouslySetInnerHTML={{__html: investor.investor.name}}/>
+                                    </div>
 
-                            <p className={styles.pContent} dangerouslySetInnerHTML={{__html: "data.p"}}/>
-                            <Link href={"data.link"}> <button className={styles.button} style={{backgroundColor: "data.color"}} title={messages.team.textButton}>{messages.team.textButton}</button> </Link>
-                        </div>
-                    </TextImageDescrition>
+                                    <p className={styles.pContent} dangerouslySetInnerHTML={{__html: investor.investor.description}}/>
+                                    <Link href={`${investor.investor.link}`}> <button className={styles.button} style={{backgroundColor: investor.investor.color}} title={messages.team.textButton}>{messages.team.textButton}</button> </Link>
+                                </div>
+                            </TextImageDescrition>
+                        ))
+                    }
+
                 </div>
 
                 <div className={styles.content}>
                     <h3 className={styles.titleContent}>{messages.team.resourcesTitle}</h3>
-                    <DynamicTable p="" title="" columnDefs={[]} rowData={[]} key={"DynamicTable-team"}/>
+                    <DynamicTable p="" title="" columnDefs={table?.columns} rowData={table?.rows ? table.rows : []} key={"DynamicTable-team"}/>
                 </div>
 
                 <div className={styles.content}>
                     <h3 className={styles.titleContent}>{messages.team.reportTitle}</h3>
-                    <Docs docs={[]}/>
+                    <Docs docs={arts}/>
                 </div>
 
             </section>
@@ -190,27 +293,19 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                 <h2 className={styles.title}>{messages.team.contactTitle}</h2>
 
                 <div className={styles.container}>
-                    <div className={styles.content}>
-                        <span className={styles.title}>E-mail da equipe</span>
-                        <span className={styles.contact}>emaildaequipe@gmail.com</span>
-                    </div>
-                    <div className={styles.content}>
-                        <span className={styles.title}>E-mail da equipe</span>
-                        <span className={styles.contact}>emaildaequipe@gmail.com</span>
-                    </div>
-                    <div className={styles.content}>
-                        <span className={styles.title}>E-mail da equipe</span>
-                        <span className={styles.contact}>emaildaequipe@gmail.com</span>
-                    </div>
-                    <div className={styles.content}>
-                        <span className={styles.title}>E-mail da equipe</span>
-                        <span className={styles.contact}>emaildaequipe@gmail.com</span>
-                    </div>
+                    {
+                        team?.contact.map((contact, index) => (
+                            <div className={styles.content} key={`email_${index}_${contact.role}`}>
+                                <span className={styles.title}>E-mail {contact.role} da equipe</span>
+                                <span className={styles.contact}>{contact.email}</span>
+                            </div>
+                        ))
+                    }
                 </div>
             </section>
             <section className={styles.sectionDocs}>
                 <h2 className={styles.title}>{messages.team.docsTitle}</h2>
-                <Docs docs={[]}/>
+                <Docs docs={docs}/>
             </section>
 
             <Footer messages={messages.footer} />

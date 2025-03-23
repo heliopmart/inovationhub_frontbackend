@@ -17,7 +17,7 @@ export function Event({link,local,p,linkTitle,title}:InterfaceEvent){
         <div className={style.event}>
             <span className={style.titleEvent}>{title}</span>
             <p className={style.p}>{p}</p>
-            <span className={style.textLocalTime}>{local.local} | <i>{local.time}</i></span>
+            <span className={style.textLocalTime}>{local.local} <br/><br/> <i>{local.time}</i></span>
             <Link href={link}> <button title={linkTitle}>{linkTitle}</button> </Link>
         </div>
     )

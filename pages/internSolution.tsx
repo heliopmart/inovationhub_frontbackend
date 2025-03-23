@@ -81,7 +81,7 @@ export default function aboutUs({ messages }: { messages: any }) {
             if(resTeam.st)
                 setTeams(resTeam.value)
 
-            console.log(resTeam.value)
+            
         }
         get()
         getXSubtext()

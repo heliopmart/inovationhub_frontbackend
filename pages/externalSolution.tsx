@@ -12,43 +12,28 @@ import {Event} from "@/components/Event"
 
 import styles from "@/styles/pages/externalSolution.module.scss"
 
-import {getInvestor} from "@/services/function.externSolution"
-import {Investor} from "@/types/interfacesSql"
+import {getInvestor, getEvents} from "@/services/function.externSolution"
+import {Investor, Events} from "@/types/interfacesSql"
 
-interface InterfaceProjects{
-    nucleiTitle: string,
-    titleProject: string,
-    p: string,
-    link: string,
-    color: string,
-    image: string,
-    direction?: string
-}
+const SetDate = (dateString:string):string => {
+    const date = new Date(dateString);
 
-interface InterfaceOldEvent{
-    title: string,
-    time: string,
-    p: string,
-    inscriptions: {
-        title: string,
-        value: string
-    },
-    sponsors: {
-        title: string, 
-        value: string[],
-    },
-    images: string[]
-}
+  // Ajustar para o fuso de Mato Grosso do Sul (UTC-4)
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'America/Campo_Grande', // Fuso de MS
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  };
 
-interface InterfaceEvent{
-    title: string,
-    p: string,
-    local: {
-        local: string,
-        time: string
-    },
-    linkTitle: string,
-    link: string
+  const formatter = new Intl.DateTimeFormat('pt-BR', options);
+  const formatted = formatter.format(date);
+
+  // Resultado vem como "07/04/2025 08:00", precisamos formatar com " - "
+  return formatted.replace(' ', ' - ');
 }
 
 const setDirectionForComponent = (data:Investor[]):Investor[] => {
@@ -70,6 +55,8 @@ export default function aboutUs({ messages }: { messages: any }) {
     const { locale } = useRouter();
 
     const [investor, setInvestor] = useState<Investor[]>([])
+    const [events, setEvents] = useState<Events[]>([])
+    const [eventsHeld, setEventsHeld] = useState<Events[]>([])
     
     useEffect(() => {
     async function loadMessages() {
@@ -84,10 +71,14 @@ export default function aboutUs({ messages }: { messages: any }) {
     useEffect(() => {
         async function get(){
             const resInvestor = await getInvestor()
+            const resEvents = await getEvents()
             if(resInvestor.st)
                 setInvestor(resInvestor.value)
-            
-            console.log(resInvestor.value)
+
+            if(resEvents.st){
+                setEvents(resEvents.value.event)
+                setEventsHeld(resEvents.value.eventHeld)
+            }                        
         }
         get()
     },[])
@@ -129,8 +120,8 @@ export default function aboutUs({ messages }: { messages: any }) {
                     <h2 className={styles.title}>{messages.event.nextEvents.title}</h2>
                     <div className={styles.contentNextEvents}>
                         {
-                            messages.event.nextEvents.nextEvents?.map((data:InterfaceEvent, index:number) => (
-                                <Event title={data.title} local={data.local} linkTitle={data.linkTitle} link={data.link} p={data.p} key={`${index}-nextEvent`}/>
+                            events?.map((data:Events, index:number) => (
+                                <Event title={data.name} local={{local: data.local, time: SetDate(data.date)}} linkTitle={"Inscrever-se"} link={data.link ? data.link : ""} p={data.minifyDescription} key={`${index}-nextEvent`}/>
                             ))
                         }
                     </div>
@@ -139,21 +130,21 @@ export default function aboutUs({ messages }: { messages: any }) {
                     <h2 className={styles.title}>{messages.event.oldEvents.title}</h2>
                     <div className={styles.contentOldEvents}>
                         {
-                            messages.event.oldEvents.oldEvents?.map((data:InterfaceOldEvent, index:number) => (
-                                <TextImageDescrition key={`${index}-oldEvents`} image={data.images[0]} direction={"right"} form={"stretch"}>
+                           eventsHeld?.map((data:Events, index:number) => (
+                                <TextImageDescrition key={`${index}-oldEvents`} image={"data.image"} direction={"right"} form={"stretch"}>
                                     <div className={`${styles.contentDescription}`}>
-                                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: `${data.title} - ${data.time}`}}/>
+                                        <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: `${data.name} - ${SetDate(data.date)}`}}/>
 
-                                        <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.p}}/>
+                                        <p className={styles.pContent} dangerouslySetInnerHTML={{__html: data.description}}/>
                                         
                                         <div className={styles.containerInformations}>
                                             <div className={styles.contentInformation}>
-                                                <span className={styles.textInformation}>{data.inscriptions.title}</span>
-                                                <span className={styles.textValue}>{data.inscriptions.value}</span>
+                                                <span className={styles.textInformation}>{"Inscrições"}</span>
+                                                <span className={styles.textValue}>{data.registrationsMade}</span>
                                             </div>
                                             <div className={styles.contentInformation}>
-                                                <span className={styles.textInformation}>{data.sponsors.title}</span>
-                                                <span className={styles.textValue}>{data.sponsors.value.join(" | ")}</span>
+                                                <span className={styles.textInformation}>{"Patrocinadores: "}</span>
+                                                <span className={styles.textValue}>{data.sponsors.map((sponsor: {investor: {name: string }}) => sponsor.investor.name).join(" | ")}</span>
                                             </div>
                                         </div>
                                     </div>

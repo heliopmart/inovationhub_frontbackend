@@ -74,6 +74,35 @@ export interface GetTeamReturn{
     value: TeamMinify[]
 }
 
+export interface Events{
+    id: string,
+    name: string,
+    local: string,
+    date: string,
+    link: string,
+    held: boolean,
+    minifyDescription: string,
+    description: string,
+    registrationsMade: number,
+    sponsors: [
+        {
+            investor: {
+                name: string
+            }
+        }
+    ]
+}
+
+export type valueEventsReturn = {
+    event: Events[]
+    eventHeld: Events[]
+}
+
+export interface GetEventsReturn{
+    st: boolean,
+    value: valueEventsReturn
+}
+
 // 
 
 // Investor
@@ -195,5 +224,113 @@ export interface Bids{
 export interface GetBidsReturn{
     st: boolean,
     value: Bids[]
+    table?: any
+}
+
+// -----------
+
+export type InvestorTeamCompleat = {
+    type: string,
+    direction?: string 
+    investor: {
+        id: string,
+        name: string,
+        type: string
+        description: string
+        image: string,
+        descriptionInvestment: string
+        link: string,
+        color: string,
+    }
+}
+
+export type DocsNormilize = {
+    name: string,
+    files: {
+        name: string,
+        link: string
+    }
+}
+
+export interface TeamComplete{
+    id: string;
+    name: string;
+    icon: string
+    color: string;
+    status: string;
+    image: string,
+    description: string,
+    direction?: string
+    createAt: Date
+    description_innovation: string,
+    totalInvestmentAllocated: Float16Array
+
+    members: [
+        {
+            role: string,
+            roleTeam: string,
+            member: {
+                id: string,
+                name: string,
+                color: string,
+                email: string,
+                type: string,
+                image: string,
+                graduations: string[]
+                socialMedia: {
+                    type: string,
+                    link: string
+                }[]
+            }
+        }
+    ]
+
+    investors: InvestorTeamCompleat[]
+
+    resources: {
+        resource: {
+            id: string,
+            name: string,
+            value: string,
+            status: string,
+            user: {
+                name: string
+            }
+        }
+    }[]
+    
+
+    docs: {
+        name: string,
+        files: {
+            name: string,
+            type: string,
+            download: string
+        }
+    }[]
+
+    arts: {
+        files: {
+            type: string,
+            status: string,
+            linkDoc: string
+        }
+    }[]
+
+    bids: {
+        type: string,
+        status: string,
+        linkDoc: string
+    }[]
+
+    contact: {
+        role: string,
+        email: string
+    }[]
+}
+
+export interface GetTeamCompleteReturn{
+    st: boolean,
+    value: TeamComplete | null
     table?: any
 }

@@ -11,7 +11,7 @@ export async function AuthToken(token:string):Promise<AuthPrivatedToken>{
 }
 
 function getAlloweTables(token:string){
-    const public_access = ['Team', 'Investor', 'TeamInvestor', 'User', 'Resource', 'NucleiBoardOfDirectors', 'UserLogin', 'Nuclei', "InvestorInvestment", "ResourceSupplier"]
+    const public_access = ['Team', 'Investor', 'TeamInvestor', 'User', 'Resource', 'NucleiBoardOfDirectors', 'UserLogin', 'Nuclei', "InvestorInvestment", "ResourceSupplier", "Event", "EventSponsors", "TeamDocs", "TeamArt", "TeamBids", "Art", "Docs", "Bids"]
 
     if(token.split("_")[0] == "public"){
         return public_access

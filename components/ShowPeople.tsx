@@ -9,7 +9,8 @@ interface InterfaceShowPeople{
         link: string
     }[],
     graduations: string[],
-    role: string
+    role: string,
+    roleText?: string
 }
 
 const selectSocialMediaImage = (type:string) => {
@@ -25,7 +26,7 @@ const selectSocialMediaImage = (type:string) => {
     }
 }
 
-export function ShowPeople({image, name, socialMedia, graduations, role}:InterfaceShowPeople){
+export function ShowPeople({image, name, socialMedia, graduations, role, roleText = "do Hub de inovações"}:InterfaceShowPeople){
     return (
         <div className={style.content}>
             <div className={style.image}>
@@ -42,7 +43,7 @@ export function ShowPeople({image, name, socialMedia, graduations, role}:Interfa
                     <span key={`${graduation}_${index}_${role}`}>{graduation}</span>
                 ))}
             </div>
-            <div className={style.role}><span>{role} do hub de inovações</span></div>
+            <div className={style.role}><span>{role} {roleText}</span></div>
         </div>
     )
 }

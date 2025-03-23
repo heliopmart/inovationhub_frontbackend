@@ -1,0 +1,117 @@
+{
+    "titleHeader": "About us",
+    "aboutProject": {
+      "whatIs": {
+        "title": "But what is an <blue> Innovation Hub </blue>?",
+        "p": "The UFGD Innovation Hub is a <b> dynamic ecosystem dedicated to the development of innovative solutions that combine research, technology, and entrepreneurship </b>. Our purpose is to connect students, researchers, and professionals to real innovation opportunities, creating a collaborative environment where ideas leave the paper and transform into real market and societal impact. <br/> <u> In addition to boosting innovation in Mato Grosso do Sul and at UFGD </u>, our goal is to position the university as a center for exporting knowledge and technology, bringing together projects from faculty and students to create real development opportunities. <i> Here, ideas find the necessary support to become viable and scalable solutions </i>. <br/> We encourage teams to apply methodologies such as iterative design and applied research, ensuring each project has social relevance and positive impact. We believe that by combining our collaborators’ creative potential with a structured innovation environment, <u> we can turn challenges into opportunities and contribute to a more innovative and sustainable future </u>."
+      },
+      "visionMission": {
+        "title": "What is our <green> Mission </green> and our <orange> Vision </orange> for the hub?",
+        "p": "<b><green> Mission </green></b> <br/> To promote innovation and technological development through applied research, encouraging collaboration between different areas of knowledge and bringing academia closer to the productive sector. <u> We aim to transform ideas into concrete solutions, providing technical, academic, and structural support for innovative projects </u> to take shape and generate impact in society. Additionally, we aim to foster an entrepreneurial culture within UFGD, empowering students and researchers to face real challenges with creativity and efficiency.<br/><br/> <b><orange> Vision </orange></b> <br/> <b> To be a national and international reference hub in innovation, technology, and academic entrepreneurship, propelling UFGD as a center for generating disruptive solutions </b>. We aim to build a sustainable and collaborative ecosystem where faculty, students, and strategic partners can develop high-impact projects. <u> Our vision is to transform knowledge into real development, connecting the university to the market </u> and creating opportunities for Mato Grosso do Sul to become an exporter of innovation and technology."
+      },
+      "howFun": {
+        "title": "<purple> How does </purple> the Innovation Hub work?",
+        "p": "The Hub is structured with Thematic Nuclei, <u> where multidisciplinary teams work in an integrated way on project development </u>. Each nucleus plays a vital role in ensuring innovations are viable, sustainable, and impactful. <br/> <br/> <b> Nuclei and Teams </b> <br/>🔹 <b> Engineering and Development Nucleus </b> – Focused on creating and prototyping technological solutions, using agile methodologies to turn ideas into innovative products and services. <br/>🔹 <b> Management and Resource Funding Nucleus </b> – Responsible for securing funding, sponsorships, and building strategic partnerships to support projects. <br/>🔹 <b> Legal and Regulatory Nucleus </b> – Handles the legal compliance and protection of projects, including intellectual property, contracts, and regulations like LGPD (General Data Protection Law).<br/>🔹 <b> Marketing and Communication Nucleus </b> – Ensures the Hub’s visibility, promotes events, showcases projects, and strengthens connections with academia and the market. <br/>🔹 <b> Research and Innovation Nucleus </b> – Promotes the development of new technologies, applying scientific methodologies to validate hypotheses and generate applicable knowledge."
+      },
+      "team": {
+        "title": "What are <pink> teams </pink> in the Innovation Hub?",
+        "p": "The teams at the UFGD Innovation Hub are <u> multidisciplinary and organized within Thematic Nuclei </u>, ensuring collaboration and efficiency in project development. Each team has a project leader who coordinates activities, as well as researchers, developers, managers, and mentors <i> who work together to transform ideas into applicable solutions </i>. <br/> Teams use agile methodologies like Design Thinking, Scrum, and Rapid Prototyping, facilitating the innovation process. We also encourage active participation in events, challenges, and connections with companies and investors, creating an environment of continuous learning and real market and societal impact."
+      },
+      "sustainability": {
+        "title": "The Innovation Hub | UFGD <br/> <b> Believes in sustainability-driven projects </b>",
+        "p": "<b>Sustainable innovation is one of the core pillars of the UFGD Innovation Hub</b>, ensuring all technological development is <u> aligned with environmentally, socially, and economically responsible practices </u>. We believe progress must go hand in hand with the preservation of natural resources and the building of a more balanced future for the next generations. <br/> <br/> Our projects are developed based on principles of energy efficiency, circular economy, and responsible material use, reducing waste and promoting smart solutions to today’s environmental challenges. We invest in technologies that prioritize renewable energy, sustainable mobility, and positive social impact, creating innovations that benefit the market and drive real change in society. <br/> <br/> Additionally, we promote integration between academia, the productive sector, and global investors, connecting companies and institutions committed to social and environmental responsibility. We believe strategic partnerships are essential to boost sustainable development and turn good ideas into scalable solutions capable of generating global impact."
+      },
+      "efficiency": {
+        "title": "How can we ensure the Innovation Hub is efficient?",
+        "p": "At the UFGD Innovation Hub, we use <b> KPIs </b> (Key Performance Indicators) to measure project impact and progress, ensuring every initiative produces tangible results. We track metrics like the number of projects developed and implemented, partnerships with companies and institutions, investment and funding secured, along with patents and scientific publications. We also assess academic return and participant employability, evaluating how the Hub contributes to their training and professional insertion. These indicators allow us to adjust strategies, optimize resources, and maximize project impact, making the Hub a dynamic and efficient environment for innovation."
+      }
+    },
+    "founders": {
+      "title": "<b> Founders </b> of the Innovation Hub | UFGD",
+      "founders": [
+        {
+          "image": "/assets/founders/helio_image.jpg",
+          "name": "Hélio Peres Martins Neto",
+          "socialMedia": [
+            {
+              "type": "instagran",
+              "link": "https://www.instagram.com/heliopmart/"
+            },
+            {
+              "type": "linkedin",
+              "link": "https://linkedin.com/in/heliopmart"
+            }
+          ],
+          "graduations": [
+            "Mechanical Engineering UFGD",
+            "Software Engineering UNIGRAN"
+          ],
+          "role": "Director"
+        },
+        {
+          "image": "",
+          "name": "Guilherme Moreira da Silva",
+          "socialMedia": [
+            {
+              "type": "instagran",
+              "link": "https://www.instagram.com/gu1b4s_/"
+            },
+            {
+              "type": "linkedin",
+              "link": ""
+            }
+          ],
+          "graduations": [
+            "Mechanical Engineering UFGD",
+            "3rd semester"
+          ],
+          "role": "Director"
+        }
+      ]
+    },
+    "responsible": {
+      "title": "<b>Legal Representatives</b> of the Innovation Hub | UFGD",
+      "p": "The legal representatives of the UFGD Innovation Hub are the Pro-Rectory for Extension Activities, which supervises and ensures the project's compliance within the university, and the nucleus coordinators, who manage the Hub’s thematic areas, ensuring the efficient execution of initiatives. This organizational structure allows the Hub to operate in an organized manner aligned with institutional guidelines, ensuring transparency, sustainability, and positive impact both in the academic community and in the productive sector.",
+      "rectory": {
+        "name": "Prof. Dr. Lívia Gussoni Basile",
+        "email": "proec@ufgd.edu.br",
+        "tell": "3410-2884"
+      },
+      "nucleusCoordinatorsTitle": "Nucleus Coordinators",
+      "nucleusCoordinators": [
+        {
+          "image": "/assets/founders/gregolin_coor_image.jpg",
+          "name": "Prof. Rafael Ferreira Gregolin",
+          "socialMedia": [
+            {
+              "type": "instagran",
+              "link": ""
+            },
+            {
+              "type": "linkedin",
+              "link": "https://www.linkedin.com/in/rafael-ferreira-gregolin-aa525725/"
+            }
+          ],
+          "graduations": [
+            "Mechanical Engineering UFGD"
+          ],
+          "role": "Nucleus Name"
+        }
+      ]
+    },
+    "ufgd": {
+      "titlebanner": "UFGD supports the Innovation Hub",
+      "ufgdImpacts": {
+        "title": "How does the project <orange> impact </orange> UFGD?",
+        "p": "The UFGD Innovation Hub strengthens the university as a reference center for applied research, technology, and entrepreneurship, directly impacting its academic community and reinforcing its national and international standing. <br/> Within UFGD, the project expands opportunities for faculty and students, providing a practical learning environment, boosting scientific production, and attracting research funding. Furthermore, it fosters the development of new technologies, patents, and startups, connecting the university to the market and generating economic and social impacts in the region."
+      },
+      "ufgdRelatioships": {
+        "title": "UFGD on the <pink>national and international</pink> stage",
+        "p": "On the national stage, UFGD positions itself as a hub of innovation and sustainable development, attracting investments, partnerships with companies, and participation in technology promotion programs. The Hub creates opportunities for researchers and students to stand out in competitions, grants, and innovation events, increasing the university's visibility and recognition across different sectors of industry and science. <br/> Internationally, the Hub enables UFGD to establish strategic partnerships with global universities, research centers, and companies, expanding knowledge exchange and access to cutting-edge technologies. Additionally, UFGD’s participation in innovation networks strengthens its reputation as an institution committed to global impact solutions, becoming a model for other universities. <br/> The UFGD Innovation Hub not only transforms the academic and professional reality of its participants but also projects the university as a driver of innovation, technological development, and sustainable growth for Brazil and the world."
+      }
+    },
+    "docs": {
+      "title": "Transparency and Documents"
+    }
+  }
+  

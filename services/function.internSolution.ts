@@ -1,16 +1,16 @@
-import {GetTeamReturn} from "@/types/interfacesSql"
+import { GetTeamReturn} from "@/types/interfacesSql"
 
 export async function getTeams(): Promise<GetTeamReturn> {
     try {
-      const res = await fetch('/api/query/get', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-auth-token': 'public_xyz'
-        },
-        body: JSON.stringify({
-          table: 'Team',
-          select: `
+        const res = await fetch('/api/query/get', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': 'public_xyz'
+            },
+            body: JSON.stringify({
+                table: 'Team',
+                select: `
           id,
           name,
           color,
@@ -23,13 +23,14 @@ export async function getTeams(): Promise<GetTeamReturn> {
             )
           )
         `
-        })
-      });
-  
-      return { st: true, value: await res.json()};
+            })
+        });
+
+        return { st: true, value: await res.json() };
     } catch (ex) {
-      console.error("function.team > getTeams | Error: " + ex);
-      return { st: false, value: [] };
+        console.error("function.team > getTeams | Error: " + ex);
+        return { st: false, value: [] };
     }
 }
+
 

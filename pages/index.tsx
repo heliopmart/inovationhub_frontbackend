@@ -27,6 +27,7 @@ export default function Index({ messages }: { messages: any }) {
         }
         loadMessages()
     }, [locale]);
+    
     useEffect(() => {
         async function get(){
             const resGetTeam = await getTeams();
@@ -37,7 +38,7 @@ export default function Index({ messages }: { messages: any }) {
                 setInvestor(resGetInvestor.value) 
         }
         get()
-    })
+    },[])
     return (
         <>
             <Navbar messages={txtNav} />
