@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Link from "next/link"
 import { getTranslations } from "@/lib/getTranslations";
 import Navbar from "@/components/Navbar";
 import {TextImageDescrition} from "@/components/TextImageDescrition";
@@ -45,7 +46,7 @@ export default function Index({ messages }: { messages: any }) {
             <header className={style.header}>
                 <h2 className={style.titleHeader}>{messages.titleHeader}</h2>
                 <p className={style.pHeader} dangerouslySetInnerHTML={{ __html: messages.pHeader }} />
-                <button className={style.btnHeader} title={messages.btnHeader} dangerouslySetInnerHTML={{ __html: messages.btnHeader }} />
+                <Link href="/aboutUs"><button className={style.btnHeader} title={messages.btnHeader} dangerouslySetInnerHTML={{ __html: messages.btnHeader }} /></Link>
             </header>
             <section data-text={"Equipes que compõe o hub de inovações | UFGD"} className={style.sectionProjects}>
                 {

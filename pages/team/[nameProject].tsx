@@ -233,7 +233,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                     </div>
                     <div className={styles.containerInformationTeam} key={`view-${viewUser?.name}`}>
                         <div className={styles.image}>
-                            <img src={viewUser?.name} alt="" />
+                            <img src={viewUser?.image} alt="Image" />
                         </div>
                         <span className={styles.name}>{viewUser?.name}</span>
                         <div className={styles.contentSocialMedia}>
