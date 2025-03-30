@@ -194,10 +194,9 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                 <h2 className={styles.titleMainSection} dangerouslySetInnerHTML={{__html: messages.team.FoundersTeamTitle}}/>
                 <div>
                     <Swiper
-                        modules={[Navigation, Pagination]}
+                        modules={[Pagination]}
                         spaceBetween={10}
                         slidesPerView={1}
-                        navigation
                         pagination={{ clickable: true }}
                         breakpoints={{
                             640: { slidesPerView: 1 },

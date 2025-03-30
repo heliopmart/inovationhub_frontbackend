@@ -1,0 +1,63 @@
+{
+    "titleHeader": "Parceiros",
+    "pHeader": "Ser parceiro do <b><i>Hub de Inovações | UFGD</i></b> é muito mais do que um simples investimento no futuro: é criar o presente. É mostrar ao mundo que sua <b><i>empresa, organização ou startup</i></b> acredita que a inovação é a chave para transformar a sociedade e promover avanços tecnológicos significativos. <br><br> No <b><i>Hub de Inovações</i></b>, acreditamos que o futuro pertence àqueles que ousam inovar, experimentar e superar os próprios limites. Ao se tornar um parceiro, sua <b><i>empresa</i></b> estará apoiando diretamente projetos que impulsionam ideias criativas e soluções tecnológicas de impacto. É a oportunidade de fazer parte de um movimento que conecta mentes brilhantes e transforma desafios em conquistas. <br><br> Investindo nas equipes do <b><i>Hub de Inovações</i></b>, sua <u>empresa estará na vanguarda</u> quando o tema for <b><i>inovação e tecnologia</i></b>. Você se tornará um protagonista na jornada de construção de um mundo mais eficiente, sustentável e conectado. Nossas equipes, compostas por docentes e estudantes universitários altamente qualificados, estão comprometidas em desenvolver soluções práticas e tecnológicas que atendam às demandas do mercado e da sociedade. <br><br> Ser um parceiro do <b><i>Hub de Inovações</i></b> é um compromisso com o presente e o futuro. É estar ao lado de quem transforma ideias em realidade, com o apoio de uma comunidade acadêmica engajada e preparada para enfrentar os desafios da era digital. Sua <b><i>empresa</i></b> não só apoiará o desenvolvimento de tecnologias inovadoras, mas também fortalecerá sua própria imagem como líder no cenário da <b><i>inovação e tecnologia</i></b>. <br><br> Não fique de fora dessa jornada! Venha construir o futuro conosco e mostre que sua <b><i>empresa</i></b> está pronta para fazer parte dessa transformação.",
+    "informations": [
+        {
+            "title": "A inovação para o futuro",
+            "p": "<b>O futuro da inovação</b> está diretamente ligado à capacidade de adaptação e transformação das ideias em soluções práticas.  No <u>Hub de Inovações UFGD</u>, promovemos a <i>interdisciplinaridade</i> e o desenvolvimento tecnológico com foco em  soluções que integram pesquisa aplicada e avanço científico. Acreditamos que, por meio da colaboração e da troca de conhecimentos, é possível criar tecnologias capazes de transformar realidades e promover o crescimento sustentável. <br/> Estamos comprometidos em criar um <b>ambiente inovador</b>, no qual discentes, docentes e parceiros possam desenvolver projetos que impactem positivamente a sociedade.",
+            "image": "/assets/inovationForTheFuture.png"
+        },
+        {
+            "title": "Porque ser um parceiro do Hub?",
+            "p": "Tornar-se parceiro do <b>Hub de Inovações UFGD</b> significa estar na vanguarda da <u>inovação tecnológica</u>. <i>Empresas, instituições e profissionais</i> que se unem a nós têm a oportunidade de participar de projetos que integram tecnologias de ponta, promovendo o <b>desenvolvimento sustentável</b> e o avanço científico. <br/> Nossos parceiros têm acesso direto às <i>pesquisas aplicadas</i>, ao desenvolvimento de soluções inovadoras e à formação de talentos qualificados, contribuindo para a modernização dos processos industriais e a transformação social. ",
+            "image": "/assets/partnersImage.png"
+        },
+        {
+            "title": "Estamos 100% preparados",
+            "p": "O <b>Hub de Inovações UFGD</b> está totalmente preparado para enfrentar os desafios do mercado tecnológico atual.  <u>Nossa estrutura organizacional</u> foi desenvolvida para garantir eficiência, colaboração interdisciplinar e gestão transparente dos recursos. <br/> Com núcleos especializados e uma equipe altamente qualificada, proporcionamos um ambiente onde a <i>inovação</i> e a pesquisa aplicada convergem para gerar soluções práticas e de alto impacto. Estamos prontos para transformar ideias em realidade e levar a <b>UFGD</b> ao protagonismo no cenário da inovação nacional e internacional. ",
+            "image": "/assets/ufgd_image.webp"
+        }
+    ],
+    "textBanner_1": "Nossos parceiros investem no futuro",
+    "docsTitle": "Documentos Importântes",
+    "docs": [
+        {
+            "title": "Documentos para parceiros",
+            "files": [
+                {
+                    "name": "Governança e transparencia | Hub de inovações",
+                    "link": ""
+                },
+                {
+                    "name": "Levantamento de recursos 2025/1 | Hub de inovações",
+                    "link": ""
+                },
+                {
+                    "name": "Politicas | Hub de inovações",
+                    "link": ""
+                },
+                {
+                    "name": "Seja um parceiro | Hub de inovações",
+                    "link": ""
+                },
+                {
+                    "name": "Balanço Financeiro 2025/1 | Hub de inovações",
+                    "link": ""
+                }
+            ]
+        }
+    ],
+    "contact": {
+        "title": "Torne-se um parceiro, e construa o futuro",
+        "subTitle": "SEUS DADOS ESTÃO SEGURO CONOSCO",
+        "p": "Entraremos em contato o mais rápido possível para dar início à parceria que impulsionará a inovação e o desenvolvimento tecnológico.",
+        "buttonText": "Conectar-se ao Futuro",
+        "input": [
+            "Nome da empresa: ",
+            "Setor econômico: ",
+            "Nome do Representante: ",
+            "Cargo do Representante: ",
+            "E-mail para Contato: "
+        ]
+    }
+}

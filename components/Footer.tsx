@@ -52,9 +52,9 @@ export default function Footer({ messages }: { messages: any }) {
                 </div>
                 <div className={style.contentDown}>
                     <span className={style.copywriter}>© 2025 UFGD | Projetos pertencem à UFGD e suas equipes | Todos os direitos reservados.</span>
-                    <Link href={""} target="_blank" rel="noopener noreferrer"><span className={style.copywriter}>Criado por <i>Hélio Martins</i></span></Link>
+                    <Link href={"https://profile-web-git-main-heliopmarts-projects.vercel.app/"} target="_blank" rel="noopener noreferrer"><span className={style.copywriter}>Criado por <i>Hélio Martins</i></span></Link>
                 </div>
-            </footer>
+           </footer>
         ):""}
         </>
     )

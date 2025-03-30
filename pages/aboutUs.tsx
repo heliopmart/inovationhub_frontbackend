@@ -132,10 +132,9 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <h2 dangerouslySetInnerHTML={{__html: messages.founders.title}}/>
                 <div className={styles.contentFounders}>
                     <Swiper
-                        modules={[Navigation, Pagination]}
+                        modules={[Pagination]}
                         spaceBetween={10}
                         slidesPerView={1}
-                        navigation
                         pagination={{ clickable: true }}
                         breakpoints={{
                             640: { slidesPerView: 1 },

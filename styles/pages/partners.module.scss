@@ -1,0 +1,111 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.titleContent{
+    font-family: "Kalam", cursive;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.pContent{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+    font-size: 1em;
+    text-align: center;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.contentDescription{
+    width: 100%;
+    height: auto;
+
+    @include Flex(column, nowrap, left, start);
+    gap: 4vh;
+}
+
+.contentTitleDescription{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 0px;
+
+    .titleContent{
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+        color: #1a1a1a;
+        font-size: 1.4em;
+        text-align: left;
+    }
+}
+
+.partnersSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 8%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, center, start);
+    gap: 7vh;
+    
+    p{
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #1a1a1a;
+        font-size: 1.1em;
+        text-align: center;
+        line-height: 24px;
+        text-align: justify;
+    }
+}
+
+.mainSection{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+}
+
+.sectionDocs{
+    width: 100vw;
+    height: auto;
+    padding: 3% 15%;
+    box-sizing: border-box;
+    @include Flex(column, nowrap, start, start);
+    gap: 10vh;
+
+    .titleSection{
+        font-size: 1.9em;
+        color: #1a1a1a;
+        text-align: center;
+        line-height: 40px;
+        font-family: "Kalam", cursive;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 1390px) {
+    .partnersSection{
+        padding: 20px 10px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        p{
+            font-size: 1em;
+        }
+    }
+
+    .mainSection{
+        padding: 20px 10px;
+        box-sizing: border-box;
+        @include Flex(column, nowrap, start, start);
+    }
+}

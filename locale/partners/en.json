@@ -1,0 +1,63 @@
+{
+    "titleHeader": "Partners",
+    "pHeader": "",
+    "informations": [
+        {
+            "title": "Innovation for the Future",
+            "p": "<b>The future of innovation</b> is directly linked to the ability to adapt and transform ideas into practical solutions. At the <u>UFGD Innovation Hub</u>, we promote <i>interdisciplinarity</i> and technological development focused on solutions that integrate applied research and scientific advancement. We believe that through collaboration and knowledge exchange, it is possible to create technologies capable of transforming realities and promoting sustainable growth. <br/> We are committed to creating an <b>innovative environment</b>, where students, professors, and partners can develop projects that positively impact society.",
+            "image": "/assets/inovationForTheFuture.png"
+        },
+        {
+            "title": "Why become a partner of the Hub?",
+            "p": "Becoming a partner of the <b>UFGD Innovation Hub</b> means being at the forefront of <u>technological innovation</u>. <i>Companies, institutions, and professionals</i> who join us have the opportunity to participate in projects that integrate cutting-edge technologies, promoting <b>sustainable development</b> and scientific advancement. <br/> Our partners have direct access to <i>applied research</i>, the development of innovative solutions, and the training of qualified talents, contributing to the modernization of industrial processes and social transformation.",
+            "image": ""
+        },
+        {
+            "title": "We are 100% prepared",
+            "p": "The <b>UFGD Innovation Hub</b> is fully prepared to face the challenges of the current technological market. <u>Our organizational structure</u> was developed to ensure efficiency, interdisciplinary collaboration, and transparent resource management. <br/> With specialized centers and a highly qualified team, we provide an environment where <i>innovation</i> and applied research converge to generate practical and high-impact solutions. We are ready to turn ideas into reality and lead <b>UFGD</b> to a leading position in the national and international innovation scene.",
+            "image": ""
+        }
+    ],
+    "textBanner_1": "Our partners invest in the future",
+    "docsTitle": "Important Documents",
+    "docs": [
+        {
+            "title": "Documents for partners",
+            "files": [
+                {
+                    "name": "Governance and Transparency | Innovation Hub",
+                    "link": ""
+                },
+                {
+                    "name": "Resource Survey 2025/1 | Innovation Hub",
+                    "link": ""
+                },
+                {
+                    "name": "Policies | Innovation Hub",
+                    "link": ""
+                },
+                {
+                    "name": "Become a Partner | Innovation Hub",
+                    "link": ""
+                },
+                {
+                    "name": "Financial Balance 2025/1 | Innovation Hub",
+                    "link": ""
+                }
+            ]
+        }
+    ],
+    "contact": {
+        "title": "Become a partner and build the future",
+        "subTitle": "YOUR DATA IS SAFE WITH US",
+        "p": "We will get in touch as soon as possible to start the partnership that will boost innovation and technological development.",
+        "buttonText": "Connect to the Future",
+        "input": [
+            "Company Name: ",
+            "Economic Sector: ",
+            "Representative's Name: ",
+            "Representative's Position: ",
+            "Contact E-mail: "
+        ]
+    }
+}
