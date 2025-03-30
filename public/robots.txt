@@ -1,0 +1,6 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://profile-web-git-main-heliopmarts-projects.vercel.app/sitemap.xml

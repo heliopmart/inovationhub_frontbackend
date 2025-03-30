@@ -75,7 +75,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     return (
         <>
             <Navbar messages={txtNav} page="partners" styleColor="#E97777" key={"partners-Nav"}/>
-            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #E97777 100%);"}  key={"internSolutions-Headera"}/>
+            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #E97777 100%)"}  key={"internSolutions-Head"}/>
 
             <section className={styles.partnersSection} id="becomePartner">
                 <p dangerouslySetInnerHTML={{__html: messages.pHeader}}/>

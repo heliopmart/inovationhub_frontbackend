@@ -64,7 +64,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     return (
         <>
             <Navbar messages={txtNav} page="thematicNuclei" styleColor="#67839A" key={"thematicNuclei-Nav"}/>
-            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #C9E6FF 100%);"}  key={"thematicNuclei-Headerrs"}/>
+            <HeaderMinify title={messages.titleHeader} background={"linear-gradient(78deg, #fff 46%, #C9E6FF 100%)"}  key={"thematicNuclei"}/>
             <section className={styles.thematicNucleiSection} id="aboutThematicNuclei">
                 <TextImageDescrition image={messages.thematicNucleiSectionDescription.image} direction="right">
                     <div className={styles.contentDescription}>
