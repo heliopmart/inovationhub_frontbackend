@@ -1,0 +1,66 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    @include Flex(row, nowrap, stretch, start);
+    gap: 15px;
+
+    .menuContent{
+        max-width:310px;
+        min-height: 250px;
+        height: auto;
+        flex: 1 1;
+    }
+
+    .paintContent{
+        width: calc(100% - 325px);
+        padding: 15px;
+        box-sizing: border-box;
+        height: auto;
+        flex: 1 1;
+        @include Flex(column, nowrap, start, start);
+        gap: 4vh;
+
+        .container{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 5vh;
+
+            .sectionContent{
+                width: 100%;
+                height: auto;
+                @include Flex(column, nowrap, start, start);
+                gap: 5vh;
+
+                .TitleSection{
+                    font-size: 1.5em;
+                    color: #3B3B3B;
+                }
+
+                .contentChanges{
+                    width: 100%;
+                    @include Flex(row, nowrap, start, center);
+                    gap: 20px;
+
+                    .container{
+                        width: calc(50% - 10px);
+                        height: auto;
+                        flex: 1 1;
+                        padding: 5px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

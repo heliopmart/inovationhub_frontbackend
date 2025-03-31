@@ -1,0 +1,29 @@
+{
+    "links": [
+        {
+            "text": "Resumo",
+            "link": "#summary"
+        },
+        {
+            "text": "Equipes",
+            "link": "#team",
+            "team": true
+        },
+        {
+            "text": "Relatórios",
+            "link": "#resume"
+        },
+        {
+            "text": "Eventos",
+            "link": "#events"
+        },
+        {
+            "text": "Recursos do hub",
+            "link": "/structuring#resources"
+        },
+        {
+            "text": "configurações",
+            "link": "#configs"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "links": [
+        {
+            "text": "Summary",
+            "link": "#summary"
+        },
+        {
+            "text": "Teams",
+            "link": "#team",
+            "team": true
+        },
+        {
+            "text": "Reports",
+            "link": "#resume"
+        },
+        {
+            "text": "Events",
+            "link": "#events"
+        },
+        {
+            "text": "Hub Resources",
+            "link": "/structuring#resources"
+        },
+        {
+            "text": "Settings",
+            "link": "#configs"
+        }
+    ]
+}

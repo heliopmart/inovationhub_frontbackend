@@ -1,0 +1,93 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.headerDashboard{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 2vh;
+
+    .contentUser{
+        width: auto;
+        margin-left: auto;
+        height: 75px;
+        @include Flex(row,nowrap,center, start);
+        gap: 15px;
+
+        span{
+            font-size: 1em;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+
+        img{
+            display: block;
+            width: 57px;
+            height: 57px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            object-fit: contain;
+        }
+    }
+
+    nav{
+        width: 100%;
+        height: auto;
+        @include Flex(row, nowrap, center, space-between);
+        gap: 10px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #D9D9D9;
+
+        .back{
+            width: auto;
+            height: auto;
+            @include Flex(row, nowrap, center, start);
+            gap: 15px;
+
+            button{
+                width: 45px;
+                height: 45px;
+                border: none;
+                display: block;
+                background-color: transparent;
+                cursor: pointer;
+                img{
+                    display: block;
+                    filter: invert(0%) sepia(2%) saturate(15%) hue-rotate(332deg) brightness(105%) contrast(80%);
+                    object-fit: contain;
+                }
+            }
+            span{
+                font-size: .9em;
+                color: #9E9E9E;
+                font-weight: lighter;
+                text-align: left;
+            }
+            
+        }
+
+        .warningContent{
+            width: auto;
+            min-width: 200px;
+            height: 50px;
+            background-color: #55584C;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            @include Flex(row, nowrap, center, start);
+
+            
+            span{
+                text-align: left;
+                color: #fff;
+                font-weight: 100;
+                font-size: .9em;
+            }
+        }
+    }
+}

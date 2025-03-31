@@ -175,8 +175,8 @@
                     }
 
                     img{
-                        width: 110%;
-                        height: 104%;
+                        width: 130px;
+                        height: 130px;
                         object-fit: contain;
                         position: relative;
                         right: 5px;
@@ -430,6 +430,11 @@
                     .ball{
                         width: 110px;
                         height: 110px;
+
+                        img{
+                            width: 110px;
+                            height: 110px;
+                        }
                     }
                 }
                  
