@@ -24,8 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // 🔐 Ponto para autenticação futura
     if (!token || typeof token !== 'string') {
         token = await initializePublicToken();
-        // return res.status(401).json({ error: 'Token missing' });
     }
+
+    console.log(token)
 
     const validedToken = await validateToken(token);
 

@@ -12,7 +12,6 @@ import styles from '@/styles/pages/actionsTeam.module.scss'
 
 import {getTeamsByRootPage, getTeamDashboardComplete, getArtDashboardComplete} from "@/services/function.dashboard.team"
 import {TeamsByRootPageProps, ArtDashboardComplete} from "@/types/interfaceDashboardSql"
-import {authMinifyProps} from "@/types/auth"
 
 import {NormilizeTypeReport} from "@/lib/normalizeInformationToFront"
 

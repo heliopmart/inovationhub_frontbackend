@@ -35,9 +35,10 @@ export async function validatePrivateAccess(token: string, userId: string): Prom
 
 export async function validateToken(token: string, userId?:string):Promise<TokenVerifyProps>{
   const typeToken = token.split("_")[0]
+
   if(typeToken == 'public'){
     return {status: await validatePublicAccess(token), allowedTables: [...public_access]}
   }else{
-    return {status: await validatePrivateAccess(token, userId || ""), allowedTables: [...public_access, ...private_access]}
+    return {status: await validatePrivateAccess(token, userId || token.split(":")[1] || ""), allowedTables: [...public_access, ...private_access]}
   }
 }
