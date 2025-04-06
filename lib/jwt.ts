@@ -1,6 +1,6 @@
 import jwt, { JwtPayload, Secret  } from 'jsonwebtoken';
 
-const secret: Secret = process.env.NEXT_PUBLIC_JWT_SECRET || 'default_secret';
+const secret: Secret = process.env.JWT_SECRET || 'default_secret';
 
 export function generateToken(payload: object, expiresIn: string = '1h'): string {
   if (!secret) {

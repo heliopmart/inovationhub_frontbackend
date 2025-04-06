@@ -4,5 +4,5 @@ export function getBaseUrl() {
         return '';
     }
     // Executando no servidor
-    return process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
+    return process.env.API_BASE_URL || 'http://localhost:3000';
 }
