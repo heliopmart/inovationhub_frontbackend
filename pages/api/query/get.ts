@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { supabase } from '@/lib/supabase';
-import { AuthToken } from "../auth/auth.token"
+import { parse } from 'cookie';
+import {initializePublicToken, validateToken} from "@/lib/authManager"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     
@@ -16,19 +17,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         order,
     } = req.body;
 
-    const token = req.headers['x-auth-token'];
+    // Obtendo o token do cookie
+    const cookies = parse(req.headers.cookie || '');
+    let token = cookies.public_token || cookies.private_token;
 
     // 🔐 Ponto para autenticação futura
     if (!token || typeof token !== 'string') {
-        return res.status(401).json({ error: 'Token missing' });
+        token = await initializePublicToken();
+        // return res.status(401).json({ error: 'Token missing' });
     }
 
-    // authenticação por token public ou private
-
-    const validedToken = await AuthToken(token);
+    const validedToken = await validateToken(token);
 
     if (!validedToken.status) {
-        return res.status(403).json({ error: validedToken.message });
+        return res.status(403).json({ error: "Token invalido, permissão negada"});
     }
 
     // ✅ Tabela obrigatória

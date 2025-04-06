@@ -9,14 +9,36 @@ import {DefaultInput} from "@/components/Input"
 
 import styles from "@/styles/pages/login.module.scss"
 
+import {getLogIn} from "@/services/function.login"
+import {regexStudentEmail} from "@/lib/regex.email"
+
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtNav, setTxtNav] = useState({});
     const { locale } = useRouter();
+    const router = useRouter();
 
     const [warning, setWarning] = useState({display: "none", text: messages.warning[0]})
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     
+    async function logIn(){
+        const emailVerification = email.length > 0 && regexStudentEmail.test(email)
+        const passwordVerification = password.length > 0
+
+        if(emailVerification && passwordVerification){
+            const responseLog = await getLogIn(email, password)
+
+            if(!responseLog){
+                setWarning({display: "flex", text: "Email ou senhas incorretos"})
+                return 
+            }
+
+            router.push("/dashboard/")
+        }else{
+            setWarning({display: "flex", text: "Email ou senhas invalidos, preencha todos corretamente!"})
+        }
+    }
+
     useEffect(() => {
     async function loadMessages() {
         const translationsNav = await getTranslations("navbar", locale || "pt");
@@ -40,7 +62,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                         <DefaultInput text={messages.inputs.email.text} minLength={messages.inputs.email.minLenght} type={messages.inputs.email.type} placeholder={messages.inputs.email.placeholder} value={email} returnValue={(t) => {setEmail(t)}} key={"email-input"} />
                         <DefaultInput isPassword={true} text={messages.inputs.password.text} minLength={messages.inputs.password.minLenght} type={messages.inputs.password.type} placeholder={messages.inputs.password.placeholder} value={password} returnValue={(t) => {setPassword(t)}} key={"email-input"} />
                         
-                        <button className={styles.button} title={messages.textButton} style={{background: "#72873B"}}>{messages.textButton}</button>
+                        <button type="button" onClick={() => logIn()} className={styles.button} title={messages.textButton} style={{background: "#72873B"}}>{messages.textButton}</button>
                     </form>
                     <span className={styles.other}>{messages.others.text} <Link href={messages.others.link}>{messages.others.textLink}</Link></span>
                 </section>

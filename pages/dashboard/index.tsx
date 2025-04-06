@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { getTranslations } from "@/lib/getTranslations";
 import { useRouter } from "next/router";
+import withAuth from '@/hoc/withAuth';
 import { useEffect, useState } from "react";
 
 import {NavDashBoard} from "@/components/NavDashBoard"
@@ -8,15 +9,19 @@ import {HeaderDashBoard} from "@/components/HeaderDashBoard"
 
 import styles from '@/styles/pages/dashboard_index.module.scss' 
 
-export default function DashboardResume({messages}: { messages: any}){
+import {authUser} from "@/types/interfaceClass"
+
+
+function DashboardResume({messages, authUser}: { messages: any, authUser: authUser}){
     const { locale } = useRouter();
+
     return (
         <section className={styles.section}>
             <div className={styles.menuContent}>
                 <NavDashBoard links={messages.links.links}/>
             </div>
             <div className={styles.paintContent}>
-                <HeaderDashBoard/>
+                <HeaderDashBoard imageUser={authUser?.user?.image} nameUser={authUser?.user?.name} key={"header-dashboard-index"}/>
                 <div className={styles.container}>
                     <section className={styles.sectionContent}>
                         <span className={styles.TitleSection}>Minhas Atribuições:</span>
@@ -53,3 +58,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         props: { messages },
     };
 };
+
+
+export default withAuth(DashboardResume);
