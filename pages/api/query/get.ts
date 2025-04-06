@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase';
 import { AuthToken } from "../auth/auth.token"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Only POST method allowed' });
     }
@@ -61,7 +62,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const { data, error } = await query;
-
+    
     if (error) {
         return res.status(500).json({ error: error.message });
     }

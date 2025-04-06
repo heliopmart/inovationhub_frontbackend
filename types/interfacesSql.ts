@@ -263,7 +263,7 @@ export interface TeamComplete{
     direction?: string
     createAt: Date
     description_innovation: string,
-    totalInvestmentAllocated: Float16Array
+    totalInvestmentAllocated: Float64Array
 
     members: [
         {
@@ -311,6 +311,7 @@ export interface TeamComplete{
 
     arts: {
         files: {
+            name: string,
             type: string,
             status: string,
             linkDoc: string
@@ -334,3 +335,4 @@ export interface GetTeamCompleteReturn{
     value: TeamComplete | null
     table?: any
 }
+

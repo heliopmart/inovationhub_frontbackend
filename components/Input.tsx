@@ -11,9 +11,16 @@ interface InterfaceDefaultInput{
     isPassword?: boolean
 }
 
-interface InterfaceSelectInput{
+interface InterfaceSelectCoursesInput{
     text: string,
     courses: Array<Array<string>>
+    value: string
+    returnValue: (r:string) => void
+}
+
+interface InterfaceSelectInput{
+    text: string,
+    courses: Array<string>
     value: string
     returnValue: (r:string) => void
 }
@@ -32,7 +39,7 @@ export function DefaultInput({type,isPassword,placeholder,text,value, minLength,
     );
 }
 
-export function SelectInput({text, value, returnValue, courses}:InterfaceSelectInput) {
+export function SelectCoursesInput({text, value, returnValue, courses}:InterfaceSelectCoursesInput) {
     return (
         <div className={`${style.inputContent} ${style.selectInput}`}>
             <span>{text}</span>
@@ -76,6 +83,20 @@ export function SelectInput({text, value, returnValue, courses}:InterfaceSelectI
                 ))}
                 <option disabled={true}>FAEN</option>
                 {courses[9].map((curse:string) => (
+                    <option value={curse}>{curse}</option>
+                ))}
+            </select>
+        </div>
+    );
+}
+
+export function SelectInput({text, value, returnValue, courses}:InterfaceSelectInput) {
+    return (
+        <div className={`${style.inputContent} ${style.selectInput}`}>
+            <span>{text}</span>
+            <select title={text} name='courses' onChange={(e) => returnValue(e.target.value)} value={value}>
+                <option value={0} selected={true} disabled={true}>Selecionar</option>
+                {courses.map((curse: string) => (
                     <option value={curse}>{curse}</option>
                 ))}
             </select>

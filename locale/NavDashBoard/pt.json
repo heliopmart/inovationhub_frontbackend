@@ -2,20 +2,20 @@
     "links": [
         {
             "text": "Resumo",
-            "link": "#summary"
+            "link": "/dashboard/"
         },
         {
             "text": "Equipes",
-            "link": "#team",
+            "link": "/dashboard/team",
             "team": true
         },
         {
             "text": "Relatórios",
-            "link": "#resume"
+            "link": "/dashboard/resume"
         },
         {
             "text": "Eventos",
-            "link": "#events"
+            "link": "/dashboard/events"
         },
         {
             "text": "Recursos do hub",
@@ -23,7 +23,7 @@
         },
         {
             "text": "configurações",
-            "link": "#configs"
+            "link": "/dashboard/configs"
         }
     ]
 }

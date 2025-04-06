@@ -1,0 +1,226 @@
+{
+  "id": "1",
+  "name": "Modificação da assento do protótipo",
+  "type": "modification",
+  "status": "processing",
+  "createdAt": "2025-03-23T17:20:07",
+  "updatedAt": "2025-03-23T17:20:09",
+  "linkDoc": "NULL",
+  "responseAt": null,
+  "limitDate": null,
+  "totalInvestmentAllocated": 0,
+  "totalValueAllocated": 0,
+  "observation": null,
+  "teamArts": [
+      {
+          "team": {
+              "id": "1",
+              "icon": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742673141/motostudent_icon_ts0iv0.svg",
+              "name": "MotoStudent",
+              "color": "#C71037",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742673162/motostudent_cover_image_iejjgk.webp",
+              "status": "operation",
+              "createAt": "2025-03-22 19:03:38.335857+00",
+              "resources": [
+                  {
+                      "id": "alloc-1",
+                      "teamId": "1",
+                      "resourceId": "res-1"
+                  }
+              ],
+              "description": "O <b>MotoStudent</b> é um projeto acadêmico de engenharia voltado para o desenvolvimento de <b>motocicletas de alta performance</b> para competições internacionais. <br/> Integrando conhecimentos de <i>engenharia mecânica, eletrônica e design automotivo</i>, a equipe projeta, fabrica e testa um protótipo funcional, aplicando inovação e pesquisa aplicada no setor de mobilidade. <br/><br/> O projeto faz parte do <b>Hub de Inovações da UFGD</b> e segue uma metodologia baseada em <b>KPIs (Key Performance Indicators)</b> para avaliar sua evolução. <br/> Os principais indicadores incluem o número de publicações científicas geradas, captação de recursos e patrocínios, desenvolvimento de novas tecnologias aplicadas ao setor automotivo e a empregabilidade dos membros da equipe após a participação no projeto. <br/><br/> Além do desenvolvimento técnico, o <b>MotoStudent</b> incentiva a interdisciplinaridade e a integração com empresas e startups, promovendo o espírito empreendedor e a inovação na engenharia nacional. <br/> O projeto prepara os participantes para desafios reais da indústria e reforça a posição da <b>UFGD</b> no cenário global de competições acadêmicas.",
+              "totalValueAllocated": 0,
+              "description_innovation": "<b>MotoStudent</b> é mais do que uma competição acadêmica — é um verdadeiro laboratório de <i>inovação aplicada</i>.<br/><br/>\r\nAo integrar <b>desenvolvimento tecnológico</b> com <i>práticas de engenharia real</i>, o projeto impulsiona estudantes a projetarem e construírem motocicletas com foco em <u>eficiência, desempenho e sustentabilidade</u>.<br/><br/>\r\nA iniciativa contribui diretamente para o futuro ao fomentar a <b>formação de profissionais altamente qualificados</b>, preparados para os desafios da indústria 4.0.<br/>\r\nAlém disso, promove o uso de <i>tecnologias emergentes</i> como modelagem 3D, simulações digitais e manufatura avançada, estimulando a <u>cultura maker</u> e a <b>resolução criativa de problemas</b>.<br/><br/>\r\nCom forte conexão com empresas e startups, o MotoStudent transforma conhecimento acadêmico em soluções práticas, conectando <i>ensino, pesquisa e mercado</i>.<br/>\r\nEsse ecossistema colaborativo fortalece o papel da universidade na <b>transformação social e tecnológica</b>.\r\n",
+              "totalInvestmentAllocated": 10000
+          }
+      }
+  ],
+  "artBids": [
+      {
+          "id": "1",
+          "teamId": "1",
+          "bidId": "1",
+          "artId": "1",
+          "createAt": "2025-03-23T17:22:33",
+          "bid": {
+              "id": "1",
+              "code": "#12671862712-A",
+              "type": "purchase",
+              "status": "review",
+              "linkDoc": "NULL",
+              "createdAt": "2025-03-23T17:21:40",
+              "updatedAt": "2025-03-23T17:21:39"
+          }
+      }
+  ],
+  "artMembers": [
+      {
+          "id": "member-2",
+          "teamId": "1",
+          "memberId": "2",
+          "role": "founder",
+          "roleTeam": "Lider",
+          "punishment": 0,
+          "allocatedArt": "1",
+          "user": {
+              "id": "2",
+              "name": "Guilherme Moreira da silva",
+              "tell": null,
+              "type": "discente",
+              "admin": true,
+              "color": "#439249",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/w8qkykefofpgu4sg6dmp.jpg",
+              "createAt": "2025-03-22T19:03:38.336",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-3",
+          "teamId": "1",
+          "memberId": "3",
+          "role": "founder",
+          "roleTeam": "Membro",
+          "punishment": 0,
+          "allocatedArt": null,
+          "user": {
+              "id": "3",
+              "name": "Auane Dias Rodrigues",
+              "tell": null,
+              "type": "discente",
+              "admin": false,
+              "color": "#921D1E",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/ifwoset3or2hw12gea6c.jpg",
+              "createAt": "2025-03-24T12:12:28",
+              "updateAt": "2025-03-24T12:12:29",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-4",
+          "teamId": "1",
+          "memberId": "4",
+          "role": "founder",
+          "roleTeam": "Membro",
+          "punishment": 0,
+          "allocatedArt": null,
+          "user": {
+              "id": "4",
+              "name": "Adalto Barbosa de Oliveira Neto",
+              "tell": null,
+              "type": "discente",
+              "admin": false,
+              "color": "#FE9900",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829378/motostudent_team/rzpr60howgwxkbiyjgqq.jpg",
+              "createAt": "2025-03-24T12:18:00",
+              "updateAt": "2025-03-24T12:18:01",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-5",
+          "teamId": "1",
+          "memberId": "5",
+          "role": "coordinator",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null,
+          "user": {
+              "id": "5",
+              "name": "Rafael Ferreira Gregolin",
+              "tell": null,
+              "type": "docente",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791000/motostudent_team/iaxpir4sfzm8ncklba5p.jpg",
+              "createAt": "2025-04-04T15:24:31",
+              "updateAt": "2025-04-04T15:24:32",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-6",
+          "teamId": "1",
+          "memberId": "6",
+          "role": "coordinator",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null,
+          "user": {
+              "id": "6",
+              "name": "Ramon Eduardo Pereira Silva",
+              "tell": null,
+              "type": "coordinator",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791001/motostudent_team/npanx5jgjsrmnu4deim7.png",
+              "createAt": "2025-04-04T15:33:13",
+              "updateAt": "2025-04-04T15:33:15",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-7",
+          "teamId": "1",
+          "memberId": "7",
+          "role": "coordinator",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null,
+          "user": {
+              "id": "7",
+              "name": "Sanderson Manoel da Conceição",
+              "tell": null,
+              "type": "coordinator",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791001/motostudent_team/lplr2ldgi6yvaeo1mmqs.png",
+              "createAt": "2025-04-04T15:35:35",
+              "updateAt": "2025-04-04T15:35:37",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      },
+      {
+          "id": "member-1",
+          "teamId": "1",
+          "memberId": "1",
+          "role": "founder",
+          "roleTeam": "Lider de prototipagem",
+          "punishment": 0,
+          "allocatedArt": "1",
+          "user": {
+              "id": "1",
+              "name": "Hélio Peres Martins Neto",
+              "tell": "67 992546008",
+              "type": "discente",
+              "admin": true,
+              "color": "#2774B7",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/doz7aybw7cgczraoffw5.jpg",
+              "createAt": "2025-03-22T19:03:38.336",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          }
+      }
+  ]
+}

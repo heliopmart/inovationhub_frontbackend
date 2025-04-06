@@ -1,0 +1,271 @@
+{
+  "id": "1",
+  "name": "MotoStudent",
+  "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742673162/motostudent_cover_image_iejjgk.webp",
+  "icon": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742673141/motostudent_icon_ts0iv0.svg",
+  "description": "O <b>MotoStudent</b> é um projeto acadêmico de engenharia voltado para o desenvolvimento de <b>motocicletas de alta performance</b> para competições internacionais. <br/> Integrando conhecimentos de <i>engenharia mecânica, eletrônica e design automotivo</i>, a equipe projeta, fabrica e testa um protótipo funcional, aplicando inovação e pesquisa aplicada no setor de mobilidade. <br/><br/> O projeto faz parte do <b>Hub de Inovações da UFGD</b> e segue uma metodologia baseada em <b>KPIs (Key Performance Indicators)</b> para avaliar sua evolução. <br/> Os principais indicadores incluem o número de publicações científicas geradas, captação de recursos e patrocínios, desenvolvimento de novas tecnologias aplicadas ao setor automotivo e a empregabilidade dos membros da equipe após a participação no projeto. <br/><br/> Além do desenvolvimento técnico, o <b>MotoStudent</b> incentiva a interdisciplinaridade e a integração com empresas e startups, promovendo o espírito empreendedor e a inovação na engenharia nacional. <br/> O projeto prepara os participantes para desafios reais da indústria e reforça a posição da <b>UFGD</b> no cenário global de competições acadêmicas.",
+  "color": "#C71037",
+  "createAt": "2025-03-22 19:03:38.335857+00",
+  "description_innovation": "<b>MotoStudent</b> é mais do que uma competição acadêmica — é um verdadeiro laboratório de <i>inovação aplicada</i>.<br/><br/>\r\nAo integrar <b>desenvolvimento tecnológico</b> com <i>práticas de engenharia real</i>, o projeto impulsiona estudantes a projetarem e construírem motocicletas com foco em <u>eficiência, desempenho e sustentabilidade</u>.<br/><br/>\r\nA iniciativa contribui diretamente para o futuro ao fomentar a <b>formação de profissionais altamente qualificados</b>, preparados para os desafios da indústria 4.0.<br/>\r\nAlém disso, promove o uso de <i>tecnologias emergentes</i> como modelagem 3D, simulações digitais e manufatura avançada, estimulando a <u>cultura maker</u> e a <b>resolução criativa de problemas</b>.<br/><br/>\r\nCom forte conexão com empresas e startups, o MotoStudent transforma conhecimento acadêmico em soluções práticas, conectando <i>ensino, pesquisa e mercado</i>.<br/>\r\nEsse ecossistema colaborativo fortalece o papel da universidade na <b>transformação social e tecnológica</b>.\r\n",
+  "status": "operation",
+  "totalInvestmentAllocated": 10000,
+  "totalValueAllocated": 0,
+  "teamMembers": [
+      {
+          "id": "member-2",
+          "role": "founder",
+          "user": {
+              "id": "2",
+              "name": "Guilherme Moreira da silva",
+              "tell": null,
+              "type": "discente",
+              "admin": true,
+              "color": "#439249",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/w8qkykefofpgu4sg6dmp.jpg",
+              "createAt": "2025-03-22T19:03:38.336",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "2",
+          "roleTeam": "Lider",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-3",
+          "role": "founder",
+          "user": {
+              "id": "3",
+              "name": "Auane Dias Rodrigues",
+              "tell": null,
+              "type": "discente",
+              "admin": false,
+              "color": "#921D1E",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/ifwoset3or2hw12gea6c.jpg",
+              "createAt": "2025-03-24T12:12:28",
+              "updateAt": "2025-03-24T12:12:29",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "3",
+          "roleTeam": "Membro",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-4",
+          "role": "founder",
+          "user": {
+              "id": "4",
+              "name": "Adalto Barbosa de Oliveira Neto",
+              "tell": null,
+              "type": "discente",
+              "admin": false,
+              "color": "#FE9900",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829378/motostudent_team/rzpr60howgwxkbiyjgqq.jpg",
+              "createAt": "2025-03-24T12:18:00",
+              "updateAt": "2025-03-24T12:18:01",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "4",
+          "roleTeam": "Membro",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-1",
+          "role": "founder",
+          "user": {
+              "id": "1",
+              "name": "Hélio Peres Martins Neto",
+              "tell": "67 992546008",
+              "type": "discente",
+              "admin": true,
+              "color": "#2774B7",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/doz7aybw7cgczraoffw5.jpg",
+              "createAt": "2025-03-22T19:03:38.336",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "1",
+          "roleTeam": "Lider de prototipagem",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-5",
+          "role": "coordinator",
+          "user": {
+              "id": "5",
+              "name": "Rafael Ferreira Gregolin",
+              "tell": null,
+              "type": "docente",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791000/motostudent_team/iaxpir4sfzm8ncklba5p.jpg",
+              "createAt": "2025-04-04T15:24:31",
+              "updateAt": "2025-04-04T15:24:32",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "5",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-6",
+          "role": "coordinator",
+          "user": {
+              "id": "6",
+              "name": "Ramon Eduardo Pereira Silva",
+              "tell": null,
+              "type": "coordinator",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791001/motostudent_team/npanx5jgjsrmnu4deim7.png",
+              "createAt": "2025-04-04T15:33:13",
+              "updateAt": "2025-04-04T15:33:15",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "6",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null
+      },
+      {
+          "id": "member-7",
+          "role": "coordinator",
+          "user": {
+              "id": "7",
+              "name": "Sanderson Manoel da Conceição",
+              "tell": null,
+              "type": "coordinator",
+              "admin": false,
+              "color": "#1a1a1a",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1743791001/motostudent_team/lplr2ldgi6yvaeo1mmqs.png",
+              "createAt": "2025-04-04T15:35:35",
+              "updateAt": "2025-04-04T15:35:37",
+              "finishedArts": 0,
+              "reportsDelivered": 0,
+              "amountOfLeadership": 0,
+              "participatingTeams": 0
+          },
+          "teamId": "1",
+          "memberId": "7",
+          "roleTeam": "Coordenador",
+          "punishment": 0,
+          "allocatedArt": null
+      }
+  ],
+  "investorInvestments": [
+      {
+          "id": "invst-1",
+          "name": "Furadeira Bosch",
+          "type": "resources",
+          "value": "500.00",
+          "createAt": "2025-03-20T00:00:00",
+          "investor": {
+              "id": "1",
+              "icon": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742676045/ufgd_image_vugigw.png",
+              "link": "https://ufgd.edu.br",
+              "name": "Universidade Federal da Grande Dourados",
+              "type": "government",
+              "color": "#83A331",
+              "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742681101/ufgd_s7fqxh.webp",
+              "createAt": "2025-03-22T19:03:38.336",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "description": "A <b>Universidade Federal da Grande Dourados (UFGD)</b> é um dos principais pilares do Hub de Inovações, oferecendo suporte acadêmico, estrutura laboratorial e financiamento para o desenvolvimento de pesquisas aplicadas. <br/><br/> A parceria com a UFGD permite que estudantes e pesquisadores tenham acesso a <i>recursos institucionais, equipamentos de última geração e programas de incentivo</i> que facilitam a criação e implementação de novas tecnologias. Além disso, a universidade atua como mediadora entre a academia e o setor produtivo, promovendo a transferência de conhecimento e a integração entre teoria e prática. <br/><br/> Por meio de editais de pesquisa, programas de iniciação científica e apoio à inovação, a UFGD fortalece o compromisso com a transformação social e econômica, preparando profissionais qualificados e impulsionando o empreendedorismo tecnológico.",
+              "descriptionInvestment": "Financiamento e infraestrutura"
+          },
+          "investorId": "1",
+          "investmentFor": "1",
+          "specificInvestment": true
+      }
+  ],
+  "teamResources": [
+      {
+          "id": "alloc-1",
+          "teamId": "1",
+          "resource": {
+              "id": "res-1",
+              "name": "Furadeira Bosch",
+              "value": 500,
+              "status": "available",
+              "timeUse": "2023-01-20T00:00:00",
+              "createAt": "2025-03-22T19:03:38.336",
+              "purchase": "2023-01-10T00:00:00",
+              "updateAt": "2025-03-22T19:03:38.336",
+              "attention": false,
+              "serialNumber": "SN-001",
+              "accountableId": "2",
+              "lastMaintenance": "2023-06-01T00:00:00",
+              "nextMaintenance": "2023-12-01T00:00:00",
+              "attentionDescription": ""
+          },
+          "resourceId": "res-1"
+      }
+  ],
+  "teamArts": [
+      {
+          "id": "1",
+          "art": {
+              "id": "1",
+              "name": "Modificação da assento do protótipo",
+              "type": "modification",
+              "status": "processing",
+              "linkDoc": "NULL",
+              "createdAt": "2025-03-23T17:20:07",
+              "limitDate": null,
+              "updatedAt": "2025-03-23T17:20:09",
+              "observation": null,
+              "totalValueAllocated": 0,
+              "totalInvestmentAllocated": 0
+          },
+          "artId": "1",
+          "teamId": "1",
+          "createAt": "2025-03-23T17:20:55"
+      }
+  ],
+  "teamBids": [
+      {
+          "id": "1",
+          "bid": {
+              "id": "1",
+              "code": "#12671862712-A",
+              "type": "purchase",
+              "status": "review",
+              "linkDoc": "NULL",
+              "createdAt": "2025-03-23T17:21:40",
+              "updatedAt": "2025-03-23T17:21:39"
+          },
+          "artId": null,
+          "bidId": "1",
+          "teamId": "1",
+          "createAt": "2025-03-23T17:22:33"
+      }
+  ],
+  "teamInscriptions": []
+}

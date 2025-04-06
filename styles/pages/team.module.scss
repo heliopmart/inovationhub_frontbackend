@@ -106,6 +106,16 @@
         text-align: center;
     }
 
+    .warning{
+        font-weight: light;
+        color: #1a1a1a;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        margin: auto 0px;
+    }
+
     div{
         width: 100%;
     }
@@ -169,6 +179,9 @@
                     opacity: 70%;
                     transition: .2s ease-in-out;
                     display: block;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-clip: inherit;
 
                     &:hover{
                         opacity: 100%;
@@ -177,10 +190,7 @@
                     img{
                         width: 130px;
                         height: 130px;
-                        object-fit: contain;
-                        position: relative;
-                        right: 5px;
-                        bottom: 2px;
+                        object-fit: cover;
                         overflow: hidden;
                         display: block;
                     }
@@ -211,7 +221,7 @@
                 img{
                     width: 100%;
                     height: 100%;
-                    object-fit: contain;
+                    object-fit: cover;
                 }
             }
 

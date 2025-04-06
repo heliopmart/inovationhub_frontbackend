@@ -24,8 +24,6 @@ export async function getTeam(nameTeam: string): Promise<GetTeamCompleteReturn> 
 
         const data = await getAllDataById((await res.json())[0].id)
 
-        console.log(data)
-
         return { st: true, value: data[0], table: createTable() };
     } catch (ex) {
         console.error("function.index > getTeam | Error: " + ex);
@@ -108,6 +106,7 @@ async function getAllDataById(id:string){
                 ),
                 arts:TeamArt (
                     files:Art (
+                        name,
                         type,
                         status,
                         linkDoc

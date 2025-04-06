@@ -1,0 +1,147 @@
+SELECT 
+    T.*, 
+    json_agg(
+        json_build_object(
+            'teamMember', TM,
+            'user', U
+        )
+    ) AS "TeamMembers",
+    (
+        SELECT json_agg(
+            json_build_object(
+                'investment', json_build_object(
+                    'id', subquery."id",
+                    'investorId', subquery."investorId",
+                    'name', subquery."name",
+                    'type', subquery."type",
+                    'value', subquery."value",
+                    'specificInvestment', subquery."specificInvestment",
+                    'createAt', subquery."createAt",
+                    'investmentFor', subquery."investmentFor"
+                ),
+                'investor', json_build_object(
+                    'id', subquery."investor_id",
+                    'name', subquery."investor_name",
+                    'descriptionInvestment', subquery."descriptionInvestment",
+                    'description', subquery."description",
+                    'image', subquery."image",
+                    'icon', subquery."icon",
+                    'link', subquery."link",
+                    'type', subquery."investor_type",
+                    'createAt', subquery."investor_createAt",
+                    'updateAt', subquery."investor_updateAt",
+                    'color', subquery."color"
+                )
+            )
+        )
+        FROM (
+            SELECT DISTINCT 
+                INV."id", INV."investorId", INV."name", INV."type", INV."value", 
+                INV."specificInvestment", INV."createAt", INV."investmentFor",
+                I."id" AS "investor_id", I."name" AS "investor_name", I."descriptionInvestment", 
+                I."description", I."image", I."icon", I."link", I."type" AS "investor_type",
+                I."createAt" AS "investor_createAt", I."updateAt" AS "investor_updateAt", I."color"
+            FROM "InvestorInvestment" AS INV
+            LEFT JOIN "Investor" AS I ON INV."investorId" = I."id"
+            WHERE INV."investmentFor" = T."id"
+        ) AS subquery
+    ) AS "InvestorInvestments",
+    (
+        SELECT json_agg(
+            json_build_object(
+                'teamResource', json_build_object(
+                    'id', TR."id",
+                    'teamId', TR."teamId",
+                    'resourceId', TR."resourceId"
+                ),
+                'resource', json_build_object(
+                    'id', R."id",
+                    'name', R."name",
+                    'value', R."value",
+                    'purchase', R."purchase",
+                    'timeUse', R."timeUse",
+                    'status', R."status",
+                    'attention', R."attention",
+                    'attentionDescription', R."attentionDescription",
+                    'serialNumber', R."serialNumber",
+                    'lastMaintenance', R."lastMaintenance",
+                    'nextMaintenance', R."nextMaintenance",
+                    'accountableId', R."accountableId",
+                    'createAt', R."createAt",
+                    'updateAt', R."updateAt"
+                )
+            )
+        )
+        FROM "TeamResource" AS TR
+        LEFT JOIN "Resource" AS R ON TR."resourceId" = R."id"
+        WHERE TR."teamId" = T."id"
+    ) AS "TeamResources",
+    (
+        SELECT json_agg(
+            json_build_object(
+                'teamArt', json_build_object(
+                    'id', TA."id",
+                    'teamId', TA."teamId",
+                    'artId', TA."artId",
+                    'createAt', TA."createAt"
+                ),
+                'art', json_build_object(
+                    'id', A."id",
+                    'name', A."name",
+                    'type', A."type",
+                    'status', A."status",
+                    'linkDoc', A."linkDoc",
+                    'totalInvestmentAllocated', A."totalInvestmentAllocated",
+                    'totalValueAllocated', A."totalValueAllocated",
+                    'observation', A."observation",
+                    'limitDate', A."limitDate",
+                    'createdAt', A."createdAt",
+                    'updatedAt', A."updatedAt"
+                )
+            )
+        )
+        FROM "TeamArt" AS TA
+        LEFT JOIN "Art" AS A ON TA."artId" = A."id"
+        WHERE TA."teamId" = T."id"
+    ) AS "TeamArts",
+    (
+        SELECT json_agg(
+            json_build_object(
+                'teamInscription', json_build_object(
+                    'id', TI."id",
+                    'teamId', TI."teamId",
+                    'userId', TI."userId",
+                    'document', TI."document",
+                    'createAt', TI."createAt"
+                ),
+                'user', json_build_object(
+                    'id', U."id",
+                    'name', U."name",
+                    'color', U."color",
+                    'image', U."image",
+                    'createAt', U."createAt",
+                    'updateAt', U."updateAt",
+                    'admin', U."admin",
+                    'type', U."type",
+                    'tell', U."tell",
+                    'participatingTeams', U."participatingTeams",
+                    'amountOfLeadership', U."amountOfLeadership",
+                    'reportsDelivered', U."reportsDelivered",
+                    'finishedArts', U."finishedArts"
+                )
+            )
+        )
+        FROM "TeamInscription" AS TI
+        LEFT JOIN "User" AS U ON TI."userId" = U."id"
+        WHERE TI."teamId" = T."id"
+    ) AS "TeamInscriptions"
+FROM 
+    "Team" AS T
+LEFT JOIN 
+    "TeamMember" AS TM ON T."id" = TM."teamId"
+LEFT JOIN 
+    "User" AS U ON TM."memberId" = U."id"
+WHERE 
+    T."id" = '1'
+GROUP BY 
+    T."id";

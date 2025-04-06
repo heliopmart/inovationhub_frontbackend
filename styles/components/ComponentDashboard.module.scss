@@ -1,0 +1,189 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.componentContent{
+    width: auto;
+    height: auto;
+    min-width: 350px;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    @include Flex(column, nowrap, start, start);
+    gap: 30px;
+    flex-shrink: 0;
+
+    .contentHeader{
+        width: 100%;
+        height: auto;
+        @include Flex(row, nowrap, center, space-between);
+        gap: 10px;
+
+        span{
+            font-size: 1.1em;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+
+    .contentInformations{
+        width: 100%;
+        @include Flex(column, nowrap, start, start);
+        gap: 15px;
+
+        span{
+            font-size: .9em;
+            color: #1a1a1a;
+            font-weight: lighter;
+            text-transform: uppercase;
+
+            a{
+                color: #1a1a1a;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .contentActions{
+        width: 100%;
+        height: auto;
+        border-top: 1px solid #eaeaea;
+        padding-top: 15px;
+        box-sizing: border-box;
+        @include Flex(row, nowrap, center, end);
+        gap: 15px;
+
+        button{
+            background-color: #fff;
+            border: none;
+            font-size: .9em;
+            color: #737373;
+            font-weight: lighter;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+
+            &:hover{
+                color: #1a1a1a;
+            }
+        }
+    }
+}
+
+.componentContentMember{
+    width: auto;
+    height: auto;
+    min-width: 350px;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    @include Flex(column, nowrap, start, start);
+    gap: 30px;
+    position: relative;
+    flex-shrink: 0;
+    
+    .status{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    img{
+        width: 100px;
+        height: 100px;
+        background-color: #f1f1f1;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0px auto;
+    }
+
+    .titleNameUser{
+        text-align: center;
+        width: 100%;
+        font-size: 1em;
+        font-weight: bold;
+    }
+
+    .contentInformations{
+        margin-top: 10px;
+        width: 100%;
+        @include Flex(column, nowrap, start, start);
+        gap: 15px;
+
+        span{
+            font-size: .9em;
+            color: #1a1a1a;
+            font-weight: lighter;
+            text-transform: uppercase;
+
+            a{
+                color: #1a1a1a;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .contentActions{
+        width: 100%;
+        height: auto;
+        border-top: 1px solid #eaeaea;
+        padding-top: 15px;
+        box-sizing: border-box;
+        @include Flex(row, nowrap, center, end);
+        gap: 15px;
+
+        button{
+            background-color: #fff;
+            border: none;
+            font-size: .9em;
+            color: #737373;
+            font-weight: lighter;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+
+            &:hover{
+                color: #1a1a1a;
+            }
+        }
+    }
+}
+
+.status{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+
+}
+
+.containerComponentUser{
+    width: 100%;
+    height: auto;    
+    @include Flex(row, nowrap, stretch, start);
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Para Firefox */
+    &::-webkit-scrollbar {
+        display: none; /* Para Chrome, Safari e Edge */
+    }
+
+    .componentContent{
+        flex-shrink: 0; /* Garante que os itens não diminuam */
+    }
+}

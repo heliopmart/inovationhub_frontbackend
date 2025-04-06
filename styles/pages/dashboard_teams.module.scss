@@ -1,0 +1,90 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    @include Flex(row, nowrap, stretch, start);
+    gap: 15px;
+
+    .menuContent{
+        max-width:310px;
+        min-height: 250px;
+        height: auto;
+        flex: 1 1;
+        display: flex;
+    }
+
+    .paintContent{
+        width: calc(100% - 325px);
+        padding: 15px;
+        padding-right: 25px;
+        box-sizing: border-box;
+        height: auto;
+        flex: 1 1;
+        @include Flex(column, nowrap, start, start);
+        gap: 4vh;
+
+        .container{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 5vh;
+
+            .sectionContent{
+                width: 100%;
+                height: auto;
+                @include Flex(column, nowrap, start, start);
+                gap: 5vh;
+
+                .TitleSection{
+                    font-size: 1.6em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: #3B3B3B;
+                }
+
+                .contentHeaderSection{
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 10px;
+                    @include Flex(row, nowrap, center, space-between);
+                    gap: 10px;
+
+                    .button{
+                        width: auto;
+                        min-width: 200px;
+                        height: 50px;
+                        padding: 10px 25px;
+                        box-sizing: border-box;
+                        border-radius: 5px;
+                        border: none;
+                        font-size: .9em;
+                        color: #fff;
+                        text-transform: uppercase;
+                        text-align: center;
+                        background-color: #E9A476;
+                        transition: .3s ease-in-out;
+                        cursor: pointer;
+
+                        &:hover{
+                            background-color: #D68A5B;
+                        }
+                    }
+                }
+
+                .contentTeams{
+                    width: 100%;
+                    height: auto;
+                    @include Flex(row, nowrap, stretch, start);
+                    gap: 20px;
+                }
+            }
+        }
+    }
+}

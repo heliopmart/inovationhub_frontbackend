@@ -8,7 +8,8 @@
 
 .ContainerNavBar{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     flex: 1 1;
     background-color: #2B2B2B;
     padding: 35px 20px;

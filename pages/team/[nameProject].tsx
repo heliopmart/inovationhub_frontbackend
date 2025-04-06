@@ -21,6 +21,8 @@ import 'swiper/css/pagination';
 import {getTeam} from '@/services/function.team'
 import {TeamComplete, InvestorTeamCompleat, DocsNormilize} from "@/types/interfacesSql"
 
+import {NormalizeType, NormalizeStatus, NormalizeRoleTeam} from "@/lib/normalizeInformationToFront"
+
 interface TeamPageProps {
     nameProject: string;
     messages: any;
@@ -50,6 +52,7 @@ interface InterfaceTeamBall{
 interface GetMembersAndFoundersReturn{
     members: InterfaceMember[],
     founders: InterfaceMember[],
+    coordinator: InterfaceMember[],
     membersBalls: InterfaceMember[]
 }
 
@@ -89,7 +92,15 @@ function getMembersAndFounders(team:TeamComplete):GetMembersAndFoundersReturn{
 
     const founders = teamMembers
         ?.map((member) => {
-            if(member.role == "founder"){
+            if(member.role == "founder" || member.role == "leader"){
+                return {...member.member, role: member.roleTeam}
+            }
+        })
+        ?.filter((member) => member !== undefined);
+
+    const coordinator = teamMembers
+        ?.map((member) => {
+            if(member.role == "coordinator"){
                 return {...member.member, role: member.roleTeam}
             }
         })
@@ -103,8 +114,7 @@ function getMembersAndFounders(team:TeamComplete):GetMembersAndFoundersReturn{
         })
         ?.filter((member) => member !== undefined);
 
-    
-    return {founders: founders, members: members, membersBalls: teamMembers?.map(member => ({...member.member, role: member.roleTeam}))}
+    return {founders: founders as InterfaceMember[], coordinator: coordinator as InterfaceMember[], members: members as InterfaceMember[], membersBalls: teamMembers?.map(member => ({...member.member, role: member.roleTeam}))}
 }
 
 const setDirectionForComponent = (data:InvestorTeamCompleat[] | undefined):InvestorTeamCompleat[] => {
@@ -129,6 +139,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
     const [teamsBalls, setTeamsBalls] = useState<InterfaceTeamBall[][]>([])
     const [viewUser, setViewUser] = useState<InterfaceMember>()
     const [founders, setFounders] = useState<InterfaceMember[]>([])
+    const [coordinators, setCoordinators] = useState<InterfaceMember[]>([])
     const [table, setTable] = useState<InterfaceTable>()
     const [docs, setDocs] = useState<any>()
     const [arts, setArts] = useState<any>()
@@ -145,6 +156,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                 const getTeamBall = createTeamViwerBalls(teamMembers.membersBalls)
                 setTeam(resTeam.value);
                 setFounders(teamMembers.founders)
+                setCoordinators(teamMembers.coordinator)
                 setTeamsBalls(getTeamBall)
                 setViewUser(getTeamBall[0][0])
                 setTable({columns: resTeam.table, rows: resTeam.value.resources?.map((rs) => rs.resource)})
@@ -161,7 +173,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                     title: "ARTs e versinamento",
                     files: resTeam.value.arts.map((art) => (
                         {
-                            name: `ART Requisitada de ${art.files.type} | ${art.files.status}` || "",
+                            name: `ART ${art.files.name} | ${NormalizeType(art.files.type)} | ${NormalizeStatus(art.files.status)}` || "",
                             link: art?.files.linkDoc || ""
                         }
                     ))
@@ -212,6 +224,32 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                     </Swiper>
                 </div>
             </main>
+            <section className={styles.mainSection}>
+                <h2 className={styles.titleMainSection} dangerouslySetInnerHTML={{__html: messages.team.CoorTeamTitle}}/>
+                <div>
+                    {coordinators?.length == 0 ? (
+                        <span className={styles.warning}> Este projeto não tem coordenadores ainda. </span>
+                    ):(
+                        <Swiper
+                            modules={[Pagination]}
+                            spaceBetween={10}
+                            slidesPerView={1}
+                            pagination={{ clickable: true }}
+                            breakpoints={{
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                            }}
+                        >
+                            {coordinators?.map((people:InterfaceMember, index:number) => (
+                                <SwiperSlide key={`${people.name}_${index}`}>
+                                    <ShowPeople key={`${people.name}_${index}`} graduations={people.graduations} image={people.image} name={people.name} role={people.role} socialMedia={people.socialMedia} roleText={`da equipe ${team?.name}`}/>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
+                </div>
+            </section>
             <section className={styles.sectionTeam}>
                 <div className={styles.contentTitle}>
                     <h3>{messages.team.teamTitle}</h3>
@@ -224,7 +262,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                             <div className={styles.column} style={{marginTop: `${index_c*75}px`}} key={`column-${index_c}`}>
                                 {
                                     column?.map((team, index_t) => (
-                                        <button onClick={() => viewTeam(index_t, index_c)} key={`ball-${index_c}-${index_t}`} title={team?.name} className={styles?.ball}><img src={team?.image} alt={team?.name} /></button>
+                                        <button onClick={() => viewTeam(index_t, index_c)} key={`ball-${index_c}-${index_t}`} title={team?.name} className={styles?.ball} style={{backgroundImage: `url("${team?.image}")`}}/>
                                     ))
                                 }
                             </div>
@@ -247,7 +285,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
                             }
                         </div>
                         <div className={styles.contentFunction}>
-                            <span>{viewUser?.role} da equipe {team?.name}</span>
+                            <span>{NormalizeRoleTeam(viewUser?.role || "")} da equipe {team?.name}</span>
                         </div>
                     </div>
                 </div>

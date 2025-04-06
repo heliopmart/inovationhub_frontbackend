@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { getTranslations } from "@/lib/getTranslations";
 
 import Navbar from "@/components/Navbar";
-import {DefaultInput, SelectInput} from "@/components/Input"
+import {DefaultInput, SelectCoursesInput} from "@/components/Input"
 
 import styles from "@/styles/pages/login.module.scss"
 
@@ -42,7 +42,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                         <DefaultInput text={messages.inputs.email.text} minLength={messages.inputs.email.minLenght} type={messages.inputs.email.type} placeholder={messages.inputs.email.placeholder} value={email} returnValue={(t) => {setEmail(t)}} key={"email-input"} />
                         <DefaultInput text={messages.inputs.name.text} minLength={messages.inputs.minLenght} type={messages.inputs.name.type} placeholder={messages.inputs.name.placeholder} value={name} returnValue={(t) => {setName(t)}} key={"name-input"} />
                         <DefaultInput text={messages.inputs.password.text} minLength={messages.inputs.password.minLenght} type={messages.inputs.password.type} placeholder={messages.inputs.password.placeholder} value={password} returnValue={(t) => {setPassword(t)}} key={"email-input"} />
-                        <SelectInput text={messages.inputs.course.text} courses={messages.inputs.course.options} returnValue={(t) => {setCourse(t)}} value={course} key={"curses-input"}/>
+                        <SelectCoursesInput text={messages.inputs.course.text} courses={messages.inputs.course.options} returnValue={(t) => {setCourse(t)}} value={course} key={"curses-input"}/>
                         
                         <button className={styles.button} title={messages.textButton}>{messages.textButton}</button>
                     </form>

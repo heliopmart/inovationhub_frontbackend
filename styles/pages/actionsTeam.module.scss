@@ -1,0 +1,102 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    @include Flex(row, nowrap, stretch, start);
+    gap: 15px;
+
+    .menuContent{
+        max-width:310px;
+        min-height: 250px;
+        height: auto;
+        flex: 1 1;
+        display: flex;
+    }
+
+    .paintContent{
+        width: calc(100% - 325px);
+        padding: 15px;
+        padding-right: 25px;
+        box-sizing: border-box;
+        height: auto;
+        flex: 1 1;
+        @include Flex(column, nowrap, start, start);
+        gap: 4vh;
+
+        .container{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 5vh;
+
+            .sectionContent{
+                width: 50%;
+                height: auto;
+                @include Flex(column, nowrap, start, start);
+                gap: 5vh;
+
+                .TitleSection{
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: #3B3B3B;
+                }
+
+                .titleContent{
+                    font-size: 1.3em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: #1a1a1a;
+                }
+
+                .contentInputs{
+                    width: 100%;
+                    height: auto;
+                    @include Flex(column, nowrap, stretch, start);
+                    gap: 40px;
+
+                    .buttonForm{
+                        margin-top: 50px;
+                        width: 100%;
+                        min-width: 250px;
+                        max-width: 300px;
+                        height: 45px;
+                        background-color: #FF7327;
+                        color: #fff;
+                        font-size: 1em;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        border-radius: 5px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover{
+                            background-color: #e4621c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contentUserToLeader{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 20px;
+}
+
+@media (max-width: 1390px) {
+    .sectionContent{
+        width: 100%;
+    }
+}

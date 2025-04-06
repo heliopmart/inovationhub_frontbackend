@@ -94,6 +94,7 @@ export default function aboutUs({ messages }: { messages: any }) {
             const resTransfer = await getInvestorTransfer()
             const resExpenses = await getResourceExpenses()
             const resBids = await getAllBids()
+
             if(resResource.st)
                 setResources(resResource)
 
