@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { inicializePrivateToken } from '@/lib/authManager';
 import { supabase } from '@/lib/supabase';
-import {createCookie} from "@/lib/cookie"
 import bcrypt from 'bcrypt';
-import redis from '@/lib/upstash';
+import { buildPrivateTokenPayload } from '@/lib/auth.token';
+import { createPrivateToken } from '@/lib/tokenManager';
+import { serialize } from 'cookie';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    // Consultar o usuário pelo email na tabela UserLogin
+    // Buscar usuário com suas relações
     const { data: userLogin, error: userError } = await supabase
       .from('UserLogin')
       .select(`
@@ -31,39 +31,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ error: 'Usuário não encontrado' });
     }
 
-    // Verificar a senha usando bcrypt
     const passwordMatch = await bcrypt.compare(password, userLogin.password);
     if (!passwordMatch) {
       return res.status(401).json({ error: 'Senha incorreta' });
     }
 
-    // Gerar o token privado após autenticação bem-sucedida
-    const token = await inicializePrivateToken(userLogin.userId);
+    // Criar token privado e salvar no Redis
+    const payload = buildPrivateTokenPayload(userLogin.user);
+    const userId = await createPrivateToken(payload);
 
-    createCookie(res, `private_token`, `${token}:${userLogin.userId}`);
-    // Armazenar os dados completos do usuário no Redis
+    // Salvar cookie assinado
+    res.setHeader('Set-Cookie', serialize('private_token', userId, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 24, // 1 dia
+      path: '/',
+    }));
 
-    // TODO TEMP remove
-    console.log(userLogin.teamMembers)
-
-    await redis.set(`private_token:${userLogin.userId}`, JSON.stringify({
-      token,
-      user: {
-        id: userLogin.user.id,
-        admin: userLogin.user.admin,
-        name: userLogin.user.name,
-        image: userLogin.user.image,
-        teamMembers: userLogin.teamMembers,
-      }
-    }), { ex: 3600 });
-
-    // Atualizar a última data de login na tabela
+    // Atualiza o último login
     await supabase
       .from('UserLogin')
-      .update({ loginAt: new Date().toISOString(), privateToken: token })
+      .update({ loginAt: new Date().toISOString(), privateToken: userId })
       .eq('id', userLogin.id);
 
-    return res.status(200).json({ token });
+    return res.status(200).json({ status: true });
   } catch (error) {
     console.error('Erro na autenticação do usuário:', (error as Error).message);
     return res.status(500).json({ error: 'Erro interno do servidor' });

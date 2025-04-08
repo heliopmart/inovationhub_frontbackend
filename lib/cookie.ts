@@ -1,16 +1,34 @@
+// src/lib/cookie.ts
 import { serialize } from 'cookie';
-import { NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
+import { generateToken, verifyToken } from './jwt';
 
-// Função para criar e definir o cookie diretamente na resposta
-export function createCookie(res: NextApiResponse, name: string, value: string, maxAge: number = 3600): void {
-  const cookie = serialize(name, value, {
-    httpOnly: true,                   // Impede acesso via JavaScript
-    secure: process.env.NODE_ENV === 'production', // HTTPS em produção
-    maxAge,                           // Tempo de vida em segundos
-    path: '/',                        // Disponível em toda a aplicação
-    sameSite: 'lax',                  // Protege contra CSRF
-  });
+export function setSignedCookie(res: NextResponse, name: string, value: string, maxAge: number) {
+  const token = generateToken({ v: value }, `${maxAge}s`);
 
-  // Define o cookie no cabeçalho da resposta
-  res.setHeader('Set-Cookie', cookie);
+  res.headers.append('Set-Cookie', serialize(name, token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge,
+    path: '/',
+  }));
+}
+
+export function getSignedCookie(req: NextRequest, name: string): string | null {
+  const cookie = req.cookies.get(name)?.value;
+  if (!cookie) return null;
+
+  const payload = verifyToken(cookie);
+  return payload?.v || null;
+}
+
+export function deleteCookie(res: NextResponse, name: string) {
+  res.headers.append('Set-Cookie', serialize(name, '', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    expires: new Date(0),
+    path: '/',
+  }));
 }

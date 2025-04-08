@@ -19,7 +19,7 @@ export async function getLogIn(email:string, password:string): Promise<boolean> 
             return false
         }
 
-        if(response.token){
+        if(response.status){
             return true
         }
 

@@ -1,20 +1,37 @@
-import { createToken, revokeToken, validateToken } from '@/lib/tokenManager';
+// src/lib/auth.token.ts
+import { nanoid } from 'nanoid';
 
-export async function getPublicToken(): Promise<string> {
-  const existingToken = await createToken('public', 'guest');
-  return existingToken;
+export type PublicTokenData = {
+  token: string;
+};
+
+export type PrivateTokenData = {
+  id: string;
+  admin: boolean;
+  name: string;
+  image?: string;
+  teamMembers?: {
+    id: string;
+    teamId: string;
+    role: string;
+    roleTeam?: string;
+  };
+};
+
+export function generatePublicToken(): PublicTokenData {
+  return { token: nanoid(32) };
 }
 
-export async function verifyPublicToken(token: string): Promise<boolean> {
-  return await validateToken('public', token);
-}
+export function buildPrivateTokenPayload(user: any): PrivateTokenData {
 
-export async function createPrivateToken(userId: string): Promise<string> {
-  await revokeToken('private', userId); // Revoga o antigo se existir
-  const privateToken = await createToken('private', userId);
-  return privateToken;
-}
+  console.log("+++++++++++++++++++++++++++")
+  console.log(user)
 
-export async function verifyPrivateToken(token: string, userId: string): Promise<boolean> {
-  return await validateToken('private', token, userId);
+  return {
+    id: user.id,
+    admin: user.admin,
+    name: user.name,
+    image: user.image,
+    teamMembers: user.teamMembers,
+  };
 }

@@ -1,44 +1,32 @@
-import { getPublicToken, createPrivateToken, verifyPrivateToken, verifyPublicToken } from '@/lib/auth.token';
 import {TokenVerifyProps} from "@/types/interfaceClass"
- 
-const public_access = ['Team', 'Investor', 'TeamInvestor', 'User', 'Resource', 'NucleiBoardOfDirectors', 'UserLogin', 'Nuclei', "InvestorInvestment", "ResourceSupplier", "Event", "EventSponsors", "TeamDocs", "TeamArt", "TeamBids", "Art", "Docs", "Bids", "TeamMember"]
-const private_access = ["Team"]
+import { NextRequest, NextResponse } from 'next/server';
+import { getSignedCookie, setSignedCookie } from './cookie';
+import {
+  createPublicToken,
+  createPrivateToken,
+  validatePublicToken,
+  validatePrivateToken
+} from './tokenManager';
 
-export async function initializePublicToken(): Promise<string> {
-  const token = await getPublicToken();
-  console.log('Public Token Inicializado:', token);
-  return token;
-}
+export async function handleAuth(req: NextRequest, res: NextResponse) {
+  // 1. Validar ou criar token público
+  const publicHash = getSignedCookie(req, 'public_token');
+  let publicData = publicHash ? await validatePublicToken(publicHash) : null;
 
-export async function validatePublicAccess(token: string): Promise<boolean> {
-  const isValid = await verifyPublicToken(token);
-  if (!isValid) {
-    console.log('Public Token inválido. Criando um novo.');
-    await initializePublicToken();
+  if (!publicData) {
+    const { hash, token } = await createPublicToken();
+    setSignedCookie(res, 'public_token', hash, 60 * 60 * 24 * 5); // 5 dias
+    publicData = { token, allowedTables };
   }
-  return isValid;
-}
 
-export async function inicializePrivateToken(userId: string): Promise<string> {
-  const privateToken = await createPrivateToken(userId);
-  console.log('Login bem-sucedido. Token privado criado:', privateToken);
-  return privateToken;
-}
+  // 2. Validar token privado
+  const userId = getSignedCookie(req, 'private_token');
+  let userData = userId ? await validatePrivateToken(userId) : null;
 
-export async function validatePrivateAccess(token: string, userId: string): Promise<boolean> {
-  const isValid = await verifyPrivateToken(token, userId);
-  if (!isValid) {
-    console.log('Token privado inválido. Usuário deve fazer login novamente.');
+  if (!userData) {
+    return NextResponse.redirect(new URL('/login', req.url));
   }
-  return isValid;
-}
 
-export async function validateToken(token: string, userId?:string):Promise<TokenVerifyProps>{
-  const typeToken = token.split("_")[0]
-
-  if(typeToken == 'public'){
-    return {status: await validatePublicAccess(token), allowedTables: [...public_access]}
-  }else{
-    return {status: await validatePrivateAccess(token, userId || token.split(":")[1] || ""), allowedTables: [...public_access, ...private_access]}
-  }
+  // 3. Retornar dados válidos
+  return { public: publicData, private: userData };
 }
