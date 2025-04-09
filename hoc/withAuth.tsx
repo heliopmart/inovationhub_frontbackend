@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
+import style from '@/styles/components/Loading.module.scss'
+
 import {authUser} from "@/types/interfaceClass"
 
 const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) => {
@@ -27,11 +29,19 @@ const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) =>
     }, []);
 
     if (loading) {
-      return <div>Carregando...</div>;
+      return ( 
+        <div className={style.containerLoading}>
+          <span>Authenticando Usuário</span>
+        </div>
+      );
     }
 
     if (!user) {
-      return <div>Acesso negado. Redirecionando...</div>;
+      return (
+        <div className={style.containerLoading}>
+          <span>Usuário não autenticado</span>
+        </div>
+      );
     }
 
     // Passa as props do componente original

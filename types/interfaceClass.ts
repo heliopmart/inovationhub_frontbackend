@@ -33,3 +33,10 @@ export interface authUser{
     }
 }
 
+export interface DashboardInformationsProps {
+    idTeam: string,
+    colorTeam: string,
+    nameTeam: string,
+    roleTeam: string,
+    artAllocatedTeam: string
+}

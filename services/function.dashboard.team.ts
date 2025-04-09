@@ -1,4 +1,4 @@
-import { ReturnTeamsWithTeamMemberProps, TeamDashboardComplete, GetTeamCompleteReturn, GetArtCompleteReturn} from "@/types/interfaceDashboardSql"
+import { ReturnTeamsWithTeamMemberProps, TeamsWithTeamMemberProps, GetTeamCompleteReturn, GetArtCompleteReturn} from "@/types/interfaceDashboardSql"
 import {TeamMember, Art} from "@/types/interfaceDashboardSql"
 import {authUser} from "@/types/interfaceClass"
 import {getBaseUrl} from "@/lib/baseUrl"
@@ -55,7 +55,8 @@ async function getAllTeams(): Promise<ReturnTeamsWithTeamMemberProps> {
                 table: 'Team',
                 select: `
                     id,
-                    name
+                    name,
+                    color
                 `,
             })
         });
@@ -69,10 +70,56 @@ async function getAllTeams(): Promise<ReturnTeamsWithTeamMemberProps> {
     }
 }
 
+export async function setTeamViwer(team:TeamsWithTeamMemberProps, teamMember: any){
+    const url = `/api/cookie/set`
+
+    const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            idTeam: team.id,
+            colorTeam: team.color,
+            nameTeam: team.name,
+            roleTeam: teamMember.roleTeam,
+            artAllocatedTeam: teamMember.allocatedArt
+        })
+    })
+
+    if(res.status === 200){
+        return true
+    }else{
+        return false
+    }
+}
+
+export async function getTeamViwer(){
+    const url = `/api/cookie/get`
+
+    const res = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+
+    const data = await res.json();
+
+    console.log(res.status)
+
+    if(res.status === 200){
+        return data
+    }else{
+        return {}
+    }
+}
+
 
 export async function getTeamMember(authUser: authUser, teamName: string){    
     const requestTeams = await getAllTeams()
     const teamMemberByUser = authUser.user.teamMember
+
 
     if(!requestTeams.st){
         return {
@@ -83,12 +130,13 @@ export async function getTeamMember(authUser: authUser, teamName: string){
 
     const team = requestTeams.value
 
-    if(teamName){
+    if(!teamName){
         return {
             team: {},
             teamMember: teamMemberByUser[0]
         }
     }
+
 
     if(!Array.isArray(teamMemberByUser)){
         return {
@@ -104,8 +152,9 @@ export async function getTeamMember(authUser: authUser, teamName: string){
             team: {},
             teamMember: teamMemberByUser[0]
         }
-    }
+    }    
 
+    await setTeamViwer(getTeamByName, teamMemberByUser.filter((teamMember) => teamMember.teamId == getTeamByName.id)[0])
     return {
         team: getTeamByName,
         teamMember: teamMemberByUser.filter((teamMember) => teamMember.teamId == getTeamByName.id)[0]

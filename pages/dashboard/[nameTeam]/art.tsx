@@ -3,19 +3,40 @@ import { getTranslations } from "@/lib/getTranslations";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import withAuth from '@/hoc/withAuth';
+import {authUser} from "@/types/interfaceClass"
+
 import {NavDashBoard} from "@/components/NavDashBoard"
 import {HeaderDashBoard} from "@/components/HeaderDashBoard"
 
 import {ComponentUsersToLeaderART} from "@/components/ComponentDashboard"
 import {DefaultInput, SelectInput} from "@/components/Input"
 
+import styleLoading from '@/styles/components/Loading.module.scss'
 import styles from '@/styles/pages/actionsTeam.module.scss' 
 
-import {getTeamsByRootPage} from "@/services/function.dashboard.team"
-import {TeamsByRootPageProps} from "@/types/interfaceDashboardSql"
+import {getTeamViwer} from "@/services/function.dashboard.team"
+import {DashboardInformationsProps} from "@/types/interfaceClass"
 
-export default function DashboardResume({ nameTeam, color, messages }: { messages: any, nameTeam: string, color: string}){
-    const { locale } = useRouter();
+function DashboardArt({ nameTeam, messages, authUser }: { messages: any, nameTeam: string, authUser: authUser}){
+    const router = useRouter();
+    const [information, setInformation] = useState<DashboardInformationsProps>()
+    const [loading, setLoading] = useState<boolean>(false)
+
+    useEffect(() => {
+        async function get(){
+            setLoading(true)
+            const requestInformations = await getTeamViwer()
+
+            if(requestInformations?.roleTeam !== "leader" || requestInformations?.roleTeam !== "coordinator"){
+                router.push("/dashboard/team")
+            }
+            setLoading(false)
+
+            setInformation(requestInformations)
+        }
+        get()
+    },[])
     return (
         <section className={styles.section}>
             <div className={styles.menuContent}>
@@ -25,24 +46,37 @@ export default function DashboardResume({ nameTeam, color, messages }: { message
                 <HeaderDashBoard nameTeam={nameTeam}/>
                 <div className={styles.container}>
                     <section className={styles.sectionContent}>
-                        <span className={styles.TitleSection}>Equipe <b style={{color: color}}>{nameTeam}</b></span>
-                        <span className={styles.titleContent}>Requisição de ART</span>
+                        <span className={styles.TitleSection}>Equipe <b style={{color: information?.colorTeam}}>{nameTeam}</b></span>
                         
-                        <form className={styles.contentInputs}>
-                            <DefaultInput minLength={10} placeholder="Nome da ART" returnValue={(e) => {}} text="Nome da ART" type="text" value={""} key={"key-art-name"}/>
-                            <SelectInput courses={["Compra"]} returnValue={(e) => {}} text="Tipo de ART" value={""} key={"key-report-type"}/>
-                            <DefaultInput minLength={1} placeholder="Documento" returnValue={(e) => {}} text="Documento" type="file" value={""} key={"key-art-doc"}/>
-                            <SelectInput courses={[""]} returnValue={(e) => {}} text="Coordenador Alocado" value={""} key={"key-art-coordinator"}/>
-                            
-                            <div className={styles.contentUserToLeader}>
-                                <DefaultInput minLength={10} placeholder="Pesquisar" returnValue={(e) => {}} text="Lider Alocado" type="text" value={""} key={"key-art-leader"}/>
-                                <ComponentUsersToLeaderART/>
-                            </div>
-                            
-                            <DefaultInput minLength={1} placeholder="Data limite para implementação" returnValue={(e) => {}} text="Data limite para implementação" type="date" value={""} key={"key-art-date"}/>
-                            
-                            <button className={styles.buttonForm} title="Send" onClick={() => {}}>Enviar</button>
-                        </form>
+                        {
+                            loading ? (
+                                <div className={styleLoading.containerLoading}>
+                                    <span>Authenticando Usuário</span>
+                                </div>
+                            ) : (
+                                <>
+                                    <span className={styles.titleContent}>Requisição de ART</span>
+                        
+                                    <form className={styles.contentInputs}>
+                                        <DefaultInput minLength={10} placeholder="Nome da ART" returnValue={(e) => {}} text="Nome da ART" type="text" value={""} key={"key-art-name"}/>
+                                        <SelectInput courses={["Compra"]} returnValue={(e) => {}} text="Tipo de ART" value={""} key={"key-report-type"}/>
+                                        <DefaultInput minLength={1} placeholder="Documento" returnValue={(e) => {}} text="Documento" type="file" value={""} key={"key-art-doc"}/>
+                                        <SelectInput courses={[""]} returnValue={(e) => {}} text="Coordenador Alocado" value={""} key={"key-art-coordinator"}/>
+                                        
+                                        <div className={styles.contentUserToLeader}>
+                                            <DefaultInput minLength={10} placeholder="Pesquisar" returnValue={(e) => {}} text="Lider Alocado" type="text" value={""} key={"key-art-leader"}/>
+                                            <ComponentUsersToLeaderART/>
+                                        </div>
+                                        
+                                        <DefaultInput minLength={1} placeholder="Data limite para implementação" returnValue={(e) => {}} text="Data limite para implementação" type="date" value={""} key={"key-art-date"}/>
+                                        
+                                        <button className={styles.buttonForm} title="Send" onClick={() => {}}>Enviar</button>
+                                    </form>
+                                </>
+                            )
+                        }
+
+                        
                     </section>
                 </div>
             </div>
@@ -61,45 +95,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     const nameTeam = params?.nameTeam as string;
 
-    try {
-        const acceptTeamsByThisId = await getTeamsByRootPage("1");
+    const messages = {
+        links: await getTranslations("NavDashBoard", locale || "pt")
+    };
 
-        if (!acceptTeamsByThisId.st) {
-            return {
-                notFound: true,
-            };
-        }
-
-        const projects = acceptTeamsByThisId.value as TeamsByRootPageProps[];
-
-        const project = projects.find(proj => proj.Team.name === nameTeam);
-
-        if (!project) {
-            return {
-                redirect: {
-                    destination: '/403',
-                    permanent: false,
-                },
-            };
-        }
-
-        const color = project.Team.color || "#1a1a1a";
-
-        const messages = {
-            links: await getTranslations("NavDashBoard", locale || "pt")
-        };
-
-        return {
-            props: { nameTeam, color, messages},
-            revalidate: 60,
-        };
-    } catch (error) {
-        console.error("Erro ao obter os dados:", error);
-        return {
-            redirect: {
-                destination: '/500',
-                permanent: false,
-            },
-        };
-    }
+    return {
+        props: { nameTeam, messages},
+        revalidate: 60,
+    };
 };
+
+export default withAuth(DashboardArt);

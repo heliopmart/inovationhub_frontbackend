@@ -56,7 +56,7 @@ function DashBoardTeam({messages, authUser}: { messages: any,  authUser: authUse
                 <NavDashBoard links={messages.links.links}/>
             </div>
             <div className={styles.paintContent}>
-                <HeaderDashBoard nameUser={``} imageUser={``} key={"Header-Team-Dashboard"}/>
+                <HeaderDashBoard nameUser={authUser.user.name} imageUser={authUser.user.image} key={"Header-Team-Dashboard"}/>
                 <div className={styles.container}>
                     <section className={styles.sectionContent}>
                         <div className={styles.contentHeaderSection}>

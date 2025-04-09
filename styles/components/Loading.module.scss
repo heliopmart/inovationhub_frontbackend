@@ -1,0 +1,27 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.containerLoading{
+    width: 100%;
+    height: auto;
+    margin: 50px auto;
+    padding: 15px;
+    box-sizing: border-box;
+    
+    background-color: #fff;
+
+    @include Flex(row, nowrap, center, center);
+
+    span{
+        font-size: 1.2em;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: bold;
+    }
+}
