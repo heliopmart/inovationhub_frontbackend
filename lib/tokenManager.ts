@@ -19,12 +19,18 @@ export async function createPublicToken() {
 }
 
 export async function createPrivateToken(user: any) {
+  const hash = nanoid();
+
   const userData = {
-    id: user.id,
-    admin: user.admin,
-    name: user.name,
-    image: user.image,
-    teamMember: user.teamMember,
+    token: hash,
+    user: {
+      id: user.id,
+      admin: user.admin,
+      name: user.name,
+      image: user.image,
+      teamMember: user.teamMembers,
+      allocatedArt: user.allocatedArt
+    }
   };
 
   await redis.set(`private_token:${user.id}`, JSON.stringify(userData), { ex: PRIVATE_TTL });

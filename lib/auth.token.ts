@@ -23,10 +23,6 @@ export function generatePublicToken(): PublicTokenData {
 }
 
 export function buildPrivateTokenPayload(user: any): PrivateTokenData {
-
-  console.log("+++++++++++++++++++++++++++")
-  console.log(user)
-
   return {
     id: user.id,
     admin: user.admin,

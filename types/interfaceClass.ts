@@ -4,16 +4,6 @@ export interface AuthPrivatedToken{
     allowedTables?: string[]
 }
 
-export interface authProps{
-    auth: boolean,
-    user: {
-        id: string,
-        role: string,
-        admin: boolean,
-        allocatedArt: string
-    }
-}
-
 export interface authMinifyProps {
     role: string,
     leader: boolean
@@ -24,6 +14,14 @@ export interface TokenVerifyProps{
     allowedTables: string[],
 }
 
+export type teamMemberByAuthuserProps = {
+    id: string,
+    teamId: string,
+    role: string,
+    roleTeam: string,
+    allocatedArt: string
+}
+
 export interface authUser{
     token: string,
     user: {
@@ -31,11 +29,7 @@ export interface authUser{
         name: string,
         admin: string,
         image: string,
-        teamMember: {
-            id: string,
-            teamId: string,
-            role: string,
-            roleTeam: string,
-        }
+        teamMember: teamMemberByAuthuserProps[]
     }
 }
+

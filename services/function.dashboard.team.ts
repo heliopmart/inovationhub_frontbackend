@@ -1,5 +1,6 @@
-import { ReturnTeamsWithTeamMemberProps, ReturnTeamsByRootPage, GetTeamCompleteReturn, GetArtCompleteReturn} from "@/types/interfaceDashboardSql"
+import { ReturnTeamsWithTeamMemberProps, TeamDashboardComplete, GetTeamCompleteReturn, GetArtCompleteReturn} from "@/types/interfaceDashboardSql"
 import {TeamMember, Art} from "@/types/interfaceDashboardSql"
+import {authUser} from "@/types/interfaceClass"
 import {getBaseUrl} from "@/lib/baseUrl"
 
 export async function getTeams(memberId: string): Promise<ReturnTeamsWithTeamMemberProps> {
@@ -42,28 +43,72 @@ export async function getTeams(memberId: string): Promise<ReturnTeamsWithTeamMem
     }
 }
 
-export async function getTeamsByRootPage(memberId: string): Promise<ReturnTeamsByRootPage> {        
+async function getAllTeams(): Promise<ReturnTeamsWithTeamMemberProps> {
     try {
-        const res = await fetch(`${getBaseUrl()}/api/query/get`, {
+        const res = await fetch('/api/query/get', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'x-auth-token': 'public_xyz'
             },
             body: JSON.stringify({
-                table: 'TeamMember',
-                select: 'id, Team(id, name, color), art: Art (name, id)',
-                filter: [
-                    { column: 'memberId', op: 'eq', value: memberId }
-                ]
+                table: 'Team',
+                select: `
+                    id,
+                    name
+                `,
             })
         });
 
+        
         const data = await res.json();
-        return { st: true, value: data};
+        return { st: true, value: data };
     } catch (ex) {
         console.error("function.team > getTeams | Error: " + ex);
         return { st: false, value: [] };
+    }
+}
+
+
+export async function getTeamMember(authUser: authUser, teamName: string){    
+    const requestTeams = await getAllTeams()
+    const teamMemberByUser = authUser.user.teamMember
+
+    if(!requestTeams.st){
+        return {
+            team: {},
+            teamMember: teamMemberByUser[0]
+        }
+    }
+
+    const team = requestTeams.value
+
+    if(teamName){
+        return {
+            team: {},
+            teamMember: teamMemberByUser[0]
+        }
+    }
+
+    if(!Array.isArray(teamMemberByUser)){
+        return {
+            team: team.filter((team) => team.name === teamName)[0],
+            teamMember: teamMemberByUser[0]
+        }
+    }
+
+    const getTeamByName = team.filter((team) => team.name === teamName)[0]
+
+    if(!getTeamByName){
+        return {
+            team: {},
+            teamMember: teamMemberByUser[0]
+        }
+    }
+
+    return {
+        team: getTeamByName,
+        teamMember: teamMemberByUser.filter((teamMember) => teamMember.teamId == getTeamByName.id)[0]
     }
 }
 
@@ -187,6 +232,8 @@ export async function getTeamDashboardComplete(teamId: string): Promise<GetTeamC
         });        
 
         const data = (await res.json())[0];
+
+
         const artNormalize = await addingNameLeaderInArt(data.teamArts, data.teamMembers)
 
         data.teamArts = artNormalize

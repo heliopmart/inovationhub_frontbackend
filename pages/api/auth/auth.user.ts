@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .from('UserLogin')
       .select(`
         *,
-        user: User(id, admin, name, image, teamMembers: TeamMember (id, teamId, role, roleTeam))
+        user: User(id, admin, name, image, teamMembers: TeamMember (id, teamId, role, roleTeam, allocatedArt))
       `)
       .eq('email', email)
       .single();

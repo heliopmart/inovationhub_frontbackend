@@ -3,6 +3,9 @@ import { getTranslations } from "@/lib/getTranslations";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import withAuth from '@/hoc/withAuth';
+import {authUser} from "@/types/interfaceClass"
+
 import {NavDashBoard} from "@/components/NavDashBoard"
 import {HeaderDashBoard} from "@/components/HeaderDashBoard"
 
@@ -24,7 +27,7 @@ function getWithoutMyTeams(Teams:TeamsWithTeamMemberProps[]){
 }
 
 
-export default function DashboardResume({messages}: { messages: any}){
+function DashBoardTeam({messages, authUser}: { messages: any,  authUser: authUser}){
     const { locale } = useRouter();
     const [loading, setLoading] = useState(true);
     const [warning, setWarning] = useState({display: false, message: ""});
@@ -34,12 +37,12 @@ export default function DashboardResume({messages}: { messages: any}){
     useEffect(() => {
         async function get(){
             setLoading(true);
-            const returnTeams = await getTeams("1");
+            const returnTeams = await getTeams(authUser.user.id);
             
             if(!returnTeams.st)
                 setWarning({display: true, message: "Tivermos um erro ao carregar as equipe."});
             
-            setMyTeam(getOnlyMyTeams(returnTeams.value, "1"))
+            setMyTeam(getOnlyMyTeams(returnTeams.value, authUser.user.id))
             setOthersTeam(getWithoutMyTeams(returnTeams.value))
 
             setLoading(false);
@@ -99,3 +102,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         props: { messages },
     };
 };
+
+
+export default withAuth(DashBoardTeam);

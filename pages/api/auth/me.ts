@@ -19,13 +19,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(401).json({ error: 'Token inválido ou expirado' });
     }
 
-    const userData = await redis.get(`private_token:${userId}`);
+    const userData = (await redis.get(`private_token:${userId}`)) as any;
 
     if (!userData) {
       return res.status(401).json({ error: 'Dados de usuário expirados ou inválidos' });
     }
 
-    return res.status(200).json({ user: userData });
+    return res.status(200).json({ user: userData.user });
   } catch (error) {
     console.error('Erro na verificação do usuário:', error);
     return res.status(500).json({ error: 'Erro interno do servidor' });

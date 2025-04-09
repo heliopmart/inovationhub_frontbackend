@@ -10,7 +10,7 @@ import {DefaultInput, SelectInput} from "@/components/Input"
 
 import styles from '@/styles/pages/actionsTeam.module.scss' 
 
-import {getTeamsByRootPage, getTeamDashboardComplete, getArtDashboardComplete} from "@/services/function.dashboard.team"
+import {getTeamDashboardComplete, getArtDashboardComplete} from "@/services/function.dashboard.team"
 import {TeamsByRootPageProps, ArtDashboardComplete} from "@/types/interfaceDashboardSql"
 
 import {NormilizeTypeReport} from "@/lib/normalizeInformationToFront"
@@ -67,47 +67,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     const nameTeam = params?.nameTeam as string;
 
-    try {
-        const acceptTeamsByThisId = await getTeamsByRootPage("1");
+    const messages = {
+        links: await getTranslations("NavDashBoard", locale || "pt")
+    };
 
-        if (!acceptTeamsByThisId.st) {
-            return {
-                notFound: true,
-            };
-        }
-
-        const projects = acceptTeamsByThisId.value as TeamsByRootPageProps[];
-
-        const project = projects.find(proj => proj.Team.name === nameTeam);
-
-        if (!project) {
-            return {
-                redirect: {
-                    destination: '/403',
-                    permanent: false,
-                },
-            };
-        }
-
-        const color = project.Team.color || "#1a1a1a";
-        const artName = project.art?.name || "";
-        const artID = String(project.art?.id || "0");
-
-        const messages = {
-            links: await getTranslations("NavDashBoard", locale || "pt")
-        };
-
-        return {
-            props: { nameTeam, color, messages, artName, artID },
-            revalidate: 60,
-        };
-    } catch (error) {
-        console.error("Erro ao obter os dados:", error);
-        return {
-            redirect: {
-                destination: '/500',
-                permanent: false,
-            },
-        };
-    }
+    return {
+        props: { nameTeam, messages},
+        revalidate: 60,
+    };
 };

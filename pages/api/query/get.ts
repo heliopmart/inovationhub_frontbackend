@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const privateId = cookies.private_token;
 
   let authData = null;
-
+  
   if (privateId) {
     authData = await validatePrivateToken(privateId);
   }

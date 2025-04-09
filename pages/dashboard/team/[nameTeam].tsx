@@ -3,6 +3,9 @@ import { getTranslations } from "@/lib/getTranslations";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import withAuth from '@/hoc/withAuth';
+import {authUser, teamMemberByAuthuserProps} from "@/types/interfaceClass"
+
 import {DashboardLiderTeamPage, DashboardArtTeamPage} from "@/components/DashboardTeamPage"
 
 import {NavDashBoard} from "@/components/NavDashBoard"
@@ -10,23 +13,20 @@ import {HeaderDashBoard} from "@/components/HeaderDashBoard"
 
 import styles from '@/styles/pages/dashboard_teams.module.scss' 
 
-// auths import 
-import {useAuth} from "@/services/service.auth"
-
-import {getTeamsByRootPage, getTeamDashboardComplete, getArtDashboardComplete} from "@/services/function.dashboard.team"
+import {getTeamMember, getTeamDashboardComplete, getArtDashboardComplete} from "@/services/function.dashboard.team"
 import {TeamDashboardComplete, ArtDashboardComplete, TeamsByRootPageProps} from "@/types/interfaceDashboardSql"
-import {authMinifyProps, authProps} from "@/types/interfaceClass"
 
-export default function DashboardResume({ nameTeam, idTeam, messages, dataAuth}: { messages: any, idTeam:string, nameTeam: string, dataAuth: authProps}){
+function ViewTeam({ nameTeam, messages, authUser}: { messages: any, nameTeam: string, authUser: authUser}){
     const router = useRouter();
 
     const [warning, setWarning] = useState({display: false, message: ""})
 
     const [team, setTeam] = useState<TeamDashboardComplete>()
+    const [teamMember, setTeamMember] = useState<teamMemberByAuthuserProps>()
     const [art, setArt] = useState<ArtDashboardComplete>()
     const [graphTeam , setGraphTeam] = useState({})
 
-    const isLeader = () => ["leader", "allocatedLeader"].includes(dataAuth.user.role)
+    const isLeader = () => ["leader", "allocatedLeader"].includes((teamMember || {roleTeam: "member"}).roleTeam)
     
     const getPageReport = (reportType:string) => {    
         router.push({
@@ -63,17 +63,21 @@ export default function DashboardResume({ nameTeam, idTeam, messages, dataAuth}:
 
     useEffect(() => {
         async function get(){
-            const _useAuth = await useAuth()
-            if(!dataAuth.auth){
+            if(!authUser.user.id){
                 setWarning({display: true, message: "Erro ao autenticar o usuário"})
                 return
             }
 
-            const _userRole = dataAuth.user.role
-            const _userAllocatedArt = dataAuth.user.allocatedArt
+            const {team, teamMember} = await getTeamMember(authUser, nameTeam);
 
-            if(_userRole == "leader"){
-                const requestTeam = await getTeamDashboardComplete(idTeam || "0")
+            if(!team && !teamMember){
+                setWarning({display: true, message: "Erro ao autenticar o usuário"})
+                return 
+            }
+
+
+            if(teamMember.roleTeam == "leader"){
+                const requestTeam = await getTeamDashboardComplete(teamMember.teamId || "0")
                 if(!requestTeam.st){
                     setWarning({display: true, message: "Erro ao resgatar os dados da equipe"})
                     return
@@ -83,7 +87,7 @@ export default function DashboardResume({ nameTeam, idTeam, messages, dataAuth}:
                     setTeam(requestTeam.value as TeamDashboardComplete);
                 }
             }else{
-                const requestArt = await getArtDashboardComplete(_userAllocatedArt)
+                const requestArt = await getArtDashboardComplete(teamMember.allocatedArt)
                 if(!requestArt.st){
                     setWarning({display: true, message: "Erro ao resgatar os dados da equipe"})
                     return
@@ -92,7 +96,9 @@ export default function DashboardResume({ nameTeam, idTeam, messages, dataAuth}:
                 if (requestArt.value && Array.isArray(requestArt.value) === false) {
                     setArt(requestArt.value as unknown as ArtDashboardComplete);
                 }
-            }            
+            }          
+
+            setTeamMember(teamMember)
         }
         get()
     },[])
@@ -103,10 +109,10 @@ export default function DashboardResume({ nameTeam, idTeam, messages, dataAuth}:
                 <NavDashBoard links={messages.links.links}/>
             </div>
             <div className={styles.paintContent}>
-                <HeaderDashBoard imageUser={``} nameUser={``} nameTeam={nameTeam} key={"Header-Team-View"} warning={warning}/>
+                <HeaderDashBoard imageUser={authUser.user.image} nameUser={authUser.user.name} nameTeam={nameTeam} key={"Header-Team-View"} warning={warning}/>
                 <div className={styles.container}>
                     {
-                        dataAuth.user?.role !== "leader" ? (
+                        (teamMember || {roleTeam: "member"}).roleTeam !== "leader" ? (
                             <DashboardArtTeamPage art={art} actions={actions}  isLeader={isLeader()} key={"Dashboard-Art"} />
                         ) : (
                             <DashboardLiderTeamPage team={team}  informationPages={{actions: actions, graphTeam: graphTeam}} key={"Dashboard-Lider"} />
@@ -128,62 +134,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     const nameTeam = params?.nameTeam as string;
-    const _useAuth = await useAuth()
+ 
+    const messages = {
+        links: await getTranslations("NavDashBoard", locale || "pt")
+    };
 
-    if(!_useAuth.auth){
-        return {
-            redirect: {
-                destination: '/403',
-                permanent: false,
-            },
-        };
-    }
-
-    try {
-        const acceptTeamsByThisId = await getTeamsByRootPage(_useAuth.user.id);
-        const dataAuth = _useAuth
-
-        if (!acceptTeamsByThisId.st) {
-            return {
-                notFound: true,
-            };
-        }
-
-        const projects = acceptTeamsByThisId.value as TeamsByRootPageProps[];
-
-        const project = projects.find(proj => proj.Team.name === nameTeam);
-
-        if (!project) {
-            return {
-                redirect: {
-                    destination: '/403',
-                    permanent: false,
-                },
-            };
-        }
-
-        const messages = {
-            links: await getTranslations("NavDashBoard", locale || "pt")
-        };
-
-        const idTeam = getIdProject(projects, nameTeam).Team.id
-
-        return {
-            props: { nameTeam, idTeam, messages, dataAuth},
-            revalidate: 60,
-        };
-    } catch (error) {
-        console.error("Erro ao obter os dados:", error);
-        return {
-            redirect: {
-                destination: '/500',
-                permanent: false,
-            },
-        };
-    }
-
-
-    function getIdProject(projects:TeamsByRootPageProps[], nameTeam:string){
-        return projects.filter((team) => team.Team.name.toLocaleLowerCase() == nameTeam.toLocaleLowerCase())[0]
-    }
+    return {
+        props: { nameTeam, messages},
+        revalidate: 60,
+    };
 };
+
+export default withAuth(ViewTeam);
