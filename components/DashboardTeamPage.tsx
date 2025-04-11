@@ -5,6 +5,7 @@ import {TeamDashboardComplete, Resource, ArtDashboardComplete} from "@/types/int
 import Link from "next/link"
 import {ColDef } from 'ag-grid-community';
 import {useState} from "react"
+import {download_file} from "@/services/function.download.file"
 
 import style from "@/styles/components/DashboardTeamPage.module.scss"
 
@@ -346,7 +347,7 @@ export function DashboardArtTeamPage({actions, art, isLeader}: ArtTeamPage){
                         <span>Status: <i>{NormalizeStatus(art?.status || "")}</i></span>
                         <span>Tipo: <i>{NormalizeType(art?.type || "")}</i></span>
                         <span>Lider da ART: <i>{""}</i></span>
-                        <span>Documento: <Link href={`${art?.linkDoc}`}><i>Baixar</i></Link></span>
+                        <span>Documento: <span className={style.OnClickSpan} onClick={(e) => download_file("art", art?.linkDoc || "")}><i>Baixar</i></span></span>
                         <span>Data limite da implementação: <i>{art?.limitDate}</i></span>
                     </div>
                 </div>

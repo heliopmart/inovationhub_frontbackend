@@ -1,0 +1,1 @@
+export type DownloadType = "art" | "bid" | "doc" | "inscription" | "user" | "other";

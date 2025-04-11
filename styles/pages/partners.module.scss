@@ -103,7 +103,7 @@
         }
     }
 
-    .mainSection{
+    .mainSection, .sectionDocs{
         padding: 20px 10px;
         box-sizing: border-box;
         @include Flex(column, nowrap, start, start);

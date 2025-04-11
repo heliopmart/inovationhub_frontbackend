@@ -40,3 +40,11 @@ export interface DashboardInformationsProps {
     roleTeam: string,
     artAllocatedTeam: string
 }
+
+export interface NavTeamProps{
+    team: {
+        id: number,
+        name: string,
+        color: string
+    }
+}

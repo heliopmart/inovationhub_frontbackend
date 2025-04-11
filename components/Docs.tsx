@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import style from "@/styles/components/Docs.module.scss"
+import {download_file} from "@/services/function.download.file"
+
 
 interface InterfaceDocs{
     title: string,
@@ -8,7 +10,6 @@ interface InterfaceDocs{
         link: string
     }[]
 }
-
 
 export function Docs({docs}: { docs: InterfaceDocs[] }) {
     return (
@@ -20,7 +21,7 @@ export function Docs({docs}: { docs: InterfaceDocs[] }) {
                         <div className={style.contentFile}>
                             {
                                 data?.files?.map((file, indexFile) => (
-                                    <Link href={file.link} key={`file-${index}-${index}-${data.title}`}> <span> {file.name} </span> </Link>
+                                    <span onClick={(e) => download_file('doc', file.link)} key={`file-${index}-${index}-${data.title}`}> {file.name} </span>
                                 ))
                             }
                         </div>

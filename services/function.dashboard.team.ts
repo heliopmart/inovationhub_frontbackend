@@ -106,8 +106,6 @@ export async function getTeamViwer(){
 
     const data = await res.json();
 
-    console.log(res.status)
-
     if(res.status === 200){
         return data
     }else{

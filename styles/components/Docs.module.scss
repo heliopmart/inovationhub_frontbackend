@@ -47,15 +47,13 @@
             @include Flex(column, nowrap, stretch, start);
             gap: 20px;
     
-            a{
-                color: #1a1a1a;
-            }
-    
             span{
                 font-size: .9em;
                 text-decoration: underline;
                 font-weight: 100;
                 color: #1a1a1a;
+                cursor: pointer;
+                text-align: left;
             }
         }
     }

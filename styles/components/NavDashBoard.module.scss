@@ -60,6 +60,19 @@
             }
         }
 
+        .exit{
+            color: #f18686;
+            font-size: 1.15em;
+            font-weight: light;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+
         .teamContent{
             width: 100%;
             @include Flex(column, nowrap, start, start);
@@ -73,7 +86,7 @@
                 padding: 15px 10px 15px 15px;
                 box-sizing: border-box;
 
-                a{
+                a, span{
                     font-size: .9em;
                 }
 

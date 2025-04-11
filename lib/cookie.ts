@@ -1,6 +1,8 @@
 // src/lib/cookie.ts
 import { serialize } from 'cookie';
 import { NextRequest, NextResponse } from 'next/server';
+import { NextApiResponse } from 'next';
+
 import { generateToken, verifyToken } from './jwt';
 
 export function setSignedCookie(res: NextResponse, name: string, value: string, maxAge: number) {
@@ -23,8 +25,8 @@ export function getSignedCookie(req: NextRequest, name: string): string | null {
   return payload?.v || null;
 }
 
-export function deleteCookie(res: NextResponse, name: string) {
-  res.headers.append('Set-Cookie', serialize(name, '', {
+export function deleteCookie(res: NextApiResponse, name: string) {
+  res.setHeader('Set-Cookie', serialize(name, '', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',
