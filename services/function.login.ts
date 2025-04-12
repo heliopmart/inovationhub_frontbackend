@@ -1,5 +1,3 @@
-
-
 export async function getLogIn(email:string, password:string): Promise<boolean> {
     try {
         const res = await fetch('/api/auth/auth.user', {
@@ -31,4 +29,28 @@ export async function getLogIn(email:string, password:string): Promise<boolean> 
     }
 }
 
+export async function userIsLog(): Promise<boolean> {
+    try {
+        const res = await fetch('/api/auth/auth.log', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
 
+        const response = await res.json()
+
+        if(response.error){
+            return false
+        }
+
+        if(res.status){
+            return true
+        }
+
+        return false
+    } catch (ex) {
+        console.error("function.team > getTeams | Error: " + ex);
+        return false
+    }
+}

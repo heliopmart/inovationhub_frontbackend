@@ -32,10 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const fullUrl = BASE_URL + path;
 
     // Verificação de segurança
-
-    console.log("++++++++++++++++++++++++++++++++++")
-    console.log(ALLOWRD_PREFIXES.some(prefix => path.startsWith(prefix)) || path.includes(".."))
-    console.log(fullUrl)
+    
     if (!ALLOWRD_PREFIXES.some(prefix => path.startsWith(prefix)) || path.includes("..")) {
         return res.status(400).json({ error: "Caminho de download não permitido." });
     }

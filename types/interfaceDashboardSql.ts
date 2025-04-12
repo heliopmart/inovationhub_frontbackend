@@ -90,7 +90,7 @@ export interface GetArtCompleteReturn{
 }
 
 // Interface para o usuário
-interface User {
+export interface User {
     id: string;
     name: string;
     color: string;
@@ -103,6 +103,10 @@ interface User {
     participatingTeams: number;
     amountOfLeadership: number;
     reportsDelivered: number;
+    socialMedia: {
+        link: string, 
+        type:string
+    }[]
     graduations: string[];
     finishedArts: number;
 }
@@ -229,4 +233,14 @@ interface TeamInscription {
     document: string;
     createAt: string;
     user: User;
+}
+
+export interface UserForConfigProps{
+    id: string,
+    email: string,
+    user: User
+}
+export interface GetUserForConfig{
+    st: boolean,
+    value: UserForConfigProps | null
 }

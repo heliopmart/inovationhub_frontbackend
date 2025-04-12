@@ -1,0 +1,33 @@
+{
+    "id": "19dca268-1e94-4282-aa1c-5905388d3c68",
+    "email": "helio.neto056@academico.ufgd.edu.br",
+    "user": {
+        "id": "1",
+        "name": "Hélio Peres Martins Neto",
+        "tell": "67 992546008",
+        "type": "discente",
+        "admin": true,
+        "color": "#2774B7",
+        "image": "https://res.cloudinary.com/dvstrc0ni/image/upload/v1742829379/motostudent_team/doz7aybw7cgczraoffw5.jpg",
+        "createAt": "2025-03-22T19:03:38.336",
+        "updateAt": "2025-03-22T19:03:38.336",
+        "graduations": [
+            "Engenharia Mecânica | UFGD",
+            "Engenharia de software | UNIGRAM"
+        ],
+        "socialMedia": [
+            {
+                "link": "https://www.instagram.com/heliopmart/",
+                "type": "instagram"
+            },
+            {
+                "link": "www.linkedin.com/in/heliopmart",
+                "type": "linkedin"
+            }
+        ],
+        "finishedArts": 0,
+        "reportsDelivered": 0,
+        "amountOfLeadership": 0,
+        "participatingTeams": 0
+    }
+}

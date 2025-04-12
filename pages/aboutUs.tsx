@@ -43,7 +43,7 @@ const docsData: InterfaceDocs[] = [
         files: [
             {
                 name: "Projeto de extensão - Hub de inovações - Reitoria de extensão UFGD",
-                link: ""
+                link: "internal/projeto_hub.pdf"
             }
         ]
     },
@@ -52,15 +52,19 @@ const docsData: InterfaceDocs[] = [
         files: [
             {
                 name: "Modelo de submissão de equipe - hub de inovações UFGD",
-                link: ""
+                link: "internal/modelo_submissao_equipe_hub.docx"
+            },
+            {
+                name: "Modelo de Requisição de ART - hub de inovações UFGD",
+                link: "internal/requisicao_de_art_hub.docx"
             },
             {
                 name: "Modelo de requisição de orçamento - hub de inovações UFGD",
-                link: ""
+                link: "internal/requisicao_de_orcamento_hub.docx"
             },
             {
                 name: "Modelo de levantamento de licitações - hub de inovações UFGD",
-                link: ""
+                link: "internal/levantamento_de_licitacao_hub.docx"
             }
         ]
     }
@@ -205,7 +209,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                 </TextTwoImageDescrition>
             </section>
             <hr />
-            <section className={styles.docsSection} id="docs">
+            <section className={styles.docsSection} id="doc">
                 <span className={styles.titleCoor}>{messages.docs.title}</span>
                 <Docs docs={docsData} key={"Docs-AboutUS"}/>
             </section>

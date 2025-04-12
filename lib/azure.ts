@@ -14,5 +14,5 @@ export function getBlobUrl(): string {
 }
 
 export function allowedPrefixes():string[]{
-  return ["art/", "bid/", "doc/"];
+  return ["art/", "bid/", "doc/", "internal/"];
 }

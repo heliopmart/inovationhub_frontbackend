@@ -9,7 +9,7 @@ import {DefaultInput} from "@/components/Input"
 
 import styles from "@/styles/pages/login.module.scss"
 
-import {getLogIn} from "@/services/function.login"
+import {getLogIn, userIsLog} from "@/services/function.login"
 import {regexStudentEmail} from "@/lib/regex.email"
 
 export default function aboutUs({ messages }: { messages: any }) {
@@ -38,6 +38,16 @@ export default function aboutUs({ messages }: { messages: any }) {
             setWarning({display: "flex", text: "Email ou senhas invalidos, preencha todos corretamente!"})
         }
     }
+
+    useEffect(() => {
+        async function checkUser() {
+            const response = await userIsLog()
+            if(response){
+                router.push("/dashboard/")
+            }
+        }
+        checkUser()
+    }, [])
 
     useEffect(() => {
     async function loadMessages() {

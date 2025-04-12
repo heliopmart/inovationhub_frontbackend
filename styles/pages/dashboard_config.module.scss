@@ -1,0 +1,174 @@
+@mixin Flex( $direction, $wrap, $align, $content) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-items: $align;
+    justify-content: $content;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    @include Flex(row, nowrap, stretch, start);
+    gap: 15px;
+
+    .menuContent{
+        max-width:310px;
+        min-height: 250px;
+        height: auto;
+        flex: 1 1;
+        display: flex;
+    }
+
+    .paintContent{
+        width: calc(100% - 325px);
+        padding: 15px;
+        padding-right: 25px;
+        box-sizing: border-box;
+        height: auto;
+        flex: 1 1;
+        @include Flex(column, nowrap, start, start);
+        gap: 4vh;
+
+        .container{
+            width: 100%;
+            height: auto;
+            @include Flex(column, nowrap, start, start);
+            gap: 5vh;
+
+            .sectionContent{
+                width: 50%;
+                height: auto;
+                @include Flex(column, nowrap, start, start);
+                gap: 5vh;
+
+                .TitleSection{
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    color: #3B3B3B;
+                }
+
+                .containerImageUser{
+                    width: 100%;
+                    height: auto;
+                    padding: 5px;
+                    box-sizing: border-box;
+                    
+                    label{
+                        @include Flex(column, nowrap, start, start);
+                        gap: 20px;
+                    }
+
+                    img{
+                        width: 220px;
+                        height: 220px;
+                        border-radius: 5px;
+                        object-fit: cover;
+                        overflow: hidden;
+                        display: block;
+                        cursor: pointer;
+                    }
+
+                    button{
+                        display: block;
+                        width: 100%;
+                        min-width: 180px;
+                        max-width: 220px;
+                        height: 45px;
+                        background-color: #FF7327;
+                        color: #fff;
+                        font-size: .9em;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        border-radius: 5px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover{
+                            background-color: #e4621c;
+                        }
+                    }
+
+                    input{
+                        display: none;
+                    }
+                }
+
+                .contentInputs{
+                    width: 100%;
+                    height: auto;
+                    @include Flex(column, nowrap, stretch, start);
+                    gap: 40px;
+
+                    a{
+                        color: #1a1a1a;
+                        span{
+                            font-size: .9em;
+                            font-weight: light;
+                            text-transform: uppercase;
+                            text-decoration: underline;
+                            cursor: pointer;
+
+                        }
+                    }
+
+                    .buttonForm{
+                        margin-top: 50px;
+                        width: 100%;
+                        min-width: 250px;
+                        max-width: 300px;
+                        height: 45px;
+                        background-color: #278CFF;
+                        color: #fff;
+                        font-size: 1em;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        border-radius: 5px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+
+                        &:hover{
+                            background-color: #2378d8;
+                        }
+                    }
+                }
+
+                .DisableAccount{
+                        margin-top: 50px;
+                        width: 100%;
+                        min-width: 250px;
+                        max-width: 300px;
+                        height: 45px;
+                        background-color: #fff;
+                        color: #A6A6A6;
+                        font-size: 1em;
+                        font-weight: light;
+                        text-transform: uppercase;
+                        text-decoration: underline;
+                        text-align: left;
+                        border-radius: 5px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+
+.contentUserToLeader{
+    width: 100%;
+    height: auto;
+    @include Flex(column, nowrap, start, start);
+    gap: 20px;
+}
+
+@media (max-width: 1390px) {
+    .sectionContent{
+        width: 100%;
+    }
+}
