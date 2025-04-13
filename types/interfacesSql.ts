@@ -85,6 +85,7 @@ export interface Events{
     minifyDescription: string,
     description: string,
     registrationsMade: number,
+    image: string
     sponsors: [
         {
             investor: {

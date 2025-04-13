@@ -2,7 +2,8 @@ export const NormalizeRoleTeam = (inf:string) => {
     const n : { [key: string]: string }  = {
         "leader": "Líder",
         "allocatedLeader": "Lider Alocado",
-        "member": "Membro"
+        "member": "Membro",
+        "coordinator": "Coordenador",
     }
     return n[inf] || ""
 }
@@ -54,10 +55,11 @@ export const NormalizeType = (inf:string) => {
         "resource": "Recurso",
         "laboratory": "Laboratório",
         "other": "Outros",
-
+        
         "modification": "Modificação",
         "creation": "Criação",
-        "cancel": "Cancelamento"
+        "cancel": "Cancelamento",
+        "interactive design": "Design Interativo",
     }
     return n[inf] || ""
 }

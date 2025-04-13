@@ -1,4 +1,4 @@
-import {Doc} from "@/types/interfaceDashboardSql"
+import {CoordinatorToArtProps} from "@/types/interfaceDashboardSql"
 export interface AuthPrivatedToken{
     status: boolean,
     message?: string
@@ -67,4 +67,36 @@ export interface NormalizeFinanceDocsProps{
         name: string,
         link: string
     }[]
+}
+
+export interface DataCreateContactProps{
+    email: string,
+    economicSector: string,
+    representativeName: string,
+    positionRepresentative: string,
+    nameInterprise: string
+}
+
+export interface UserToLeaderProps{
+    id: string
+    name: string
+    graduation: string[]
+    amountOfLeadership: number
+    finishedArts: number
+    linkDoc: string
+}
+export interface ComponentUsersToLeaderARTProps {
+    selectLeader: (userId:string) => void 
+    downloadDoc: (linkDoc:string) => void
+    data: UserToLeaderProps[]
+}
+
+export interface GetTeamMemberForArtLeaderReturn {
+    st: boolean,
+    value: UserToLeaderProps[]
+}
+
+export interface getTeamCoordinatorForArtReturn{
+    st: boolean,
+    value: CoordinatorToArtProps[]
 }

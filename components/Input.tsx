@@ -25,6 +25,12 @@ interface InterfaceSelectInput{
     returnValue: (r:string) => void
 }
 
+interface InterfaceFileInput{
+    text: string,
+    returnValue: (file: File | null) => void;
+}
+
+
 export function DefaultInput({type,isPassword,placeholder,text,value, minLength, returnValue}:InterfaceDefaultInput) {
     return (
         <div className={style.inputContent}>
@@ -100,6 +106,22 @@ export function SelectInput({text, value, returnValue, courses}:InterfaceSelectI
                     <option value={curse}>{curse}</option>
                 ))}
             </select>
+        </div>
+    );
+}
+
+
+export function FileInput({text, returnValue}:InterfaceFileInput) {
+    return (
+        <div className={`${style.inputContent} ${style.selectInput}`}>
+            <span>{text}</span>
+            <input
+                type="file"
+                onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                returnValue(file);
+                }}
+            />
         </div>
     );
 }

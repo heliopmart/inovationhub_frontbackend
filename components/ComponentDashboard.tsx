@@ -1,7 +1,15 @@
-import Link from "next/link";
 import style from "@/styles/components/ComponentDashboard.module.scss";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import {download_file} from "@/services/function.download.file"
+
 import {NormalizeRoleTeam, NormalizeType, NormalizeStatus, NormalizeStatusColor} from "@/lib/normalizeInformationToFront"
+import {ComponentUsersToLeaderARTProps} from "@/types/interfaceClass"
 
 type onClickAction = (actionId:string, action: number) => void
 
@@ -88,6 +96,10 @@ const setStatus: Record<"processing" | "approved" | "rejected" | "suspended" | "
     "finalized": 4,
 }
 
+async function downloadDoc(link: string) {
+    await download_file("doc", link)
+}
+
 export function ComponentART({status, artNumber, file, leader, observation, type, onClick}: ComponentPropsART){
     return (
         <div className={style.componentContent}>
@@ -100,7 +112,7 @@ export function ComponentART({status, artNumber, file, leader, observation, type
                 <span>Tipo: <i>{NormalizeType(type)}</i></span>
                 <span>Status: <i>{NormalizeStatus(status)}</i></span>
                 <span>Observação: <i>{observation}</i></span>
-                <span>Arquivo: <Link href={`${file}`}>Baixar</Link></span>
+                <span>Arquivo: <u onClick={() => downloadDoc(file)}>Baixar</u></span>
                 <span>Líder Alocado: <i>{leader}</i></span>
             </div>
             <div className={style.contentActions}>
@@ -132,7 +144,7 @@ export function ComponentBind({bidsName, file, internType, status, observation, 
                 <span>Tipo: <i>{NormalizeType(type)}</i></span>
                 <span>Status: <i>{NormalizeStatus(status)}</i></span>
                 <span>Observação: <i>{observation}</i></span>
-                <span>Arquivo: <Link href={`${file}`}>Baixar</Link></span>
+                <span>Arquivo: <u onClick={() => downloadDoc(file)}>Baixar</u></span>
             </div>
             <div className={style.contentActions}>
                 {internType ? (
@@ -181,7 +193,7 @@ export function ComponentInscription({course,dateInscriptionHub,image,inscriptio
                 <span>Equipes participante: <i>{teamsParticipated}</i></span>
                 <span>Curso: <i>{course}</i></span>
                 <span>Semestre: <i>{semester}</i></span>
-                <span>documento de inscrição: <Link href={`${inscriptionDocument}`}><i>Baixar</i></Link></span>
+                <span>documento de inscrição: <u onClick={() => downloadDoc(inscriptionDocument)}><i>Baixar</i></u></span>
             </div>
             <div className={style.contentActions}>
                 <button onClick={() => onClick("inscription", 7)} className={style.buttonsActions}>Aceitar Membro</button>
@@ -191,21 +203,50 @@ export function ComponentInscription({course,dateInscriptionHub,image,inscriptio
     )
 }
 
-export function ComponentUsersToLeaderART({} : {}){
+export function ComponentUsersToLeaderART({data, downloadDoc, selectLeader} : ComponentUsersToLeaderARTProps){
     return (
-        <div className={style.containerComponentUser}>
-            <label className={style.componentContent}>
-                <div className={style.contentHeader}>
-                    <span><b>{"Nome do Usuário"}</b></span>
-                    <input type="radio" onChange={(e) => {}} value={0} />
-                </div>
-                <div className={style.contentInformations}>
-                    <span>Graduação:: <i>{"Eng Mecânica"}</i></span>
-                    <span>Semestre: <i>{"1"}</i></span>
-                    <span>ARTs Concluídas: <i>{"0"}</i></span>
-                    <span>Documento de inscrição: <Link href={`${"file"}`}>Baixar</Link></span>
-                </div>
-            </label>
-        </div>
+        <>
+            {
+                data.length === 0 ? (
+                    <div></div>
+                ) : (
+                    <div className={style.containerComponentUser}>
+                        <Swiper
+                            modules={[Pagination]}
+                            spaceBetween={10}
+                            slidesPerView={1}
+                            pagination={{ clickable: true }}
+                            breakpoints={{
+                                640: { slidesPerView: 1 },
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 3 },
+                            }}
+                        >
+                            {
+                            data?.map((user, index) => (
+                                <SwiperSlide key={`userToLeader-${index}`}>
+                                    <label className={style.componentContent} >
+                                        <div className={style.contentHeader}>
+                                            <span><b>{user.name}</b></span>
+                                            <input type="radio" name="select-leader" onChange={(e) => selectLeader(user.id)} />
+                                        </div>
+                                        <div className={style.contentInformations}>
+                                            <span>Graduação: <i>{user.graduation[0]}</i></span>
+                                            <span>Liderou: <i>{user.amountOfLeadership}</i></span>
+                                            <span>ARTs Concluídas: <i>{user.finishedArts}</i></span>
+                                            <span>Documento de inscrição: <u onClick={() => downloadDoc(user.linkDoc)}>Baixar</u></span>
+                                        </div>
+                                    </label>
+                                </SwiperSlide>
+                            ))
+                        }
+                        </Swiper>
+                        
+                    
+                    </div>
+                )
+            }
+        
+        </>
     )
 }

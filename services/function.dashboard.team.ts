@@ -1,6 +1,6 @@
 import { ReturnTeamsWithTeamMemberProps, TeamsWithTeamMemberProps, GetTeamCompleteReturn, GetArtCompleteReturn} from "@/types/interfaceDashboardSql"
-import {TeamMember, Art} from "@/types/interfaceDashboardSql"
-import {authUser} from "@/types/interfaceClass"
+import {TeamMember, Art, TeamMemberForArtLeaderProps, CoordinatorToArtProps} from "@/types/interfaceDashboardSql"
+import {authUser, UserToLeaderProps, GetTeamMemberForArtLeaderReturn, getTeamCoordinatorForArtReturn} from "@/types/interfaceClass"
 import {getBaseUrl} from "@/lib/baseUrl"
 
 export async function getTeams(memberId: string): Promise<ReturnTeamsWithTeamMemberProps> {
@@ -112,7 +112,6 @@ export async function getTeamViwer(){
         return {}
     }
 }
-
 
 export async function getTeamMember(authUser: authUser, teamName: string){    
     const requestTeams = await getAllTeams()
@@ -268,7 +267,8 @@ export async function getTeamDashboardComplete(teamId: string): Promise<GetTeamC
                             participatingTeams,
                             amountOfLeadership,
                             reportsDelivered,
-                            finishedArts
+                            finishedArts,
+                            graduations
                         )
                     )
                 `,
@@ -280,9 +280,7 @@ export async function getTeamDashboardComplete(teamId: string): Promise<GetTeamC
 
         const data = (await res.json())[0];
 
-
         const artNormalize = await addingNameLeaderInArt(data.teamArts, data.teamMembers)
-
         data.teamArts = artNormalize
 
         return { st: true, value: data };
@@ -291,22 +289,20 @@ export async function getTeamDashboardComplete(teamId: string): Promise<GetTeamC
         return { st: false, value: [] };
     }
 
-    function addingNameLeaderInArt(teamArt:Art[], teamMember:TeamMember[]){
-        const art = []
-
-        for (let i = 0; i < teamArt.length; i++) {
-            const element_art = teamArt[i];
-            for (let j = 0; j < teamMember.length; j++) {
-                const element_member = teamMember[j];
-                
-                if(element_art.id === element_member.allocatedArt && element_member.roleTeam == "allocatedLeader"){
-                    art.push({...element_art, leaderName: element_member.user.name})
-                }
-            }
-        }
-
-        return art
-    }
+    function addingNameLeaderInArt(teamArt: any[], teamMember: TeamMember[]) {
+        return teamArt.map((element_art) => {
+          const leader = teamMember.find(
+            (m) =>
+              m.allocatedArt === element_art.art.id &&
+              m.roleTeam === "allocatedLeader"
+          );
+      
+          return {
+            ...element_art,
+            leaderName: leader?.user.name
+          };
+        });
+      }
 }
 
 export async function getArtDashboardComplete(artId: string): Promise<GetArtCompleteReturn> {
@@ -423,4 +419,93 @@ export async function getArtDashboardComplete(artId: string): Promise<GetArtComp
         console.error("function.art > getArtDashboardComplete | Error: " + ex);
         return { st: false, value: [] };
     }
+}
+
+
+export async function getTeamMemberForArtLeader(teamId:string) : Promise<GetTeamMemberForArtLeaderReturn>{
+    try {
+        const res = await fetch('/api/query/get', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                table: 'TeamMember',
+                select: `
+                    user: User (
+                        name, 
+                        id, 
+                        type,
+                        graduations,
+                        amountOfLeadership,
+                        finishedArts
+                    )
+                `,
+                filter: [
+                    { column: 'teamId', op: 'eq', value: teamId },
+                    { column: 'roleTeam', op: 'eq', value: "member" }
+                ]
+            })
+        });
+
+        const data = await res.json();
+        return { st: true, value: await normalizeUsers(data) };
+    } catch (ex) {
+        console.error("function.team > getTeams | Error: " + ex);
+        return { st: false, value: [] };
+    }
+
+    async function normalizeUsers(data: TeamMemberForArtLeaderProps[]): Promise<UserToLeaderProps[]> {
+        return data.map((entry) => {
+          const { id, name, graduations, amountOfLeadership, finishedArts } = entry.user
+          return {
+            id,
+            name,
+            graduation: graduations,
+            amountOfLeadership,
+            finishedArts,
+            linkDoc: ""
+          }
+        })
+      }
+}
+
+export async function getTeamCoordinatorForArt(teamId:string) : Promise<getTeamCoordinatorForArtReturn>{
+    try {
+        const res = await fetch('/api/query/get', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                table: 'TeamMember',
+                select: `
+                    user: User (
+                        name, 
+                        id
+                    )
+                `,
+                filter: [
+                    { column: 'teamId', op: 'eq', value: teamId },
+                    { column: 'role', op: 'eq', value: "coordinator" }
+                ]
+            })
+        });
+
+        const data = await res.json();
+        return { st: true, value: await normalizeUsers(data) };
+    } catch (ex) {
+        console.error("function.team > getTeams | Error: " + ex);
+        return { st: false, value: [] };
+    }
+
+    async function normalizeUsers(data: any[]): Promise<CoordinatorToArtProps[]> {
+        return data.map((entry) => {
+          const { id, name} = entry.user
+          return {
+            id,
+            name
+          }
+        })
+      }
 }

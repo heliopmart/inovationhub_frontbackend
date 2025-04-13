@@ -18,7 +18,7 @@
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
     @include Flex(column, nowrap, start, start);
     gap: 30px;
-    flex-shrink: 0;
+    // flex-shrink: 0;
 
     .contentHeader{
         width: 100%;
@@ -45,10 +45,10 @@
             font-weight: lighter;
             text-transform: uppercase;
 
-            a{
-                color: #1a1a1a;
+            u{
                 text-decoration: underline;
-            }
+                cursor: pointer;
+            }            
         }
     }
 
@@ -127,10 +127,10 @@
             font-weight: lighter;
             text-transform: uppercase;
 
-            a{
-                color: #1a1a1a;
+            u{
                 text-decoration: underline;
-            }
+                cursor: pointer;
+            }   
         }
     }
 
@@ -169,21 +169,18 @@
 }
 
 .containerComponentUser{
-    width: 100%;
+    width: calc(100vw - 500px);
     height: auto;    
-    @include Flex(row, nowrap, stretch, start);
-    gap: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Para Firefox */
-    &::-webkit-scrollbar {
-        display: none; /* Para Chrome, Safari e Edge */
-    }
-
+    // @include Flex(row, nowrap, stretch, start);
+    // gap: 20px;
+    
     .componentContent{
         flex-shrink: 0; /* Garante que os itens não diminuam */
+    }
+}
+
+@media (max-width: 1500px) {
+    .containerComponentUser{
+        width: calc(100vw - 400px);
     }
 }

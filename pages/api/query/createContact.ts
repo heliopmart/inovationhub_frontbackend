@@ -1,8 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "cookie";
-import { File, IncomingForm } from "formidable";
-import { validatePrivateToken } from '@/lib/tokenManager';
-import {uploadToCloudinary} from "@/pages/api/query/createImage"
+import {IncomingForm} from "formidable";
+import { validatePublicToken } from '@/lib/tokenManager';
 import { supabase } from '@/lib/supabase';
 import {authUser} from "@/types/interfaceClass"
 
@@ -12,11 +11,11 @@ export const config = {
 
 async function verifyToken(req: NextApiRequest): Promise<authUser | false> {
   const cookies = parse(req.headers.cookie || "");
-  const privateId = cookies.private_token;
+  const publicHash = cookies.public_token;
 
-  if (!privateId) return false;
+  if (!publicHash) return false;
 
-  const auth = await validatePrivateToken(privateId);
+   const auth = await validatePublicToken(publicHash);
 
   if(!auth) return false;
 
@@ -36,38 +35,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const form = new IncomingForm({ multiples: false });
 
-  form.parse(req, async (err, fields, files) => {
+  form.parse(req, async (err, fields) => {
     if (err) return res.status(500).json({ error: "Erro ao processar os dados" });
 
     const dynamicFields: Record<string, any> = {};
     for (const key in fields) {
-      const rawValue = Array.isArray(fields[key]) ? fields[key][0] : fields[key];
-
       try {
-        dynamicFields[key] = JSON.parse(rawValue || "");
+        dynamicFields[key] = JSON.parse(fields[key] as unknown as string);
       } catch {
-        dynamicFields[key] = rawValue;
+        dynamicFields[key] = fields[key];
       }
-    }
-
-    if (files?.image) {
-      const file = files.image as unknown as File;
-      const uploadedUrl = await uploadToCloudinary(file, auth?.user.id || "");
-      if (uploadedUrl) {
-        dynamicFields["image"] = uploadedUrl;
-      }
-    }
-
-    const tableName = dynamicFields.table;
-    delete dynamicFields.table;
-    
-    if (!tableName) {
-      return res.status(400).json({ error: "Nome da tabela não especificado" });
     }
 
     try{
-      const { data, error } = await supabase.from(tableName).insert(dynamicFields);
+      const { data, error } = await supabase.from('PartnersContact').insert(dynamicFields);
       return res.status(200).json({
+        message: "Registro criado com sucesso",
         data,
       });
     }catch(error){

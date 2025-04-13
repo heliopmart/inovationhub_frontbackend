@@ -17,11 +17,11 @@
                 },
                 {
                     "text": "Equipe Integrantes",
-                    "url": "/"
+                    "url": "/internSolutions#team"
                 },
                 {
                     "text": "Contate-nos",
-                    "url": "/"
+                    "url": "/partners#contacts"
                 },
                 {
                     "text": "Responsáveis Legais",
@@ -42,11 +42,11 @@
                 },
                 {
                     "text": "Cadastre-se",
-                    "url": "/registre"
+                    "url": "/register"
                 },
                 {
                     "text": "Redefinir Senha",
-                    "url": "/redifinePassword"
+                    "url": "/password"
                 },
                 {
                     "text": "LGPD - Lei de proteção de dados",
@@ -58,11 +58,11 @@
                 },
                 {
                     "text": "Como participar do projeto",
-                    "url": "/"
+                    "url": "/informatins#howToParticipate"
                 },
                 {
                     "text": "Como navegar no site",
-                    "url": "/"
+                    "url": "/informations#howToNavigate"
                 }
             ]
         },

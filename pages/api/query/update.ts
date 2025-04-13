@@ -2,31 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "cookie";
 import { validatePrivateToken } from '@/lib/tokenManager';
 import { supabase } from '@/lib/supabase';
-import { IncomingForm, File } from 'formidable';
-import cloudinary from "@/lib/cloudinary";
+import { IncomingForm } from 'formidable';
+import {uploadToCloudinary} from "@/pages/api/query/createImage"
+
 
 export const config = {
   api: { bodyParser: false },
 };
-
-// Função auxiliar para upload na Cloudinary
-async function uploadToCloudinary(file: File, userId: string): Promise<string | null> {
-  
-  console.log("+++++++++++++++++++++++++++++++")
-  console.log(file)
-  try {
-    const uploadResult = await cloudinary.uploader.upload(file.filepath, {
-      folder: "users",
-      public_id: `user_${userId}_${Date.now()}`,
-      resource_type: "image",
-    });
-
-    return uploadResult.secure_url;
-  } catch (err) {
-    console.error("Erro ao enviar imagem para Cloudinary:", err);
-    return null;
-  }
-}
 
 // Verificação do token
 async function verifyToken(req: NextApiRequest): Promise<boolean> {

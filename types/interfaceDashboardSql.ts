@@ -261,3 +261,19 @@ export interface GetUserForConfig{
     st: boolean,
     value: UserForConfigProps | null
 }
+
+export interface TeamMemberForArtLeaderProps {
+    user: {
+        name: string,
+        id: string,
+        type: string,
+        graduations: string[],
+        amountOfLeadership: number,
+        finishedArts: number
+    }
+}
+
+export interface CoordinatorToArtProps{
+    id: string,
+    name: string
+}

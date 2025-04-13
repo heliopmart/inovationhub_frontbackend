@@ -99,7 +99,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <p dangerouslySetInnerHTML={{__html: messages.headerp}}/>
             </section>
             <Banner text={messages.textBanner_1} color="#9775FF" key={"changeword-banner-key"}/>
-            <main className={styles.mainSection}>
+            <main className={styles.mainSection} id="team">
                 {
                     setDirectionForComponent(teams)?.map((data, index) => (
                         <TextImageDescrition key={`${index}-projects`} image={data.image} direction={data.direction as "left" | "right"} form={"stretch"}>

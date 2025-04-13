@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { parse } from 'cookie';
 import { get } from "https";
 import {getBlobUrl, allowedPrefixes} from "@/lib/azure";
-import { validatePublicToken } from '@/lib/tokenManager';
+import { validatePublicToken, validatePrivateToken } from '@/lib/tokenManager';
 
 const BASE_URL = getBlobUrl();
 const ALLOWRD_PREFIXES = allowedPrefixes()
@@ -12,12 +12,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const cookies = parse(req.headers.cookie || '');
     const publicHash = cookies.public_token;
+    const privateId = cookies.private_token;
 
-    if (!publicHash) {
-        return  res.status(403).json({ error: "Erro ao authenticar o usuário." });
+    let authData = null;
+    
+    if (privateId) {
+        authData = await validatePrivateToken(privateId);
     }
 
-    const authData = await validatePublicToken(publicHash);
+    if (!authData && publicHash) {
+        authData = await validatePublicToken(publicHash);
+    }
 
     // Se mesmo após tentativa não houver token válido
     if (!authData) {

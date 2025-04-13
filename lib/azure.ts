@@ -9,6 +9,10 @@ if (!AZURE_CONFIG.baseUrl || !AZURE_CONFIG.container) {
   throw new Error('Variáveis de ambiente do Upstash não configuradas');
 }
 
+export function getBlobServiceClient() {
+  return AZURE_CONFIG
+}
+
 export function getBlobUrl(): string {
   return `${AZURE_CONFIG.baseUrl}/${AZURE_CONFIG.container}/`;
 }

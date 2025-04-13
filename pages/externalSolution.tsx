@@ -131,7 +131,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                     <div className={styles.contentOldEvents}>
                         {
                            eventsHeld?.map((data:Events, index:number) => (
-                                <TextImageDescrition key={`${index}-oldEvents`} image={"data.image"} direction={"right"} form={"stretch"}>
+                                <TextImageDescrition key={`${index}-oldEvents`} image={data.image} direction={"right"} form={"stretch"}>
                                     <div className={`${styles.contentDescription}`}>
                                         <h6 className={styles.titleContent} dangerouslySetInnerHTML={{__html: `${data.name} - ${SetDate(data.date)}`}}/>
 

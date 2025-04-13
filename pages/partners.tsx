@@ -14,8 +14,8 @@ import {PartnersContact} from "@/components/PartnersContact"
 
 import styles from "@/styles/pages/partners.module.scss"
 
-import { getGovernanceDocs } from "@/services/function.partners"
-import { NormalizeFinanceDocsProps } from "@/types/interfaceClass"
+import { getGovernanceDocs, createPartnersContact} from "@/services/function.partners"
+import { NormalizeFinanceDocsProps, DataCreateContactProps } from "@/types/interfaceClass"
 
 interface InterfaceMessageInformations{
     title: string,
@@ -37,6 +37,7 @@ const setDirectionForComponent = (data:InterfaceMessageInformations[]):Interface
     return data
 }
 
+
 export default function Partners({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
@@ -51,8 +52,23 @@ export default function Partners({ messages }: { messages: any }) {
 
     const [docs, setDocs] = useState<NormalizeFinanceDocsProps[]>([])
     
-    function ButtonSend(){
+ 
+    async function ButtonSend(){
+        if(!email || !economic || !user || !role || !name){
+            alert("Preencha todos os campos")
+            return
+        }
+
+        const data: DataCreateContactProps = {
+            email: email,
+            economicSector: economic,
+            nameInterprise: name,
+            positionRepresentative: role,
+            representativeName: user
+        }
+        
         setIsSend(true)
+        createPartnersContact(data)
     }
 
     useEffect(() => {
