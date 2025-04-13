@@ -1,3 +1,4 @@
+import {NormalizeDataKpisProps} from "@/types/interfaceClass"
 
 // Team
 export interface TeamMinify {
@@ -31,17 +32,17 @@ export interface GetReturn{
 // Nuclei
 export interface ReturnDirectoryInformation{
     id: string,
-    name: string,
-    NucleiBoardOfDirectors: {
-        role: string,
-        user: {
-            name: string,
-            tell: string,
-            login: {
-                email: string
-            }[]
-        }
-    }[]
+    role: string,
+    nuclei: {
+        id: string,
+        name: string,
+    },
+    user: {
+        id: string,
+        name: string,
+        color: string,
+        tell: string
+    }
 }
 
 export interface ReturNormalizeNucleiDirector{
@@ -50,15 +51,15 @@ export interface ReturNormalizeNucleiDirector{
         director: {
             textRole: string
             name: string,
-            email: string,
-            tell: string
-        },
+            email: string  | null,
+            tell: string  | null
+        } | null,
         coordinator: {
             textRole: string,
             name: string, 
-            email: string,
-            tell: string
-        }
+            email: string  | null,
+            tell: string  | null
+        } | null
     }
 }
 
@@ -336,3 +337,20 @@ export interface GetTeamCompleteReturn{
     table?: any
 }
 
+export interface DataKpisProps{
+    id: string
+    kpiId: string,
+    name: string,
+    color: string
+    kpi: {
+        id: string
+        name: string
+    }
+    value: number[],
+    updateAt: string
+    createAt: string
+}
+export interface GetKpisReturn {
+    st: boolean;
+    value: NormalizeDataKpisProps[];
+}

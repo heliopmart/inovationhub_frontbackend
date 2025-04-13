@@ -19,7 +19,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import {getTeam} from '@/services/function.team'
-import {TeamComplete, InvestorTeamCompleat, DocsNormilize} from "@/types/interfacesSql"
+import {TeamComplete, InvestorTeamCompleat} from "@/types/interfacesSql"
 
 import {NormalizeType, NormalizeStatus, NormalizeRoleTeam} from "@/lib/normalizeInformationToFront"
 

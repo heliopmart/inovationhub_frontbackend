@@ -14,8 +14,8 @@ import {PartnersContact} from "@/components/PartnersContact"
 
 import styles from "@/styles/pages/partners.module.scss"
 
-import {getInvestor, getEvents} from "@/services/function.externSolution"
-import {Investor, Events} from "@/types/interfacesSql"
+import { getGovernanceDocs } from "@/services/function.partners"
+import { NormalizeFinanceDocsProps } from "@/types/interfaceClass"
 
 interface InterfaceMessageInformations{
     title: string,
@@ -37,7 +37,7 @@ const setDirectionForComponent = (data:InterfaceMessageInformations[]):Interface
     return data
 }
 
-export default function aboutUs({ messages }: { messages: any }) {
+export default function Partners({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
     const [txtNav, setTxtNav] = useState({});
     const { locale } = useRouter();
@@ -49,7 +49,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [name, setName] = useState<string>("")
     const [isSend, setIsSend] = useState<boolean>(false)
 
-    const [docs, setDocs] = useState<[]>([])
+    const [docs, setDocs] = useState<NormalizeFinanceDocsProps[]>([])
     
     function ButtonSend(){
         setIsSend(true)
@@ -67,7 +67,11 @@ export default function aboutUs({ messages }: { messages: any }) {
 
     useEffect(() => {
         async function get(){
-            // const resInvestor = await getInvestor()                     
+            const resFinanceDocs = await getGovernanceDocs()
+                      
+            if(resFinanceDocs.st)
+                setDocs(resFinanceDocs.value)
+
         }
         get()
     },[])
@@ -96,12 +100,11 @@ export default function aboutUs({ messages }: { messages: any }) {
             </main>
             <section className={styles.sectionDocs}>
                 <h2 className={styles.title}>{messages.docsTitle}</h2>
-                <Docs docs={messages.docs} key={"DocsPartners"}/>
+                <Docs docs={docs} key={"DocsPartners"}/>
             </section>
             <Banner text={messages.textBanner_1} color="#825454" key={"changeword-banner-key"}/>
             <section id="contacts">
                 <PartnersContact  ButtonSend={ButtonSend} isSend={isSend} EconomicEnterprise={(e) => setEconomic(e)} EmailEnterprise={(e) => setEmail(e)} NameEnterprise={(e) => setName(e)} RoleEnterprise={(e) => setRole(e)} UserEnterprise={(e) => setUser(e)} economic={economic} email={email} message={messages.contact} name={name} role={role} user={user} key={"contact-partners"}/>
-
             </section>
 
             {txtFooter?(<Footer messages={txtFooter}/> ):""}

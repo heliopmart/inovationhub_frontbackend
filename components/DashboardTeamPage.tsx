@@ -127,8 +127,6 @@ export function DashboardLiderTeamPage({team, informationPages}: LiderTeamPage){
         const normalizeFilter = typeFilter[parseInt(filterArt)]
         const _arts = team?.teamArts
 
-        console.log(_arts)
-
         if(normalizeFilter == "all"){
             return _arts
         }

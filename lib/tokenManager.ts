@@ -6,8 +6,8 @@ const PUBLIC_TTL = 60 * 60 * 24 * 5; // 5 dias
 const PRIVATE_TTL = 60 * 60 * 24;    // 1 dia
 
 
-const public_access = ['Team', 'Investor', 'TeamInvestor', 'User', 'Resource', 'NucleiBoardOfDirectors', 'UserLogin', 'Nuclei', "InvestorInvestment", "ResourceSupplier", "Event", "EventSponsors", "TeamDocs", "TeamArt", "TeamBids", "Art", "Docs", "Bids", "TeamMember"]
-const private_access = ["Team"]
+const public_access = ['Team', 'Investor', 'TeamInvestor', 'User', 'Resource', 'NucleiBoardOfDirectors', 'UserLogin', 'Nuclei', "InvestorInvestment", "ResourceSupplier", "Event", "EventSponsors", "TeamDocs", "TeamArt", "TeamBids", "Art", "Docs", "Bids", "TeamMember", "MemberNuclei", "GovernanceDoc", "FinanceDoc", "Kpis", "DataKpi"]
+const private_access = ["PartnersContact"]
 
 
 export async function createPublicToken() {

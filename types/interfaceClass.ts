@@ -1,3 +1,4 @@
+import {Doc} from "@/types/interfaceDashboardSql"
 export interface AuthPrivatedToken{
     status: boolean,
     message?: string
@@ -47,4 +48,23 @@ export interface NavTeamProps{
         name: string,
         color: string
     }
+}
+
+// 
+
+export interface NormalizeDataKpisProps{
+    title: string,
+    data: {
+        name: string,
+        color: string,
+        values: number[]
+    }[]
+}
+
+export interface NormalizeFinanceDocsProps{
+    title: string
+    files: {
+        name: string,
+        link: string
+    }[]
 }

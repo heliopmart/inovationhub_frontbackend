@@ -12,25 +12,26 @@ import {NucleiComponent} from '@/components/NucleiComponent'
 import styles from "@/styles/pages/thematicNuclei.module.scss"
 
 import {getNucleiDirectors} from "@/services/function.nuclei"
-import {ReturNormalizeNucleiDirector, GetNucleiReturn} from "@/types/interfacesSql"
+import {ReturNormalizeNucleiDirector} from "@/types/interfacesSql"
 
+type roles = {
+    director: {
+        textRole: string
+        name: string,
+        email: string,
+        tell: string
+    },
+    coordinator: {
+        textRole: string,
+        name: string, 
+        email: string,
+        tell: string
+    }
+}
 interface InterfaceNucleiComponent{
     nucleiName: string,
     p: string,
-    roles: {
-        director: {
-            textRole: string
-            name: string,
-            email: string,
-            tell: string
-        },
-        coordinator: {
-            textRole: string,
-            name: string, 
-            email: string,
-            tell: string
-        }
-    },
+    roles: roles,
     imageBanner: string,
     color_1: string,
     color_2: string
@@ -78,7 +79,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                 <h2 className={styles.titleMainSection}>O Hub de inovações trabalha com <b>cinco núcleos temáticos</b></h2>
                 {
                     messages?.nuclei?.map((nuclei:InterfaceNucleiComponent, index:number) => (
-                        <NucleiComponent color_1={nuclei.color_1} color_2={nuclei.color_2} imageBanner={nuclei.imageBanner} nucleiName={nuclei.nucleiName} p={nuclei.p} roles={nucleiBd?.filter((data) => data?.name == nuclei?.nucleiName)[0]?.roles} key={`${nuclei.nucleiName}_${index}`} />
+                        <NucleiComponent color_1={nuclei.color_1} color_2={nuclei.color_2} imageBanner={nuclei.imageBanner} nucleiName={nuclei.nucleiName} p={nuclei.p} roles={nucleiBd?.filter((data) => data.name == nuclei?.nucleiName)[0]?.roles as roles} key={`${nuclei.nucleiName}_${index}`} />
                     ))
                 }
                 

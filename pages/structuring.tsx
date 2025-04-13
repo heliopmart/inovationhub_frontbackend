@@ -1,7 +1,4 @@
-'use client'
 import { GetStaticProps } from "next";
-import Link from 'next/link'
-import {ColDef } from 'ag-grid-community'; 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getTranslations } from "@/lib/getTranslations";
@@ -15,8 +12,9 @@ import {Docs} from '@/components/Docs'
 
 import styles from "@/styles/pages/structuring.module.scss"
 
-import {getAllResources, getInvestorInvestments, getInvestorTransfer, getResourceExpenses, getAllBids} from "@/services/function.structuring"
+import {getAllResources, getInvestorInvestments, getInvestorTransfer, getResourceExpenses, getAllBids, getFinanceDocs} from "@/services/function.structuring"
 import {GetResourceReturn, GetInvestmentsReturn, GetTransfersReturn, GetExpensesReturn, GetBidsReturn} from "@/types/interfacesSql"
+import { NormalizeFinanceDocsProps } from "@/types/interfaceClass"
 
 interface InterfaceProjects{
     titleProject: string,
@@ -25,46 +23,6 @@ interface InterfaceProjects{
     image: string,
     direction?: "left" | 'right' 
 }
-interface InterfaceDocs{
-    title: string,
-    files: {
-        name: string,
-        link: string
-    }[]
-}
-
-const docsData: InterfaceDocs[] = [
-    {
-        title: "Balanço financeiro 2025/1",
-        files: [
-            {
-                name: "Balanço financeiro fechado total 2025/1 - Hub de inovações UFGD",
-                link: ""
-            }
-        ]
-    },
-    {
-        title: "Balanço financeiro 2025/2",
-        files: [
-            {
-                name: "Balanço financeiro fechado total 2025/2 - Hub de inovações UFGD",
-                link: ""
-            },
-            {
-                name: "Aquisições e repasses fechado 2025/2 - Hub de inovações UFGD",
-                link: ""
-            },
-            {
-                name: "Alocação para equipes fechado 2025/2 - hub de inovações UFGD",
-                link: ""
-            },
-            {
-                name: "Orçamento aprovado para 2026/1 - hub de inovações UFGD",
-                link: ""
-            }
-        ]
-    }
-]
 
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtFooter, setTxtFooter] = useState({});
@@ -76,6 +34,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [transfers, setTransfers] = useState<GetTransfersReturn>()
     const [expenses, setExpenses] = useState<GetExpensesReturn>()
     const [bids, setBids] = useState<GetBidsReturn>()
+    const [docs, setDocs] = useState<NormalizeFinanceDocsProps[]>([])
     
     useEffect(() => {
         async function loadMessages() {
@@ -94,6 +53,7 @@ export default function aboutUs({ messages }: { messages: any }) {
             const resTransfer = await getInvestorTransfer()
             const resExpenses = await getResourceExpenses()
             const resBids = await getAllBids()
+            const resFinanceDocs = await getFinanceDocs()
 
             if(resResource.st)
                 setResources(resResource)
@@ -110,7 +70,9 @@ export default function aboutUs({ messages }: { messages: any }) {
             if(resBids.st)
                 setBids(resBids)
 
-            console.log(resExpenses)
+            if(resFinanceDocs.st)
+                setDocs(resFinanceDocs.value)
+
         }
         get()
     },[])
@@ -165,7 +127,7 @@ export default function aboutUs({ messages }: { messages: any }) {
             </main>
             <section className={styles.docsSection} id="docs">
                 <h3 className={styles.title} dangerouslySetInnerHTML={{__html: messages.ClosedFinancialStatementTittle}}/>
-                <Docs docs={docsData} />
+                <Docs docs={docs} />
             </section>  
 
             {txtFooter?(<Footer messages={txtFooter}/> ):""}

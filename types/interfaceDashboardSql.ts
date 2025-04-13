@@ -235,6 +235,23 @@ interface TeamInscription {
     user: User;
 }
 
+export interface Doc {
+    id: string
+    code: string
+    name: string
+    type: string
+    download: string
+    createdAt: string
+    updatedAt: string
+    extension: string
+}
+
+export interface FinanceDocs{
+    id: string
+    name: string,
+    doc: Doc
+}
+
 export interface UserForConfigProps{
     id: string,
     email: string,

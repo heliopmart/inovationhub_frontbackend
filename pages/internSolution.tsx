@@ -13,8 +13,9 @@ import {KpisComponent} from '@/components/KpisComponent'
 
 import styles from "@/styles/pages/internSolution.module.scss"
 
-import {getTeams} from "@/services/function.internSolution"
+import {getTeams, getKpis} from "@/services/function.internSolution"
 import {TeamMinify} from "@/types/interfacesSql"
+import {NormalizeDataKpisProps} from "@/types/interfaceClass"
 
 type TypedataSeries = {
     name: string,
@@ -49,6 +50,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [managementKpisState, setManagementKpisState] = useState<TypedataSeries[]>([])
     const [impactKpisState, setImpactKpisState] = useState<TypedataSeries[]>([])
 
+    const [kpis, setKpis] = useState<NormalizeDataKpisProps[]>([])
 
     useEffect(() => {
     async function loadMessages() {
@@ -78,10 +80,13 @@ export default function aboutUs({ messages }: { messages: any }) {
         }
         async function get(){
             const resTeam = await getTeams()
+            const resKpis = await getKpis()
+
             if(resTeam.st)
                 setTeams(resTeam.value)
 
-            
+            if(resKpis.st)
+                setKpis(resKpis.value)            
         }
         get()
         getXSubtext()
@@ -144,10 +149,11 @@ export default function aboutUs({ messages }: { messages: any }) {
             <section className={styles.sectionKpis} id="kpis">
                 <h2 className={styles.titleSectionKpis} dangerouslySetInnerHTML={{__html: messages.titleKpis}}/>
                 <div className={styles.kpisContainer}>
-                    <KpisComponent title={messages.kpis[0]} month={monthState} dataSeries={academicKpisState} key={"AcademicKpis"}/>
-                    <KpisComponent title={messages.kpis[1]} month={monthState} dataSeries={inovationKpisState} key={"InovationKpis"}/>
-                    <KpisComponent title={messages.kpis[2]} month={monthState} dataSeries={managementKpisState} key={"ManagementKpis"}/>
-                    <KpisComponent title={messages.kpis[3]} month={monthState} dataSeries={impactKpisState} key={"ImpactKpis"}/>
+                    {
+                        kpis?.map((data, index) => (
+                            <KpisComponent title={data.title} month={monthState} dataSeries={data.data} key={`HubKpis_${index}_${data.title}`}/>
+                        ))
+                    }
                 </div>
             </section>
 

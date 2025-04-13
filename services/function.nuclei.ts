@@ -6,54 +6,49 @@ export async function getNucleiDirectors(): Promise<GetNucleiReturn> {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-auth-token': 'public_xyz'
         },
         body: JSON.stringify({
-          table: 'Nuclei',
-          select: `
-            id,
-            name,
-            NucleiBoardOfDirectors (
-              role,
-              user:User (
-                name,
-                tell,
-                login:UserLogin (
-                  email
-                )
-              )
-            )
-          `
+          table: 'MemberNuclei',
+          select: `*, nuclei: Nuclei ( * ), user: User ( id, name, color, tell )`
         })
       });
   
-      return { st: true, value: await normalizeObject(await res.json()) };
+      const data = (await res.json())
+
+      return { st: true, value: await normalizeByNuclei(data) };
     } catch (ex) {
       console.error("function.nuclei > getNucleiDirectors | Error: " + ex);
       return { st: false, value: [] };
     }
 }
 
-async function normalizeObject(data:ReturnDirectoryInformation[]): Promise<ReturNormalizeNucleiDirector[] | []> {
-    try{
-        return data.map((nuclei) => ({
-            name: nuclei.name,
-            roles: {
-                director: {
-                    textRole: "Diretor do núcleo",
-                    name: nuclei?.NucleiBoardOfDirectors[0]?.user?.name,
-                    email: nuclei?.NucleiBoardOfDirectors[0]?.user?.login[0]?.email,
-                    tell: nuclei?.NucleiBoardOfDirectors[0]?.user?.tell
-                },
-                coordinator: {
-                    textRole: "Coordenador docente do núcleo",
-                    name: nuclei?.NucleiBoardOfDirectors[1]?.user.name, 
-                    email: nuclei?.NucleiBoardOfDirectors[1]?.user.login[0].email,
-                    tell: nuclei?.NucleiBoardOfDirectors[1]?.user.tell
-                }
-            }
-        }))
-    }catch(e){
-        return []
-    }
-}
+async function normalizeByNuclei(data: ReturnDirectoryInformation[]): Promise<ReturNormalizeNucleiDirector[]> {
+    const grouped: Record<string, ReturNormalizeNucleiDirector> = {}
+  
+    data.forEach(({ nuclei, user, role }) => {
+      if (!grouped[nuclei.id]) {
+        grouped[nuclei.id] = {
+          name: nuclei.name,
+          roles: {
+            coordinator: null,
+            director: null,
+          }
+        }
+      }
+  
+      const normalizedUser = {
+        textRole: role === 'coordinator' ? 'Coordenador(a)' : 'Diretor(a)',
+        name: user.name,
+        email: "",
+        tell: user.tell ?? null,
+      }
+  
+      if (role === 'coordinator') {
+        grouped[nuclei.id].roles.coordinator = normalizedUser
+      } else if (role === 'leader') {
+        grouped[nuclei.id].roles.director = normalizedUser
+      }
+    })
+  
+    return Object.values(grouped)
+  }
