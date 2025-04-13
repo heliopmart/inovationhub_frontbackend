@@ -9,27 +9,80 @@ import {authUser} from "@/types/interfaceClass"
 import {NavDashBoard} from "@/components/NavDashBoard"
 import {HeaderDashBoard} from "@/components/HeaderDashBoard"
 
-import {DefaultInput, SelectInput} from "@/components/Input"
+import {SelectInput, FileInput} from "@/components/Input"
 
 import styles from '@/styles/pages/actionsTeam.module.scss' 
 
-import {getTeamViwer} from "@/services/function.dashboard.team"
-import {DashboardInformationsProps} from "@/types/interfaceClass"
+import {NormalizeType, InverseNormalizeType} from "@/lib/normalizeInformationToFront"
+import {getUserInformations, callCreateBid} from "@/services/function.create.bid"
+import {getTeamMember} from "@/services/function.dashboard.team"
+import { ArtTeamProps } from "@/types/interfaceDashboardSql"
+
+interface TeamInformationsProps{
+    id: string,
+    name:string,
+    color: string
+    roleTeam: string
+    artId?: string
+}
+
+const types = ["purchase", "rental", "service", "resourceAllocation", "resource", "laboratory", "other"]
 
 function DashboardBid({ nameTeam, messages, authUser }: { messages: any, nameTeam: string, authUser: authUser}){
-    const { locale } = useRouter();
-    const [information, setInformation] = useState<DashboardInformationsProps>()
+    const router = useRouter();
+    
+    const [information, setInformation] = useState<TeamInformationsProps>()
+    const [artsName, setArtsName] = useState<string[]>([])
+    const [arts, setArts] = useState<ArtTeamProps[]>([])
 
-    const [bidCode, setBidCode] = useState<string>("")
     const [bidType, setBidType] = useState<string>("")
     const [bidDoc, setBidDoc] = useState<any>()
     const [bidArt, setBidArt] = useState<string>("")
 
+    const artId = () => {
+        if(information?.roleTeam == 'leader'){
+            return arts.filter((v) => v.name == bidArt)[0].id
+        }else{
+            return information?.artId
+        }
+    }
+
+    async function sendBid(){
+        if(!bidType || !bidDoc || !bidArt) return
+
+        const data = {
+            teamId: information?.id,
+            type: InverseNormalizeType(bidType),
+            artId: artId(),
+            file: bidDoc,
+            userId: authUser.user.id,
+        }
+
+        const request = await callCreateBid(data, information?.id as string)
+        if(request){
+            alert("Licitação criada com sucesso")
+            router.push(`/dashboard/team/${nameTeam}`)
+        }else{
+            alert("Erro ao criar Licitação")
+        }
+    }
+
     useEffect(() => {
         async function get(){
-            const requestInformations = await getTeamViwer()
-            setInformation(requestInformations)
-            setBidArt(requestInformations.artAllocatedTeam)
+            const {team, teamMember} = await getTeamMember(authUser, nameTeam);
+            
+            if(teamMember.roleTeam == 'leader'){
+                const requestArts = await getUserInformations(teamMember.teamId);
+                console.log(requestArts.value)
+                if(requestArts.st){
+                    setArtsName(requestArts.value.map((v) => v.name))
+                    setArts(requestArts.value)
+                }
+            }else{
+                setArtsName(["Minha Art"])
+            }
+
+            setInformation({...team, roleTeam: teamMember.roleTeam, artId: teamMember.allocatedArt} as TeamInformationsProps)
         }
         get()
     },[])
@@ -43,15 +96,14 @@ function DashboardBid({ nameTeam, messages, authUser }: { messages: any, nameTea
                 <HeaderDashBoard nameTeam={nameTeam} imageUser={authUser.user.image} nameUser={authUser.user.name} key={"header-dashboard-bid"} />
                 <div className={styles.container}>
                     <section className={styles.sectionContent}>
-                        <span className={styles.TitleSection}>Equipe <b style={{color: information?.colorTeam}}>{nameTeam}</b></span>
-                        <span className={styles.titleContent}>Requisição de Licitação | ART º {information?.artAllocatedTeam}</span>
+                        <span className={styles.TitleSection}>Equipe <b style={{color: information?.color}}>{nameTeam}</b></span>
+                        <span className={styles.titleContent}>Requisição de Licitação {information?.roleTeam == 'leader' || 'coordinator' ? "" : "| ART"}</span>
                         
                         <form className={styles.contentInputs}>
-                            <DefaultInput minLength={10} placeholder="Code" returnValue={(e) => {}} text="Code" type="text" value={bidCode} key={"key-bid-name"}/>
-                            <SelectInput courses={["Compra"]} returnValue={(e) => {setBidType(e)}} text="Tipo de licitação" value={bidType} key={"key-bid-type"}/>
-                            <DefaultInput minLength={1} placeholder="Documento" returnValue={(e) => {setBidDoc(e)}} text="Documento" type="file" value={bidDoc} key={"key-bid-doc"}/>
-                            <SelectInput courses={ information?.roleTeam == "leader" ? ["MotoStudent", "ART #125616261", "ART #1257162176"] : [`#${information?.artAllocatedTeam}`]} returnValue={(e) => {setBidCode(e)}} text="Beneficiário" value={bidArt} key={"key-bid-art"}/>
-                            <button className={styles.buttonForm} title="Send" onClick={() => {}}>Enviar</button>
+                            <SelectInput courses={types.map((v) => NormalizeType(v))} returnValue={(e) => {setBidType(e)}} text="Tipo de licitação" value={bidType} key={"key-bid-type"}/>
+                            <FileInput returnValue={(e) => {setBidDoc(e)}} text="Documento" key={"key-bid-doc"}/>
+                            <SelectInput courses={artsName} returnValue={(e) => {setBidArt(e)}} text="Beneficiário" value={bidArt} key={"key-bid-art"}/>
+                            <button className={styles.buttonForm} title="Send" type="button" onClick={() => {sendBid()}}>Enviar</button>
                         </form>
                     </section>
                 </div>

@@ -1,4 +1,4 @@
-import {CoordinatorToArtProps} from "@/types/interfaceDashboardSql"
+import {CoordinatorToArtProps, ArtTeamProps} from "@/types/interfaceDashboardSql"
 export interface AuthPrivatedToken{
     status: boolean,
     message?: string
@@ -99,4 +99,9 @@ export interface GetTeamMemberForArtLeaderReturn {
 export interface getTeamCoordinatorForArtReturn{
     st: boolean,
     value: CoordinatorToArtProps[]
+}
+
+export interface GetArtsTeamReturn{
+    st: boolean,
+    value: ArtTeamProps[] | []
 }

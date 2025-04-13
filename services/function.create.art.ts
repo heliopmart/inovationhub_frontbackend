@@ -1,5 +1,12 @@
 import { authUser } from '@/types/interfaceClass';
-export async function callCreateArt(data: any, authUser: authUser, teamId: string) {    
+import { UploadFile } from '@/services/service.upload.file';
+import {generateCustomCode, generateUUIDv4} from "@/services/services.generate"
+
+export async function callCreateArt(data: any, teamId: string) {    
+    if(!teamId || teamId == undefined || teamId == null){
+        return false
+    }
+    
     const {id} = await CreateArt(data);
 
     if(!id){
@@ -164,60 +171,4 @@ async function CreateTeamArt(uuid:string, teamId: string) {
         console.error("createPartnersContact | Error:", ex);
         return { st: false, value: "Erro inesperado ao cadastrar" };
     }
-}
-
-async function UploadFile(doc: File, code: string): Promise<string> {
-    if (!doc || !code) {
-        return "";
-    }
-
-    const formData = new FormData();
-    formData.append("folder", "art");
-    formData.append("code", code);
-    formData.append("file", doc);
-
-    try {
-        const res = await fetch("/api/docs/upload", {
-            method: "POST",
-            body: formData,
-        });
-
-        const data = await res.json();
-
-        if (res.ok && data.url) {
-            return data.url;
-        }
-
-        console.error("Erro no upload:", data.error);
-        return "";
-    } catch (error) {
-        console.error("Erro na requisição de upload:", error);
-        return "";
-    }
-}
-
-async function generateUUIDv4(): Promise<string> {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        const r = crypto.getRandomValues(new Uint8Array(1))[0] % 16;
-        const v = c === 'x' ? r : (r & 0x3) | 0x8;
-        return v.toString(16);
-    });
-}
-
-async function generateCustomCode(): Promise<string> {
-    const randomHex = (length: number) => {
-        return Array.from({ length }, () => Math.floor(Math.random() * 16).toString(16)).join("").toUpperCase();
-    };
-
-    const randomLetters = (length: number) => {
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        return Array.from({ length }, () => letters[Math.floor(Math.random() * letters.length)]).join("");
-    };
-
-    const part1 = randomHex(6);
-    const part2 = randomLetters(2);
-    const part3 = randomHex(6);
-    const part4 = randomLetters(1);
-
-    return `#${part1}-${part2}-${part3}-${part4}`;
 }

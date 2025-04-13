@@ -15,6 +15,8 @@ import {DefaultInput, SelectInput, FileInput} from "@/components/Input"
 import styleLoading from '@/styles/components/Loading.module.scss'
 import styles from '@/styles/pages/actionsTeam.module.scss' 
 
+import {InverseNormalizeType} from "@/lib/normalizeInformationToFront"
+import { download_file } from "@/services/function.download.file"
 import {getTeamMember, getTeamMemberForArtLeader, getTeamCoordinatorForArt} from "@/services/function.dashboard.team"
 import {callCreateArt} from "@/services/function.create.art"
 import {UserToLeaderProps} from "@/types/interfaceClass"
@@ -27,7 +29,6 @@ interface TeamInformationsProps{
 }
 
 const types = ["Modificação", "Pesquisa", "Criação", "Cancelamento", "Design Interativo"]
-const normalizeTypes = {"Modificação": "modification", "Pesquisa": "research", "Criação": "creation", "Cancelamento": "cancellation", "Design Interativo": "interactive design"}
 
 function DashboardArt({ nameTeam, messages, authUser }: { messages: any, nameTeam: string, authUser: authUser}){
     const router = useRouter();
@@ -49,7 +50,7 @@ function DashboardArt({ nameTeam, messages, authUser }: { messages: any, nameTea
     const [InputFile, setInputFile] = useState<any>()
 
     function downloadDoc(linkDoc:string){
-
+        download_file("doc", linkDoc)
     }
 
     function selectLeader(userId:string){
@@ -57,7 +58,7 @@ function DashboardArt({ nameTeam, messages, authUser }: { messages: any, nameTea
     }
 
     async function sendArt(){
-        const _type = normalizeTypes[InputType as keyof typeof normalizeTypes] || "";
+        const _type = InverseNormalizeType(InputType);
 
         if(!_type || !InputArtName || !InputDate || !InputCoordinator || !InputLeader || !InputFile){
             alert("Preencha todos os campos")
@@ -73,7 +74,7 @@ function DashboardArt({ nameTeam, messages, authUser }: { messages: any, nameTea
             file: InputFile
         }    
         
-        const request = await callCreateArt(data, authUser, information?.id as string)
+        const request = await callCreateArt(data, information?.id as string)
         if(request){
             alert("ART criada com sucesso")
             router.push(`/dashboard/team/${nameTeam}`)

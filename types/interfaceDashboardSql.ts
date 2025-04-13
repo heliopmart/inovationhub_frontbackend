@@ -277,3 +277,9 @@ export interface CoordinatorToArtProps{
     id: string,
     name: string
 }
+
+export interface ArtTeamProps{
+    name: string,
+    id: string,
+    type: string
+}

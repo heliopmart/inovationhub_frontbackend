@@ -47,7 +47,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.setHeader("Content-Disposition", `attachment; filename="${decodeURIComponent(path.split("/").pop() || "arquivo")}"`);
             res.setHeader("Content-Type", fileRes.headers["content-type"] || "application/octet-stream");
         
-            // Faz o streaming corretamente
             fileRes.pipe(res);
           });
     } catch (err) {

@@ -63,3 +63,21 @@ export const NormalizeType = (inf:string) => {
     }
     return n[inf] || ""
 }
+
+export const InverseNormalizeType = (inf:string) => {
+    const n : { [key: string]: string }  = {
+        "Compra": "purchase",
+        "Aluguel": "rental",
+        "Serviço": "service",
+        "Alocação de recurso": "resourceAllocation",
+        "Recurso": "resource",
+        "Laboratório": "laboratory",
+        "Outros": "other",
+        
+        "Modificação": "modification",
+        "Criação": "creation",
+        "Cancelamento": "cancel",
+        "Design Interativo": "interactive design",
+    }
+    return n[inf] || ""
+}
