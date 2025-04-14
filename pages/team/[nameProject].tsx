@@ -67,20 +67,29 @@ function createTeamViwerBalls(team:InterfaceMember[]):InterfaceMember[][]{
     let c_3:InterfaceMember[] = []
 
     for (let i = (team?.length - 1); i >= 0; i--) {
-        if(c_1.length == 0){
-            c_1.push(team[i])
-        }else{
-            if(c_2.length - c_1.length== 1){
-                if(c_3.length - c_2.length == 1){
-                    c_1.push(team[i])
-                }else if(c_2.length == 0){
-                    c_2.push(team[i])
-                }else{
-                    c_3.push(team[i])
-                }
+        const isMemberAlreadyInTeam = verifyUserIsAdding(team[i])
+
+        if(!isMemberAlreadyInTeam){
+            if(c_1.length == 0){
+                c_1.push(team[i])
             }else{
-                c_2.push(team[i])
+                if(c_2.length - c_1.length== 1){
+                    if(c_3.length - c_2.length == 1){
+                        c_1.push(team[i])
+                    }else if(c_2.length == 0){
+                        c_2.push(team[i])
+                    }else{
+                        c_3.push(team[i])
+                    }
+                }else{
+                    c_2.push(team[i])
+                }
             }
+        }
+
+        function verifyUserIsAdding(user: InterfaceMember): boolean {
+            const all = [...c_1, ...c_2, ...c_3];
+            return all.some(member => member.name === user.name);
         }
     }
 
@@ -186,7 +195,7 @@ export default function TeamPage({ nameProject, messages }: TeamPageProps) {
     return (
         <>
             <Navbar messages={messages.navbar} page="team" styleColor="#67839A" key={"team-Nav"} />
-            <HeaderMinify style={{color: "#fff", textTransform: "uppercase"}} title={messages.team.titleHeader} background={"#262626"} key={"team-Headerrs"} />
+            <HeaderMinify style={{color: "#fff", textTransform: "uppercase"}} title={`Equipe ${team?.name || ""}`} background={"#262626"} key={"team-Headerrs"} />
             <section  className={styles.teamSection} id="team">
                 <TextImageDescrition image={team?.image} form="stretch" direction="right">
                     <div className={styles.contentDescription}>
