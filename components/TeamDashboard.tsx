@@ -31,7 +31,7 @@ export function OthersTeam({name, description, color, teamIdName}:TeamProps){
                 <Link href={`/team/${teamIdName}`}>
                     <button className={style.buttonShowMore} title="know more">Saber mais</button>
                 </Link>
-                <Link href={`/dashboar/singup/${teamIdName}`}>
+                <Link href={`/dashboard/team/${name}/inscription`}>
                     <button className={style.buttonRegistre} title="Sign up">Inscrever-se</button>
                 </Link>
             </div>

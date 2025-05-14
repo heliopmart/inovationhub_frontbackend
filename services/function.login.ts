@@ -12,6 +12,7 @@ export async function getLogIn(email:string, password:string): Promise<boolean> 
         });
 
         const response = await res.json()
+        console.log(response)
 
         if(response.error){
             return false

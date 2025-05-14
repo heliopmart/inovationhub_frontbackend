@@ -80,7 +80,7 @@ function DashBoardTeam({messages, authUser}: { messages: any,  authUser: authUse
                         <div className={styles.contentTeams}>
                             {
                                 othersTeam?.map((team, index) => (
-                                    <MyTeam key={`${index}-othersTeam`} color={team.color} description={team.description.split("<br/><br/>")[0]} name={team.name} teamIdName={team.name}/>
+                                    <OthersTeam key={`${index}-othersTeam`} color={team.color} description={team.description.split("<br/><br/>")[0]} name={team.name} teamIdName={team.name}/>
                                 ))
                             }
                         </div>

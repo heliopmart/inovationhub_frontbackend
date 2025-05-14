@@ -6,6 +6,8 @@ import { getTranslations } from "@/lib/getTranslations";
 
 import Navbar from "@/components/Navbar";
 import {DefaultInput, SelectCoursesInput} from "@/components/Input"
+import {getRegisterIn} from "@/services/function.register"
+import {verifyEmail} from "@/lib/regex.email"
 
 import styles from "@/styles/pages/login.module.scss"
 
@@ -19,6 +21,30 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [password, setPassword] = useState<string>("")
     const [course, setCourse] = useState<string>("0")
     
+    async function createUser(){
+        if(email != "" && password != "" && name != "" && course != "0"){
+            const emailVerification = email.length > 0 && verifyEmail(email)
+
+            if(!emailVerification){
+                setWarning({display: "block", text: messages.warning[0]})
+                return
+            }
+
+            const resRegister = await getRegisterIn(email, password, name, course, emailVerification)
+            console.log(resRegister)
+            if(resRegister){
+                setWarning({display: "none", text: messages.warning[0]})
+                window.location.href = "/login"
+            }else{
+                setWarning({display: "block", text: messages.warning[4]})
+                return
+            }
+        }else{
+            setWarning({display: "block", text: messages.warning[1]})
+            return
+        }
+    }
+
     useEffect(() => {
     async function loadMessages() {
         const translationsNav = await getTranslations("navbar", locale || "pt");
@@ -44,7 +70,7 @@ export default function aboutUs({ messages }: { messages: any }) {
                         <DefaultInput text={messages.inputs.password.text} minLength={messages.inputs.password.minLenght} type={messages.inputs.password.type} placeholder={messages.inputs.password.placeholder} value={password} returnValue={(t) => {setPassword(t)}} key={"email-input"} />
                         <SelectCoursesInput text={messages.inputs.course.text} courses={messages.inputs.course.options} returnValue={(t) => {setCourse(t)}} value={course} key={"curses-input"}/>
                         
-                        <button className={styles.button} title={messages.textButton}>{messages.textButton}</button>
+                        <button className={styles.button} onClick={() => createUser()} title={messages.textButton}>{messages.textButton}</button>
                     </form>
                     <span className={styles.other}>{messages.others.text} <Link href={messages.others.link}>{messages.others.textLink}</Link></span>
                 </section>

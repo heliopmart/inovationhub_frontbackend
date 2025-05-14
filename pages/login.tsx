@@ -10,7 +10,7 @@ import {DefaultInput} from "@/components/Input"
 import styles from "@/styles/pages/login.module.scss"
 
 import {getLogIn, userIsLog} from "@/services/function.login"
-import {regexStudentEmail} from "@/lib/regex.email"
+import {verifyEmail} from "@/lib/regex.email"
 
 export default function aboutUs({ messages }: { messages: any }) {
     const [txtNav, setTxtNav] = useState({});
@@ -22,7 +22,7 @@ export default function aboutUs({ messages }: { messages: any }) {
     const [password, setPassword] = useState<string>("")
     
     async function logIn(){
-        const emailVerification = email.length > 0 && regexStudentEmail.test(email)
+        const emailVerification = email.length > 0 && verifyEmail(email)
         const passwordVerification = password.length > 0
 
         if(emailVerification && passwordVerification){

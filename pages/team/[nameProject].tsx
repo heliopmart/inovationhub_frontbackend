@@ -98,7 +98,6 @@ function createTeamViwerBalls(team:InterfaceMember[]):InterfaceMember[][]{
 
 function getMembersAndFounders(team:TeamComplete):GetMembersAndFoundersReturn{
     const teamMembers = team.members
-
     const founders = teamMembers
         ?.map((member) => {
             if(member.role == "founder" || member.role == "leader"){

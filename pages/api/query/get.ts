@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { parse } from 'cookie';
 import { createPublicToken, validatePublicToken, validatePrivateToken } from '@/lib/tokenManager';
 import { serialize } from 'cookie';
+import { columnDropStyleBordered } from 'ag-grid-community';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {

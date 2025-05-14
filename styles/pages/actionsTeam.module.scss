@@ -6,6 +6,25 @@
     justify-content: $content;
 }
 
+.textContent{
+    margin-top: 5px;
+    font-size: 1.1em;
+    font-weight: light;
+    color: #3B3B3B;
+}
+
+.textDownloadDoc{
+    font-size: .9em;
+    font-weight: light;
+    text-transform: uppercase;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover{
+        color: #3990c2;
+    }
+}
+
 .section{
     width: 100%;
     height: auto;

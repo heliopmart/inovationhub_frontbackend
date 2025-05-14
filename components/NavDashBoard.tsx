@@ -43,13 +43,17 @@ export function NavDashBoard({links}:{links:any}){
                             return (
                                 <div key={`Link-Nav-${index}`} className={style.teamContent}>
                                     <Link href={`${link.link}`}>{link.text}</Link>
-                                    <div className={style.team}>
-                                        {
-                                            userTeams?.map((team, index_team) => (
-                                                <Link href={`/dashboard/team/${team.team.name}`} key={`${index}-${index_team}-Team-NAV`}>Equipe <b style={{color: team.team.color || "#1a1a1a"}}>{team.team.name}</b></Link>
-                                            ))
-                                        }
-                                    </div>
+                                    {userTeams?.length ?? 0 > 0 ? (
+                                        <div className={style.team}>
+                                            {
+                                                userTeams?.map((team, index_team) => (
+                                                    <Link href={`/dashboard/team/${team.team.name}`} key={`${index}-${index_team}-Team-NAV`}>Equipe <b style={{color: team.team.color || "#1a1a1a"}}>{team.team.name}</b></Link>
+                                                ))
+                                            }
+                                        </div>
+                                    ):(
+                                        ""
+                                    )}
                                 </div>
                             )
                         }else{

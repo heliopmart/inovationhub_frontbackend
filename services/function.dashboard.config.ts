@@ -17,7 +17,7 @@ export async function getUserInformations(userId: string): Promise<GetUserForCon
                 filter: [
                     {
                         column: 'userId',
-                        operator: 'eq',
+                        op: 'eq',
                         value: userId
                     }
                 ]
@@ -26,6 +26,7 @@ export async function getUserInformations(userId: string): Promise<GetUserForCon
 
         if (res.status != 200) return { st: false, value: null }
         const data = (await res.json())[0];
+
         return { st: true, value: data };
     } catch (ex) {
         console.error("function.team > getTeams | Error: " + ex);
